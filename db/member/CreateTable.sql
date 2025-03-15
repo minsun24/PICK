@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS MEMBER_PROFILE_PAGE
 CREATE TABLE IF NOT EXISTS PROFILE_IMAGE
 (
     id                     INTEGER      NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    image_name             VARCHAR(255) NOT NULL,
-    path                   VARCHAR(255) NOT NULL,
+    image_name             VARCHAR(255) NOT NULL UNIQUE,
+    path                   VARCHAR(255) NOT NULL UNIQUE,
     member_profile_page_id INTEGER      NOT NULL COMMENT 'MEMBER_PROFILE_PAGE 테이블의 id 참조 (FK 사용 안함)'
 );
 
