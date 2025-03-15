@@ -145,3 +145,6 @@ replay_pid*
 # 깃에 올리면 안되는 보안상 민감한 파일
 application.yml
 applicaiton.properties
+
+# intellij
+*.idea
