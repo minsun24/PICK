@@ -22,11 +22,8 @@ CREATE TABLE if NOT EXISTS project_room
 	, start_date VARCHAR(255) NOT NULL						 COMMENT '프로젝트 시작일'
 	, end_date VARCHAR(255) NOT NULL 						 COMMENT '프로젝트 종료일'
 	, technology_category_id INTEGER NOT NULL 			 COMMENT '프로젝트 기술 분류'
-	, FOREIGN KEY(technology_category_id) REFERENCES TECHNOLOGY_CATEGORY (id) 
-			ON DELETE CASCADE 
-			ON UPDATE CASCADE
-	, CHECK (maximum_participant > 0)	-- 팀원 최소 1명 이상 필요
-	-- , CHECK (end_date >= start_date)		-- 종료일은 시작일보다 같거나 커야 함
+	, FOREIGN KEY (technology_category_id) REFERENCES TECHNOLOGY_CATEGORY (id),
+     CHECK (maximum_participant > 0)
 );
 
 
@@ -37,12 +34,8 @@ CREATE TABLE if NOT EXISTS PARTICIPANT
 	, is_manager ENUM('Y', 'N')	NOT NULL	DEFAULT 'N'	COMMENT '방장 여부'
 	, project_room_id INTEGER NOT NULL					   COMMENT '프로젝트 방 번호'
 	, member_id INTEGER NOT NULL								COMMENT '회원 번호'
-	, FOREIGN KEY (project_room_id) REFERENCES PROJECT_ROOM (id)	
-		ON DELETE CASCADE 
-		ON UPDATE CASCADE
+	, FOREIGN KEY (project_room_id) REFERENCES PROJECT_ROOM (id)
 	, FOREIGN KEY (member_id) REFERENCES MEMBER (id)
-		ON DELETE CASCADE 
-		ON UPDATE CASCADE
 	, UNIQUE (project_room_id, member_id)
 );
 
@@ -55,12 +48,8 @@ CREATE TABLE if NOT EXISTS MEMBER_REVIEW
 	, content TEXT NOT NULL												COMMENT '팀원 후기 내용'
 	, reviewer_id INTEGER NOT NULL	 								COMMENT '후기 작성자'			
 	, reviewee_id INTEGER NOT NULL 									COMMENT '후기 대상자'
-	, FOREIGN KEY (reviewer_id) REFERENCES PARTICIPANT (id)	
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-   , FOREIGN KEY (reviewee_id) REFERENCES PARTICIPANT (id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+	, FOREIGN KEY (reviewer_id) REFERENCES PARTICIPANT (id)
+	, FOREIGN KEY (reviewee_id) REFERENCES PARTICIPANT (id)
 );
 
 
@@ -92,7 +81,7 @@ CREATE TABLE if NOT EXISTS PROJECT_MEETING
 
 
 -- 프로젝트 회의록 사진
-CREATE TABLE if NOT EXISTS PROJECT_MEETING_IMAGE
+CREATE TABLE if NOT EXISTS project_meeting_image
 (
 	  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	COMMENT '회의록 사진 번호'
 	, img_path VARCHAR(255) NOT NULL 						COMMENT '사진 경로'
