@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS TECHNOLOGY_CATEGORY
 (
   id                         INTEGER      NOT NULL AUTO_INCREMENT PRIMARY KEY
 , name                       VARCHAR(255) NOT NULL UNIQUE
+, is_deleted                 VARCHAR(4)   NOT NULL DEFAULT 'N'
 , ref_technology_category_id INTEGER      NULL
 );
 
