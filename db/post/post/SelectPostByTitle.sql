@@ -8,4 +8,4 @@ SELECT
      , upload_time
   FROM POST
  WHERE status = 'YES'
-   AND title = CONCAT('%', ?, '%');
+   AND title LIKE CONCAT('%', ?, '%');
