@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS REPORT
     id                  INT AUTO_INCREMENT                      COMMENT '신고 번호',
     date                VARCHAR(255) NOT NULL                   COMMENT '신고 신청일',
     status              ENUM('처리중', '보류', '승인') NOT NULL    COMMENT '처리 상태',
-    category            VARCHAR(255) NOT NULL                   COMMENT '신고 유형',
+    category            ENUM('회원', '게시글', '댓글') NOT NULL    COMMENT '신고 유형',
     reported_id         INTEGER NOT NULL                        COMMENT '신고 대상 id',
     report_reason_id    INTEGER NOT NULL                        COMMENT '신고 사유 번호',
     member_id           INTEGER NOT NULL                        COMMENT '신고 신청자',
