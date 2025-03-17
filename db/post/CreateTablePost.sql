@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS POST
 ,   title       VARCHAR(255)                       NOT NULL COMMENT '게시글 제목'
 ,   content     TEXT                               NOT NULL COMMENT '게시글 내용'
 ,   category    INT                                NOT NULL COMMENT '게시글 카테고리 번호'
-,   upload_time VARCHAR(255)                       NOT NULL COMMENT '작성 시간'
-,   update_time VARCHAR(255)                       NULL COMMENT '수정 시간'
+,   upload_at   VARCHAR(255)                       NOT NULL COMMENT '작성 시각'
+,   update_at   VARCHAR(255)                       NULL COMMENT '수정 시각'
 ,   status      ENUM ('YES', 'BLINDED', 'DELETED') NOT NULL COMMENT '활성화 여부'
 ,   member_id   INT                                NOT NULL COMMENT '게시글 작성자'
 ,   PRIMARY KEY (id)
@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS COMMENT
 (
     id              INT                                NOT NULL AUTO_INCREMENT COMMENT '댓글 번호'
 ,   is_adopted      VARCHAR(4)                         NULL COMMENT '채택 여부'
-,   upload_time     VARCHAR(255)                       NOT NULL COMMENT '작성 시각'
-,   update_time     VARCHAR(255)                       NULL COMMENT '수정 시각'
+,   upload_at       VARCHAR(255)                       NOT NULL COMMENT '작성 시각'
+,   update_at       VARCHAR(255)                       NULL COMMENT '수정 시각'
 ,   content         TEXT                               NOT NULL COMMENT '댓글 내용'
 ,   status          ENUM ('YES', 'BLINDED', 'DELETED') NOT NULL COMMENT '활성화 여부'
 ,   post_id         INT                                NOT NULL COMMENT '게시글 번호'
