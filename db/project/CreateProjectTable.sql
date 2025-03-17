@@ -10,19 +10,23 @@ DROP TABLE IF EXISTS PROJECT_ROOM CASCADE;				-- 프로젝트 방
 -- 프로젝트 관련 DDL -------------------------------------------------------------------------
 
 -- 프로젝트 방 테이블
-CREATE TABLE if NOT EXISTS project_room 
+CREATE TABLE if NOT EXISTS project_room
 (
 	  id	INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	 COMMENT '프로젝트 방 번호'
 	, name VARCHAR(255) NOT NULL					     COMMENT '프로젝트 이름'
 	, content TEXT	NOT NULL							 COMMENT '프로젝트 소개'
-	, is_finished TINYINT NOT NULL DEFAULT 0	 COMMENT '프로젝트 완료 여부'
-	, duration_time VARCHAR(100)	NOT NULL			 COMMENT '프로젝트 기간'
+	, is_finished VARCHAR(4) NOT NULL DEFAULT FALSE	     COMMENT '프로젝트 완료 여부'
+	, is_deleted VARCHAR(4) NOT NULL DEFAULT FALSE       COMMENT '프로젝트 삭제 여부'
+    , duration_time VARCHAR(100) NOT NULL			     COMMENT '프로젝트 기간'
 	, maximum_participant INTEGER NOT NULL				 COMMENT '프로젝트 최대 인원'
 	, session_code INTEGER NULL UNIQUE					 COMMENT '(자율매칭)프로젝트 입장 코드'
 	, start_date VARCHAR(255) NOT NULL					 COMMENT '프로젝트 시작일'
 	, end_date VARCHAR(255) NOT NULL 					 COMMENT '프로젝트 종료일'
 	, technology_category_id INTEGER NOT NULL 			 COMMENT '프로젝트 기술 분류'
-	, FOREIGN KEY (technology_category_id) REFERENCES TECHNOLOGY_CATEGORY (id),
+	, thumbnail_image VARCHAR(255) UNIQUE                COMMENT '프로젝트 썸네일 이미지'
+    , introduction TEXT                                  COMMENT '프로젝트 한줄 소개'
+    , project_url   VARCHAR(255) UNIQUE                  COMMENT '프로젝트 링크'
+    , FOREIGN KEY (technology_category_id) REFERENCES TECHNOLOGY_CATEGORY (id),
      CHECK (maximum_participant > 0)
 );
 
@@ -31,7 +35,7 @@ CREATE TABLE if NOT EXISTS project_room
 CREATE TABLE if NOT EXISTS PARTICIPANT 
 (
 	  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	COMMENT '팀원 번호'
-	, is_manager TINYINT NOT NULL DEFAULT 0	        COMMENT '방장 여부'
+	, is_manager VARCHAR(4) NOT NULL DEFAULT 0	        COMMENT '방장 여부'
 	, project_room_id INTEGER NOT NULL					COMMENT '프로젝트 방 번호'
 	, member_id INTEGER NOT NULL						COMMENT '회원 번호'
 	, FOREIGN KEY (project_room_id) REFERENCES PROJECT_ROOM (id)
@@ -75,7 +79,7 @@ CREATE TABLE if NOT EXISTS PROJECT_MEETING
 	, content TEXT	NOT NULL							COMMENT '회의록 내용'
 	, author	VARCHAR(255) NOT NULL					COMMENT '회의록 작성자'
 	, upload_time VARCHAR(255) NOT NULL				    COMMENT '작성일'
-	, update_time	VARCHAR(255) NULL				COMMENT '수정일'
+	, update_time	VARCHAR(255) 				        COMMENT '수정일'
 	, FOREIGN KEY (project_room_id) REFERENCES PROJECT_ROOM (id)
 );
 
@@ -85,8 +89,8 @@ CREATE TABLE if NOT EXISTS project_meeting_image
 (
 	  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	COMMENT '회의록 사진 번호'
 	, image_path VARCHAR(255) NOT NULL 					COMMENT '사진 경로'
-	, image_name VARCHAR(255) NOT NULL						COMMENT '재정의 사진명'
-	, is_thumbnail TINYINT NOT NULL DEFAULT 0		COMMENT '썸네일 여부'
+	, image_name VARCHAR(255) NOT NULL					COMMENT '재정의 사진명'
+	, is_thumbnail VARCHAR(4) NOT NULL DEFAULT 0		COMMENT '썸네일 여부'
 	, meeting_id INTEGER NOT NULL						COMMENT '회의록 번호'
 	, FOREIGN KEY (meeting_id) REFERENCES PROJECT_MEETING (id)
 );
