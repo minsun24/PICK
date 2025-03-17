@@ -45,7 +45,7 @@ CREATE TABLE if NOT EXISTS MEMBER_REVIEW
 (
 	  id	INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY			COMMENT '팀원 후기 번호'
 	, rate INTEGER NOT NULL CHECK (rate >= 1 AND rate <= 5)	    COMMENT '팀원 후기 평점'
-	, content TEXT NOT NULL										COMMENT '팀원 후기 내용'
+	, content TEXT 									            COMMENT '팀원 후기 내용'
 	, reviewer_id INTEGER NOT NULL	 							COMMENT '후기 작성자'
 	, reviewee_id INTEGER NOT NULL 								COMMENT '후기 대상자'
 	, FOREIGN KEY (reviewer_id) REFERENCES PARTICIPANT (id)
@@ -75,7 +75,7 @@ CREATE TABLE if NOT EXISTS PROJECT_MEETING
 	, content TEXT	NOT NULL							COMMENT '회의록 내용'
 	, author	VARCHAR(255) NOT NULL					COMMENT '회의록 작성자'
 	, upload_time VARCHAR(255) NOT NULL				    COMMENT '작성일'
-	, update_time	VARCHAR(255) NOT NULL				COMMENT '수정일'
+	, update_time	VARCHAR(255) NULL				COMMENT '수정일'
 	, FOREIGN KEY (project_room_id) REFERENCES PROJECT_ROOM (id)
 );
 
@@ -84,9 +84,9 @@ CREATE TABLE if NOT EXISTS PROJECT_MEETING
 CREATE TABLE if NOT EXISTS project_meeting_image
 (
 	  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	COMMENT '회의록 사진 번호'
-	, img_path VARCHAR(255) NOT NULL 					COMMENT '사진 경로'
-	, renamed VARCHAR(255) NOT NULL						COMMENT '재정의 사진명'
-	, is_thumbnail VARCHAR(4) NOT NULL DEFAULT 'N'		COMMENT '썸네일 여부'
+	, image_path VARCHAR(255) NOT NULL 					COMMENT '사진 경로'
+	, image_name VARCHAR(255) NOT NULL						COMMENT '재정의 사진명'
+	, is_thumbnail TINYINT NOT NULL DEFAULT 0		COMMENT '썸네일 여부'
 	, meeting_id INTEGER NOT NULL						COMMENT '회의록 번호'
 	, FOREIGN KEY (meeting_id) REFERENCES PROJECT_MEETING (id)
 );
