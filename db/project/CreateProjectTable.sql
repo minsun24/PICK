@@ -15,7 +15,7 @@ CREATE TABLE if NOT EXISTS project_room
 	  id	INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	 COMMENT '프로젝트 방 번호'
 	, name VARCHAR(255) NOT NULL					     COMMENT '프로젝트 이름'
 	, content TEXT	NOT NULL							 COMMENT '프로젝트 소개'
-	, is_finished TINYINIT(1) NOT NULL DEFAULT 0	 COMMENT '프로젝트 완료 여부'
+	, is_finished TINYINT NOT NULL DEFAULT 0	 COMMENT '프로젝트 완료 여부'
 	, duration_time VARCHAR(100)	NOT NULL			 COMMENT '프로젝트 기간'
 	, maximum_participant INTEGER NOT NULL				 COMMENT '프로젝트 최대 인원'
 	, session_code INTEGER NULL UNIQUE					 COMMENT '(자율매칭)프로젝트 입장 코드'
@@ -31,7 +31,7 @@ CREATE TABLE if NOT EXISTS project_room
 CREATE TABLE if NOT EXISTS PARTICIPANT 
 (
 	  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY	COMMENT '팀원 번호'
-	, is_manager TINYINIT(1) NOT NULL DEFAULT 0	        COMMENT '방장 여부'
+	, is_manager TINYINT NOT NULL DEFAULT 0	        COMMENT '방장 여부'
 	, project_room_id INTEGER NOT NULL					COMMENT '프로젝트 방 번호'
 	, member_id INTEGER NOT NULL						COMMENT '회원 번호'
 	, FOREIGN KEY (project_room_id) REFERENCES PROJECT_ROOM (id)
