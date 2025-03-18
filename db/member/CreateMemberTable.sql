@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS MEMBER_PROFILE_PAGE
 ,   exp              INTEGER      NOT NULL
 ,   level            INTEGER      NOT NULL
 ,   introduce        TEXT         NULL
-,   preferred_area   VARCHAR(255) NULL UNIQUE
+,   preferred_area   VARCHAR(255) NULL
 ,   git_address      VARCHAR(255) NULL UNIQUE
 ,   score            INTEGER      NULL
 ,   image_path       VARCHAR(255) NULL UNIQUE
