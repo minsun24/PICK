@@ -16,7 +16,7 @@ CREATE TABLE if NOT EXISTS project_room
 	, name VARCHAR(255) NOT NULL					     COMMENT '프로젝트 이름'
 	, content TEXT	NOT NULL							 COMMENT '프로젝트 소개'
 	, is_finished VARCHAR(4) NOT NULL DEFAULT 'N'	     COMMENT '프로젝트 완료 여부'
-	, is_deleted VARCHAR(4) NOT NULL DEFAULT 'N'       COMMENT '프로젝트 삭제 여부'
+	, is_deleted VARCHAR(4) NOT NULL DEFAULT 'N'         COMMENT '프로젝트 삭제 여부'
     , duration_time VARCHAR(100) NOT NULL			     COMMENT '프로젝트 기간'
 	, maximum_participant INTEGER NOT NULL				 COMMENT '프로젝트 최대 인원'
 	, session_code INTEGER NULL UNIQUE					 COMMENT '(자율매칭)프로젝트 입장 코드'
