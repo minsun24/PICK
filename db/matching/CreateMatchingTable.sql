@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS MATCING_ENTRY
 (
   id           INTEGER      NOT NULL AUTO_INCREMENT
 , applied_date_at VARCHAR(255) NOT NULL
-, is_canceld   VARCHAR(4)   NOT NULL DEFAULT 'N'
+, is_canceled   VARCHAR(4)   NOT NULL DEFAULT 'N'
 , member_id    INTEGER      NOT NULL
 , matching_id  INTEGER      NOT NULL
 , CONSTRAINT pk_id PRIMARY KEY (id)
