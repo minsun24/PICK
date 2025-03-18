@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS BADGE
 (
     id           INTEGER    NOT NULL AUTO_INCREMENT
 ,   requirement  INTEGER
+,   adventage    INTEGER    NOT NULL
 ,   description  TEXT       NOT NULL
 ,   is_deleted   VARCHAR(4) NOT NULL DEFAULT 'N'
 ,   challenge_id INTEGER    NOT NULL
