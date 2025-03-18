@@ -5,7 +5,7 @@ SELECT
      , title
      , category
      , member_id
-     , upload_time
+     , upload_at
   FROM POST
  WHERE status = 'YES'
    AND title LIKE CONCAT('%', ?, '%');

@@ -2,7 +2,7 @@
 
 INSERT
 INTO COMMENT
-(member_id, is_adopted, upload_time, content, status, post_id, root_comment_id)
+(member_id, is_adopted, upload_at, content, status, post_id, root_comment_id)
 VALUES (1, NULL, '2025-03-17', '1번 댓글 내용', 'YES', '1', NULL)
      , (2, NULL, '2025-03-17', '2번 댓글 내용', 'YES', '2', NULL)
      , (3, NULL, '2025-03-17', '3번 댓글 내용', 'YES', '1', '1')

@@ -1,7 +1,7 @@
 -- 게시글 사진 더미 데이터
 
 INSERT
-INTO post_image
+INTO POST_IMAGE
     (path, renamed_name, is_thumbnail, post_id)
 VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'N', 1)
      , ('2번 게시글 사진 경로', '2번 게시글 사진 이름', 'N', 2)

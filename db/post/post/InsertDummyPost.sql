@@ -2,7 +2,7 @@
 
 INSERT
 INTO POST
-    (title, content, category, upload_time, status, member_id)
+    (title, content, category, upload_at, status, member_id)
 VALUES ('1번 게시글 제목', '1번 게시글 내용', 1, '2025-03-17 01:11:11', 'YES', 1)
      , ('2번 게시글 제목', '2번 게시글 내용', 1, '2025-03-17 01:11:12', 'YES', 2)
      , ('3번 게시글 제목', '3번 게시글 내용', 1, '2025-03-17 01:11:13', 'YES', 3)
