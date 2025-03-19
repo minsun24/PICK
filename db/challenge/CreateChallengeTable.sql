@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS DAILY_MISSION
     id           INTEGER      NOT NULL AUTO_INCREMENT
 ,   content      TEXT         NOT NULL
 ,   exp_point    INTEGER      NOT NULL
-,   s_deleted   VARCHAR(4)   NOT NULL DEFAULT 'N'
+,   is_deleted   VARCHAR(4)   NOT NULL DEFAULT 'N'
 ,   challenge_id INTEGER      NOT NULL
 ,   CONSTRAINT pk_daily_mission_id PRIMARY KEY (id)
 ,   CONSTRAINT fk_daily_mission_challenge_id FOREIGN KEY (challenge_id) REFERENCES challenge(id)
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS BADGE
 (
     id           INTEGER    NOT NULL AUTO_INCREMENT
 ,   requirement  INTEGER
-,   adventage    INTEGER    NOT NULL
+,   advantage    INTEGER    NOT NULL
 ,   description  TEXT       NOT NULL
 ,   is_deleted   VARCHAR(4) NOT NULL DEFAULT 'N'
 ,   challenge_id INTEGER    NOT NULL
