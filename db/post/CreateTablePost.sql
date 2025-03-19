@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS POST_IMAGE
     id           INT          NOT NULL AUTO_INCREMENT COMMENT '게시글 사진 번호'
 ,   path         VARCHAR(255) NOT NULL UNIQUE COMMENT '파일 경로'
 ,   renamed_name VARCHAR(255) NOT NULL UNIQUE COMMENT '저장 이름'
-,   is_thumbnail VARCHAR(4)   NOT NULL DEFAULT FALSE COMMENT '썸네일 여부'
+,   is_thumbnail VARCHAR(4)   NOT NULL DEFAULT 'N' COMMENT '썸네일 여부'
 ,   post_id      INT          NOT NULL COMMENT '게시글 번호'
 ,   CONSTRAINT pk_id PRIMARY KEY (id)
 ,   CONSTRAINT fk_post_image_post_id FOREIGN KEY (post_id) REFERENCES POST (id)
