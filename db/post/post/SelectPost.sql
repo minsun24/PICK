@@ -4,8 +4,8 @@ SELECT id
      , title
      , content
      , category
-     , upload_time
-     , update_time
+     , upload_at
+     , update_at
      , member_id
-  FROM post
+  FROM POST
  WHERE id = ?;

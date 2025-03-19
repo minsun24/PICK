@@ -5,5 +5,5 @@ SELECT
      , path
      , renamed_name
      , is_thumbnail
-  FROM post_image
+  FROM POST_IMAGE
  WHERE post_id = ?;
