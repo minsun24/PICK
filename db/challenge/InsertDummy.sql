@@ -46,7 +46,7 @@ VALUES
 ('회의록 작성하기', 90, 'N', 11);
 
 -- BADGE 테이블 더미 데이터
-INSERT INTO BADGE (requirement, adventage, description, is_deleted, challenge_id)
+INSERT INTO BADGE (requirement, advantage, description, is_deleted, challenge_id)
 VALUES
 (30, 0, '누적 출석', 'N', 1),
 (20, 0, '게시글 작성하기', 'N', 2),
