@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS POST
 ,   category  INT          NOT NULL COMMENT '게시글 카테고리 번호'
 ,   upload_at VARCHAR(255) NOT NULL COMMENT '작성 시각'
 ,   update_at VARCHAR(255) NULL COMMENT '수정 시각'
-,   status    TINYINT      NOT NULL COMMENT '활성화 여부'
+,   status    TINYINT      NOT NULL COMMENT '활성화 여부 기본: 0, 삭제: 1, 규제: 2'
 ,   member_id INT          NOT NULL COMMENT '게시글 작성자'
 ,   CONSTRAINT pk_id PRIMARY KEY (id)
 # ,   CONSTRAINT fk_post_member_id FOREIGN KEY (member_id) REFERENCES MEMBER (id)
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS COMMENT
 ,   upload_at       VARCHAR(255) NOT NULL COMMENT '작성 시각'
 ,   update_at       VARCHAR(255) NULL COMMENT '수정 시각'
 ,   content         TEXT         NOT NULL COMMENT '댓글 내용'
-,   status          TINYINT      NOT NULL COMMENT '활성화 여부'
+,   status          TINYINT      NOT NULL COMMENT '활성화 여부 기본: 0, 삭제: 1, 규제: 2'
 ,   post_id         INT          NOT NULL COMMENT '게시글 번호'
 ,   root_comment_id INT          NULL COMMENT '부모 댓글 번호'
 ,   member_id       INT          NOT NULL COMMENT '댓글 작성자'
