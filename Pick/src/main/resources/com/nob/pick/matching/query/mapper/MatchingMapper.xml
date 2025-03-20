@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 쿼리문을 실행하기 위한 매핑 정보 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nob.pick.matching.query.mapper.MatchingMapper">
+    <resultMap id="matchingResultMap" type="com.nob.pick.matching.query.dto.MatchingDTO">
+        <id property="id" column="ID"/>
+        <result property="createdDateAt" column="CREATED_DATE_AT"/>
+        <result property="isCompleted" column="IS_COMPLETED"/>
+        <result property="levelRange" column="LEVEL_RANGE"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="technologyCategoryId" column="TECHNOLOGY_CATEGORY_ID"/>
+    </resultMap>
+
+    <select id="selectAllMatching" resultMap="matchingResultMap">
+        SELECT
+               ID
+             , CREATED_DATE_AT
+             , IS_COMPLETED
+             , LEVEL_RANGE
+             , MEMBER_ID
+             , TECHNOLOGY_CATEGORY_ID
+          FROM MATCHING
+    </select>
+
+
+</mapper>
