@@ -1,14 +1,12 @@
 package com.nob.pick.project.query.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class ProjectRoomDTO { // 프로젝트 방 DTO
     private int id;                        // 프로젝트 방 번호
     private String name;                   // 프로젝트 이름
