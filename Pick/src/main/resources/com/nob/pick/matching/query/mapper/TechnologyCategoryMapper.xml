@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nob.pick.matching.query.mapper.TechnologyCategoryMapper">
+    <resultMap id="technologyCategoryResultMap" type="com.nob.pick.matching.query.dto.TechnologyCategoryDTO">
+        <id property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="isDeleted" column="IS_DELETED"/>
+        <result property="refTechnologyCategoryId" column="REF_TECHNOLOGY_CATEGORY_ID"/>
+    </resultMap>
+
+    <select id="selectAllTechnologyCategory" resultMap="technologyCategoryResultMap">
+        SELECT
+               ID
+             , NAME
+             , IS_DELETED
+             , REF_TECHNOLOGY_CATEGORY_ID
+          FROM TECHNOLOGY_CATEGORY
+    </select>
+</mapper>

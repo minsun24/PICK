@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?> <!-- 쿼리문을 실행하기 위한 매핑 정보 -->
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
