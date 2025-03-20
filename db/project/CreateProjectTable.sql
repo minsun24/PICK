@@ -50,13 +50,14 @@ CREATE TABLE if NOT EXISTS PARTICIPANT
 CREATE TABLE if NOT EXISTS MEMBER_REVIEW 
 (
 	  id	        INTEGER NOT NULL AUTO_INCREMENT             		COMMENT '팀원 후기 번호'
-	, rate          INTEGER NOT NULL CHECK (rate >= 1 AND rate <= 5)	COMMENT '팀원 후기 평점'
+	, rate          INTEGER NOT NULL                                    COMMENT '팀원 후기 평점(1~5)'
 	, content       TEXT 									            COMMENT '팀원 후기 내용'
 	, reviewer_id   INTEGER NOT NULL	 							    COMMENT '후기 작성자'
 	, reviewee_id   INTEGER NOT NULL 								    COMMENT '후기 대상자'
 	, CONSTRAINT pk_id PRIMARY KEY (id)
     , CONSTRAINT fk_member_review_reviewer_id FOREIGN KEY (reviewer_id) REFERENCES PARTICIPANT (id)
 	, CONSTRAINT fk_member_review_reviewee_id FOREIGN KEY (reviewee_id) REFERENCES PARTICIPANT (id)
+    , CONSTRAINT chk_range_of_rate CHECK (rate >= 1 AND rate <= 5)
 );
 
 
@@ -96,7 +97,7 @@ CREATE TABLE if NOT EXISTS project_meeting_image
 	  id                INTEGER NOT NULL AUTO_INCREMENT     COMMENT '회의록 사진 번호'
 	, image_path        VARCHAR(255) NOT NULL 				COMMENT '사진 경로'
 	, image_name        VARCHAR(255) NOT NULL				COMMENT '재정의 사진명'
-	, is_thumbnail      TINYINT(1)  DEFAULT                    	COMMENT '썸네일 여부'
+	, is_thumbnail      VARCHAR(4) NOT NULL DEFAULT 'N'     COMMENT '썸네일 여부'
 	, meeting_id        INTEGER NOT NULL					COMMENT '회의록 번호'
     , CONSTRAINT pk_id PRIMARY KEY (id)
 	, CONSTRAINT fk_project_meeting_image_meeting_id FOREIGN KEY (meeting_id) REFERENCES PROJECT_MEETING (id)
