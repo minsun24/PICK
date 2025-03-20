@@ -16,8 +16,9 @@ public class MatchingServiceImpl implements MatchingService{
     }
 
     @Override
-    @Transactional()
+    @Transactional
     public List<MatchingDTO> findAllMatching() {
         return matchingMapper.selectAllMatching();
     }
+
 }

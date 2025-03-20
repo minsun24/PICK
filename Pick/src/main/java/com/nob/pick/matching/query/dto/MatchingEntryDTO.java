@@ -7,11 +7,10 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class MatchingDTO {
+public class MatchingEntryDTO {
     private int id;
-    private String createdDateAt;
-    private String isCompleted;
-    private int levelRange;
+    private String appliedDateAt;
+    private String isCanceled;
     private int memberId;
-    private int technologyCategoryId;
+    private int matchingId;
 }

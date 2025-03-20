@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 쿼리문을 실행하기 위한 매핑 정보 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nob.pick.matching.query.mapper.MatchingEntryMapper">
+    <resultMap id="matchingEntryResultMap" type="com.nob.pick.matching.query.dto.MatchingEntryDTO">
+        <id property="id" column="ID"/>
+        <result property="appliedDateAt" column="APPLIED_DATE_AT"/>
+        <result property="isCanceled" column="IS_CANCELED"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="matchingId" column="MATCHING_ID"/>
+    </resultMap>
+
+    <select id="selectAllMatchingEntry" resultMap="matchingEntryResultMap">
+        SELECT
+               ID
+             , APPLIED_DATE_AT
+             , IS_CANCELED
+             , MEMBER_ID
+             , MATCHING_ID
+          FROM MATCHING_ENTRY
+    </select>
+</mapper>
