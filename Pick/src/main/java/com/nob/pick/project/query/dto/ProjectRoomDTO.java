@@ -13,8 +13,8 @@ public class ProjectRoomDTO { // 프로젝트 방 DTO
     private int id;                        // 프로젝트 방 번호
     private String name;                   // 프로젝트 이름
     private String content;                // 프로젝트 소개
-    private String isFinished;             // 프로젝트 완료 여부 (Y/N)
-    private String isDeleted;              // 프로젝트 삭제 여부 (Y/N)
+    private boolean isFinished;             // 프로젝트 완료 여부 (Y/N)
+    private boolean isDeleted;              // 프로젝트 삭제 여부 (Y/N)
     private String durationTime;           // 프로젝트 기간
     private int maximumParticipant;        // 프로젝트 최대 인원
     private int sessionCode;               // 프로젝트 입장 코드
