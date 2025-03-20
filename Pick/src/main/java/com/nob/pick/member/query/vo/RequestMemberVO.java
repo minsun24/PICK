@@ -1,4 +1,4 @@
-package com.nob.pick.member.query.domain;
+package com.nob.pick.member.query.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @ToString
 // 회원 정보 조회 전용
-public class Member {
+public class RequestMemberVO {
 	private final int id;
 	private final String name;
 	private final int age;
@@ -21,8 +21,8 @@ public class Member {
 	private final String email;
 	private final String password;
 	private final String nickname;
-	private final byte status; // tinyint -> byte enum될듯?
+	private final int status; // tinyint -> byte enum될듯?
 	private final int reportedCount;
-	private final byte userGrant;
+	private final int userGrant;
 
 }

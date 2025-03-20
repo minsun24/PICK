@@ -6,7 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.nob.pick.member.query.domain.Member;
+import com.nob.pick.member.query.vo.Status;
+import com.nob.pick.member.query.vo.RequestMemberVO;
 
 @Mapper
 public interface MemberRepository {
@@ -15,10 +16,14 @@ public interface MemberRepository {
 
 	String findPasswordByNamePhoneAndEmail(Map<String, Object> params);
 
-	List<Member> findAllMembers();
+	List<RequestMemberVO> findAllMembers();
 
-	Member findMemberById(@Param("id") int id);
+	RequestMemberVO findMemberById(@Param("id") int id);
 
-	byte findMemberStatusById(@Param("id") int id);
+	Status findMemberStatusById(@Param("id") int id); // byte → Status로 변경
+
+	boolean existsByEmail(@Param("email") String email);
+
+	boolean existsByPhoneNumber(@Param("phoneNumber") String phoneNumber);
 
 }
