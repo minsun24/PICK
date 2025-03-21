@@ -29,7 +29,7 @@ CREATE TABLE if NOT EXISTS project_room
     , CONSTRAINT pk_id PRIMARY KEY (id)
     , CONSTRAINT fk_project_technology_category_id FOREIGN KEY (technology_category_id) REFERENCES TECHNOLOGY_CATEGORY (id)
     , CHECK (maximum_participant > 0)
-);
+) ENGINE=INNODB COMMENT '프로젝트 방';
 
 
 -- 팀원 테이블 

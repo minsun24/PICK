@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface ProjectRoomService {
     List<ProjectRoomDTO> getFinishedProjects();
+
+    List<ProjectRoomDTO> getActiveProjects();
+
+    List<ProjectRoomDTO> getDeletedProjects();
+
+    List<ProjectRoomDTO> getmatchingProjects();
 }

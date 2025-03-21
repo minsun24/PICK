@@ -9,4 +9,9 @@ import java.util.List;
 public interface ProjectRoomMapper {
     List<ProjectRoomDTO> selectFinishedProjects();
 
+    List<ProjectRoomDTO> selectActiveProjects();
+
+    List<ProjectRoomDTO> selectDeletedProjects();
+
+    List<ProjectRoomDTO> selectMatchingProjects();
 }

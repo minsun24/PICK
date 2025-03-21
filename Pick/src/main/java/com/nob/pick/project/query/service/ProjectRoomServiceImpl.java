@@ -21,7 +21,22 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
     @Override
     @Transactional
     public List<ProjectRoomDTO> getFinishedProjects() {
-
         return projectRoomMapper.selectFinishedProjects();
+    }
+
+    @Override
+    @Transactional
+    public List<ProjectRoomDTO> getActiveProjects() {
+        return projectRoomMapper.selectActiveProjects();
+    }
+
+    @Override
+    public List<ProjectRoomDTO> getDeletedProjects() {
+        return projectRoomMapper.selectDeletedProjects();
+    }
+
+    @Override
+    public List<ProjectRoomDTO> getmatchingProjects() {
+        return projectRoomMapper.selectMatchingProjects();
     }
 }
