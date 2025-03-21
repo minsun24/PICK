@@ -7,7 +7,7 @@
             <id property="id" column="ID"/>
             <result property="name" column="NAME"/>
             <result property="content" column="CONTENT"/>
-            <result property="isFinished" column="IS_FINISHED"/>
+            <result property="isFinished" column="IS_FINISHED" typeHandler="com.nob.pick.common."/>
             <result property="isDeleted" column="IS_DELETED"/>
             <result property="durationTime" column="DURATION_TIME"/>
             <result property="maximumParticipant" column="MAXIMUM_PARTICIPANT"/>
@@ -20,8 +20,9 @@
             <result property="projectUrl" column="PROJECT_URL"/>
         </resultMap>
 
-    <!-- 프로젝트 상세 페이지 조회  -->
-    <select id="selectProjectDetail" resultMap="projectRoomResultMap">
+    <!-- 매칭방 프로젝트 상세 페이지 조회  -->
+    <select id="selectProjectDetail" resultMap="projectRoomResultMap" >
+<!--            parameterType="_int"-->
         SELECT
               PR.ID
             , PR.NAME
@@ -106,29 +107,42 @@
     <!-- 팀원 모집 중인 프로젝트 목록 조회 -->
     <select id="selectMatchingProjects" resultMap="projectRoomResultMap">
         SELECT
-             PR.ID
-            , PR.NAME
-            , PR.CONTENT
-            , PR.IS_FINISHED
-            , PR.IS_DELETED
-            , PR.DURATION_TIME
-            , PR.MAXIMUM_PARTICIPANT
-            , PR.SESSION_CODE
-            , PR.START_DATE
-            , PR.END_DATE
-            , PR.INTRODUCTION
-            , PR.THUMBNAIL_IMAGE
-            , PR.PROJECT_URL
-            , COUNT(P.ID) AS CURRENT_PARTICIPANT_COUNT
+            PR.ID,
+            PR.NAME,
+            PR.CONTENT,
+            PR.IS_FINISHED,
+            PR.IS_DELETED,
+            PR.DURATION_TIME,
+            PR.MAXIMUM_PARTICIPANT,
+            PR.SESSION_CODE,
+            PR.START_DATE,
+            PR.END_DATE,
+            PR.INTRODUCTION,
+            PR.THUMBNAIL_IMAGE,
+            PR.PROJECT_URL,
+        COUNT(P.ID) AS CURRENT_PARTICIPANT_COUNT
         FROM PROJECT_ROOM PR
         LEFT JOIN PARTICIPANT P
-            ON PR.ID = P.PROJECT_ROOM_ID
-        WHERE PR.IS_DELETED = 'N'
-            AND PR.IS_FINISHED = 'N'
-                AND PR.START_DATE >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-        GROUP BY PR.ID
-            HAVING COUNT(P.ID) <![CDATA[<]]> PR.MAXIMUM_PARTICIPANT
-        ORDER BY PR.START_DATE DESC
+        ON PR.ID = P.PROJECT_ROOM_ID
+        WHERE PR.IS_DELETED = 'N'  -- 삭제되지 않은 프로젝트만
+        AND PR.IS_FINISHED = 'N'
+        AND PR.START_DATE >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+        GROUP BY
+            PR.ID,
+            PR.NAME,
+            PR.CONTENT,
+            PR.IS_FINISHED,
+            PR.IS_DELETED,
+            PR.DURATION_TIME,
+            PR.MAXIMUM_PARTICIPANT,
+            PR.SESSION_CODE,
+            PR.START_DATE,
+            PR.END_DATE,
+            PR.INTRODUCTION,
+            PR.THUMBNAIL_IMAGE,
+            PR.PROJECT_URL
+        HAVING CURRENT_PARTICIPANT_COUNT <![CDATA[<]]> PR.MAXIMUM_PARTICIPANT
+                                           ORDER BY PR.START_DATE DESC;
     </select>
 
     <!-- 프로젝트 이름 검색 조회  -->
