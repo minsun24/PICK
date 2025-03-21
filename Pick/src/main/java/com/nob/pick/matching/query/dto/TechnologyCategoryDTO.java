@@ -11,5 +11,5 @@ public class TechnologyCategoryDTO {
     private int id;
     private String name;
     private String isDeleted;
-    private int refTechnologyCategoryId;
+    private Integer refTechnologyCategoryId;
 }
