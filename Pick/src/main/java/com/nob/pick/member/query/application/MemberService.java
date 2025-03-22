@@ -8,9 +8,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nob.pick.member.query.dto.MemberDTO;
+import com.nob.pick.member.query.dto.MemberProfilePageDTO;
+import com.nob.pick.member.query.dto.ProgrammingLanguageInfoDTO;
+import com.nob.pick.member.query.dto.Status;
+import com.nob.pick.member.query.dto.UserGrant;
 import com.nob.pick.member.query.infrastructure.repository.MemberRepository;
-import com.nob.pick.member.query.vo.Status;
-import com.nob.pick.member.query.vo.RequestMemberVO;
 
 @Service
 public class MemberService {
@@ -22,33 +25,29 @@ public class MemberService {
 	}
 
 	public String findEmail(String name, String phoneNumber) {
-
 		Map<String, Object> params = new HashMap<>();
 		params.put("name", name);
 		params.put("phoneNumber", phoneNumber);
-
 		return Optional.ofNullable(memberRepository.findEmailByNameAndPhone(params))
 			.orElseThrow(() -> new IllegalArgumentException("이름과 전화번호로 회원을 찾을 수 없습니다."));
 	}
 
 	public String findPassword(String name, String phoneNumber, String email) {
-
 		Map<String, Object> params = new HashMap<>();
 		params.put("name", name);
 		params.put("phoneNumber", phoneNumber);
 		params.put("email", email);
-
 		return Optional.ofNullable(memberRepository.findPasswordByNamePhoneAndEmail(params))
 			.orElseThrow(() -> new IllegalArgumentException("이름과 전화번호, 이메일로 회원을 찾을 수 없습니다."));
 	}
 
-	public List<RequestMemberVO> findMemberInfo() {
+	public List<MemberDTO> findMemberInfo() {
 		return memberRepository.findAllMembers();
 	}
 
-	public RequestMemberVO findMemberInfoById(int id) {
-
-		return memberRepository.findMemberById(id);
+	public MemberDTO findMemberInfoById(int id) {
+		return Optional.ofNullable(memberRepository.findMemberById(id))
+			.orElseThrow(() -> new IllegalArgumentException("ID로 회원을 찾을 수 없습니다."));
 	}
 
 	public boolean existsEmail(String email) {
@@ -60,7 +59,24 @@ public class MemberService {
 	}
 
 	public Status findMemberStatus(int id) {
-		return memberRepository.findMemberStatusById(id);
+		MemberDTO member = memberRepository.findMemberById(id);
+		return member != null ? member.getStatus() : null;
+	}
+
+	public UserGrant findUserGrant(int id) {
+		MemberDTO member = memberRepository.findUserGrantById(id);
+		return member != null ? member.getUserGrant() : null;
+	}
+
+	public MemberProfilePageDTO findProfilePageByMemberId(int memberId) {
+		return memberRepository.findProfilePageByMemberId(memberId);
+	}
+
+	public List<ProgrammingLanguageInfoDTO> findProgrammingLanguagesByProfilePageId(int profilePageId) {
+		return memberRepository.findProgrammingLanguagesByProfilePageId(profilePageId);
+	}
+
+	public List<ProgrammingLanguageInfoDTO> findActiveProgrammingLanguages() {
+		return memberRepository.findActiveProgrammingLanguages();
 	}
 }
-

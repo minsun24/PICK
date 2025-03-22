@@ -6,24 +6,36 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.nob.pick.member.query.vo.Status;
-import com.nob.pick.member.query.vo.RequestMemberVO;
+import com.nob.pick.member.query.dto.MemberDTO;
+import com.nob.pick.member.query.dto.MemberProfilePageDTO;
+import com.nob.pick.member.query.dto.ProgrammingLanguageInfoDTO;
 
 @Mapper
 public interface MemberRepository {
-	// 왜 @Param 받는 형식 String, Object? 안에 들어가는 필드값들이 전부 String 타입 인데
+	//회원 관련
 	String findEmailByNameAndPhone(Map<String, Object> params);
 
 	String findPasswordByNamePhoneAndEmail(Map<String, Object> params);
 
-	List<RequestMemberVO> findAllMembers();
+	List<MemberDTO> findAllMembers();
 
-	RequestMemberVO findMemberById(@Param("id") int id);
+	MemberDTO findMemberById(@Param("id") int id);
 
-	Status findMemberStatusById(@Param("id") int id); // byte → Status로 변경
+	MemberDTO findMemberStatusById(@Param("id") int id);
 
 	boolean existsByEmail(@Param("email") String email);
 
 	boolean existsByPhoneNumber(@Param("phoneNumber") String phoneNumber);
 
+	MemberDTO findUserGrantById(@Param("id") int id);
+
+	//Member Profile Page 관련
+	MemberProfilePageDTO findProfilePageByMemberId(@Param("memberId") int memberId);
+
+	//프로그래밍 언어, 회원별 프로그래밍 언어 관련
+
+
+	List<ProgrammingLanguageInfoDTO> findProgrammingLanguagesByProfilePageId(@Param("profilePageId") int profilePageId);
+
+	List<ProgrammingLanguageInfoDTO> findActiveProgrammingLanguages();
 }

@@ -1,4 +1,4 @@
-package com.nob.pick.member.query.vo;
+package com.nob.pick.member.query.dto;
 
 public enum Status {
 	ACTIVE(0),
@@ -7,7 +7,6 @@ public enum Status {
 
 	private final int value;
 
-	//final byte 초기화 생성자 (우린 사용 못해요)
 	Status(int value) {
 		this.value = value;
 	}
@@ -15,5 +14,4 @@ public enum Status {
 	public int getValue() {
 		return value;
 	}
-
 }

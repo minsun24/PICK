@@ -1,21 +1,25 @@
 package com.nob.pick.member.query.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nob.pick.member.query.application.MemberService;
-import com.nob.pick.member.query.vo.Status;
-import com.nob.pick.member.query.vo.RequestEmailVO;
-import com.nob.pick.member.query.vo.RequestFindEmailVO;
-import com.nob.pick.member.query.vo.RequestFindPasswordVO;
-import com.nob.pick.member.query.vo.RequestIdVO;
-import com.nob.pick.member.query.vo.RequestMemberVO;
-import com.nob.pick.member.query.vo.RequestPhoneNumberVO;
+import com.nob.pick.member.query.dto.MemberDTO;
+import com.nob.pick.member.query.dto.MemberProfilePageDTO;
+import com.nob.pick.member.query.dto.ProgrammingLanguageInfoDTO;
+import com.nob.pick.member.query.dto.Status;
+import com.nob.pick.member.query.dto.UserGrant;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,49 +35,129 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 
-	@PostMapping("/email")  // GET -> POST로 변경
-	public String getEmail(@RequestBody RequestFindEmailVO requestFindEmailVO) {  // @RequestParam -> @RequestBody
-		return memberService.findEmail(requestFindEmailVO.getName(), requestFindEmailVO.getPhoneNumber());
+	@PostMapping("/email")
+	public ResponseEntity<MemberDTO> getEmail(@RequestBody MemberDTO request) {
+		if (request.getName().isEmpty() || request.getPhoneNumber().isEmpty()) {
+			return ResponseEntity.badRequest().body(new MemberDTO());
+		}
+		String email = memberService.findEmail(request.getName(), request.getPhoneNumber());
+		MemberDTO response = new MemberDTO();
+		response.setEmail(email);
+		return ResponseEntity.ok(response);
 	}
 
 	@PostMapping("/password")
-	public String getPassword(@RequestBody RequestFindPasswordVO requestFindPasswordVO) {
-		// log.info("getPassword called with: {}", requestFindPasswordVO);
-		// log.debug("Debug: getPassword called with: {}", requestFindPasswordVO);
-		// log.info("Info: getPassword called with: {}", requestFindPasswordVO);
-		// log.warn("Warn: getPassword called with: {}", requestFindPasswordVO);
-		return memberService.findPassword(requestFindPasswordVO.getName(),
-			requestFindPasswordVO.getPhoneNumber(), requestFindPasswordVO.getEmail());
+	public ResponseEntity<MemberDTO> getPassword(@RequestBody MemberDTO request) {
+		if (request.getName().isEmpty() || request.getPhoneNumber().isEmpty() || request.getEmail().isEmpty()) {
+			return ResponseEntity.badRequest().body(new MemberDTO());
+		}
+		String password = memberService.findPassword(request.getName(), request.getPhoneNumber(), request.getEmail());
+		MemberDTO response = new MemberDTO();
+		response.setPassword(password);
+		return ResponseEntity.ok(response);
 	}
 
-	@PostMapping("/membersInfo")
-	public List<RequestMemberVO> getMembers() {
-		return memberService.findMemberInfo();
+	@GetMapping("/member-Infos")
+	public ResponseEntity<List<MemberDTO>> getMembers() {
+		List<MemberDTO> members = memberService.findMemberInfo();
+		return ResponseEntity.ok(members);
 	}
 
-	@PostMapping("/memberInfo")
-	public RequestMemberVO getMemberInfo(@RequestBody RequestMemberVO requestMemberVO) {
-		return memberService.findMemberInfoById(requestMemberVO.getId());
+	@GetMapping("/member-Info/{id}")
+	public ResponseEntity<MemberDTO> getMemberInfo(@PathVariable("id") int id) {
+		if (id <= 0) {
+			return ResponseEntity.badRequest().body(null);
+		}
+		MemberDTO member = memberService.findMemberInfoById(id);
+		if (member == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(member);
 	}
 
-	// 이메일 중복 확인
-	@PostMapping("/check-email")
-	public boolean checkEmail(@RequestBody RequestEmailVO requestEmailVO) {
-		return memberService.existsEmail(requestEmailVO.getEmail());
+	@GetMapping("/check-email")
+	public ResponseEntity<MemberDTO> checkEmail(@RequestBody MemberDTO request) {
+		if (request.getEmail().isEmpty()) {
+			return ResponseEntity.badRequest().body(new MemberDTO());
+		}
+		boolean exists = memberService.existsEmail(request.getEmail());
+		MemberDTO response = new MemberDTO();
+		response.setEmail(exists ? request.getEmail() : "");
+		return ResponseEntity.ok(response);
 	}
 
-	// 전화번호 중복 확인
-	@PostMapping("/check-phone")
-	public boolean checkPhoneNumber(@RequestBody RequestPhoneNumberVO requestPhoneNumberVO) {
-		return memberService.existsPhoneNumber(requestPhoneNumberVO.getPhoneNumber());
+	@GetMapping("/check-phone")
+	public ResponseEntity<MemberDTO> checkPhoneNumber(@RequestBody MemberDTO request) {
+		if (request.getPhoneNumber().isEmpty()) {
+			return ResponseEntity.badRequest().body(new MemberDTO());
+		}
+		boolean exists = memberService.existsPhoneNumber(request.getPhoneNumber());
+		MemberDTO response = new MemberDTO();
+		response.setPhoneNumber(exists ? request.getPhoneNumber() : "");
+		return ResponseEntity.ok(response);
 	}
 
-	// 회원 상태 조회
-	@PostMapping("/status")
-	public Status getMemberStatus(@RequestBody RequestIdVO requestIdVO) {
-		return memberService.findMemberStatus(requestIdVO.getId());
+	@GetMapping("/status/{id}")
+	public ResponseEntity<MemberDTO> getMemberStatus(@PathVariable("id") int id) {
+		if (id <= 0) {
+			return ResponseEntity.badRequest().body(null);
+		}
+		Status status = memberService.findMemberStatus(id);
+		if (status == null) {
+			return ResponseEntity.notFound().build();
+		}
+		MemberDTO response = new MemberDTO();
+		response.setStatus(status);
+		return ResponseEntity.ok(response);
 	}
+
+	@GetMapping("/user-grant/{id}")
+	public ResponseEntity<MemberDTO> getUserGrant(@PathVariable("id") int id) {
+		if (id <= 0) {
+			return ResponseEntity.badRequest().body(null);
+		}
+		UserGrant userGrant = memberService.findUserGrant(id);
+		if (userGrant == null) {
+			return ResponseEntity.notFound().build();
+		}
+		MemberDTO response = new MemberDTO();
+		response.setUserGrant(userGrant);
+		return ResponseEntity.ok(response);
+	}
+
+	@GetMapping("/profile-page/{memberId}")
+	public ResponseEntity<MemberProfilePageDTO> getProfilePage(@PathVariable("memberId") int memberId) {
+		if (memberId <= 0) {
+			return ResponseEntity.badRequest().body(null);
+		}
+		MemberProfilePageDTO profilePage = memberService.findProfilePageByMemberId(memberId);
+		if (profilePage == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(profilePage);
+	}
+
+	@GetMapping("/profile-pages/{profilePageId}/programming-languages")
+	public ResponseEntity<List<ProgrammingLanguageInfoDTO>> getProgrammingLanguagesByProfilePageId(@PathVariable("profilePageId") int profilePageId) {
+		List<ProgrammingLanguageInfoDTO> languages;
+		if (profilePageId <= 0) {
+			languages = Collections.emptyList();
+		} else {
+			languages = memberService.findProgrammingLanguagesByProfilePageId(profilePageId);
+			if (languages == null) {
+				languages = Collections.emptyList();
+			}
+		}
+		return ResponseEntity.ok(languages);
+	}
+
+	@GetMapping("/programming-languages")
+	public ResponseEntity<List<ProgrammingLanguageInfoDTO>> getActiveProgrammingLanguages() {
+		List<ProgrammingLanguageInfoDTO> languages = memberService.findActiveProgrammingLanguages();
+		if (languages == null) {
+			languages = Collections.emptyList();
+		}
+		return ResponseEntity.ok(languages);
+	}
+
 }
-
-
-
