@@ -1,4 +1,4 @@
-package com.nob.pick.project.query.dao.mapper;
+package com.nob.pick.project.query.dao;
 
 import com.nob.pick.project.query.dto.ProjectRoomDTO;
 import org.apache.ibatis.annotations.Mapper;

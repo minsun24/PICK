@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nob.pick.project.query.dao.ParticipantMapper">
+    <resultMap id="participantResultMap" type="com.nob.pick.project.query.dto.ParticipantDTO">
+        <id property="id" column="ID"/>
+        <result property="isManager" column="IS_MANAGER" typeHandler="com.nob.pick.common.config.typehandler.StringYnTypeHandler" />
+        <result property="projectRoomId" column="PROJECT_ROOM_ID"   />
+        <result property="memberId" column="MEMBER_ID"   />
+    </resultMap>
+
+    <!-- 팀원 여부 조회   -->
+    <select id="isParticipant">
+        SELECT
+        FROM PARTICIPANT P
+        WHERE project_room_id = #{projectRoomId}
+        AND member_id = #{memberId}
+    </select>
+</mapper>
