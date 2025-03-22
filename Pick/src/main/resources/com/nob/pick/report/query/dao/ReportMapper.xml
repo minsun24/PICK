@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nob.pick.report.query.dao.ReportMapper">
+
+    <!--               REPORT_REASON 테이블              -->
+    <resultMap type="com.nob.pick.report.query.dto.ReportReasonDTO" id="reportReasonMap">
+        <id property="id" column="ID"/>
+        <result property="reason" column="REASON"/>
+    </resultMap>
+
+<!--                    REPORT 테이블                    -->
+    <resultMap type="com.nob.pick.report.query.dto.ReportDTO" id="reportResultMap">
+        <id property="id" column="ID"/>
+        <result property="reportedAt" column="REPORTED_AT"/>
+        <result property="status" column="STATUS" typeHandler="com.nob.pick.common.config.typehandler.ReportStatusEnumTypeHandler"/>
+        <result property="category" column="CATEGORY" typeHandler="com.nob.pick.common.config.typehandler.ReportCategoryEnumTypeHandler"/>
+        <result property="reportedId" column="REPORTED_ID"/>
+        <result property="isDeleted" column="IS_DELETED" typeHandler="com.nob.pick.common.config.typehandler.StringYnTypeHandler"/>
+        <result property="reportReasonId" column="REPORT_REASON_ID"/>
+        <result property="memberId" column="MEMBER_ID"/>
+
+        <result property="reportedMemberId" column="REPORTED_MEMBER_ID"/>
+    </resultMap>
+
+<!--                    신고 목록 전체 조회                    -->
+    <select id="selectAllReports" resultMap="reportResultMap">
+        SELECT
+               R.ID
+             , R.REPORTED_AT
+             , R.STATUS
+             , R.CATEGORY
+             , R.REPORTED_ID
+             , R.IS_DELETED
+             , R.REPORT_REASON_ID
+             , R.MEMBER_ID
+          FROM REPORT R
+    </select>
+
+
+<!--                 회원 번호로 신고 목록 검색                  -->
+<!--    <select id="selectReportsByMemberId" parameterType="_int" resultMap="reportResultMap">-->
+<!--        SELECT-->
+<!--               R.ID-->
+<!--             , R.REPORTED_AT-->
+<!--             , R.STATUS-->
+<!--             , R.CATEGORY-->
+<!--             , R.REPORTED_ID-->
+<!--             , R.REPORT_REASON_ID-->
+<!--             , R.MEMBER_ID-->
+<!--          FROM REPORT R-->
+<!--         WHERE R.CATEGORY = 0 AND R.REPORTED_ID = ${memberId}-->
+<!--    </select>-->
+
+
+<!--  특정 회원이 받은 회원, 게시글, 댓글 신고 내역 조회 -->
+    <select id="selectReportsByMemberId" parameterType="_int" resultMap="reportResultMap">
+        SELECT
+               R.ID
+             , R.REPORTED_AT
+             , R.STATUS
+             , R.CATEGORY
+             , R.REPORTED_ID
+             , R.IS_DELETED
+             , R.REPORT_REASON_ID
+             , R.MEMBER_ID
+             , CASE
+                 WHEN R.CATEGORY = 0 THEN 1
+                 ELSE COALESCE(P.MEMBER_ID, C.MEMBER_ID)
+               END AS REPORTED_MEMBER_ID
+          FROM REPORT R
+          LEFT JOIN POST P ON R.CATEGORY = 1 AND R.REPORTED_ID = P.ID
+          LEFT JOIN COMMENT C ON R.CATEGORY = 2 AND R.REPORTED_ID = C.ID
+         WHERE (R.CATEGORY = 0 AND R.REPORTED_ID = #{memberId})
+            OR (R.CATEGORY = 1 AND P.MEMBER_ID = #{memberId})
+            OR (R.CATEGORY = 2 AND C.MEMBER_ID = #{memberId})
+    </select>
+
+</mapper>
