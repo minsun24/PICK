@@ -31,6 +31,15 @@ public class MatchingServiceImpl implements MatchingService{
     }
 
     @Override
+    public List<MatchingDTO> getMatchingByMatchingId(int matchingId) {
+        List<Matching> matchingList = matchingMapper.selectMatchingByMatchingId(matchingId);
+
+        List<MatchingDTO> matchingDTOList = matching2MatchingDTO(matchingList);
+
+        return matchingDTOList;
+    }
+
+    @Override
     public List<MatchingDTO> getMatchingByTechnologyCategoryId(int technologyCategoryId) {
         List<Matching> matchingList = matchingMapper.selectMatchingByTechnologyCategoryId(technologyCategoryId);
 

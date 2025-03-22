@@ -35,6 +35,15 @@ public class MatchingController {
         return ResponseEntity.ok().body(returnValue);
     }
 
+    @GetMapping("/matching/{matchingId}")
+    public ResponseEntity<List<ResponseMatchingVO>> findMatchingByMatchingId(@PathVariable int matchingId) {
+        List<MatchingDTO> matchingDTOList = matchingService.getMatchingByMatchingId(matchingId);
+
+        List<ResponseMatchingVO> returnValue = matchingDTO2ResponseMatching(matchingDTOList);
+
+        return ResponseEntity.ok().body(returnValue);
+    }
+
     // 카테고리 id로 매칭방 조회
     @GetMapping("/matching/technologyCategories/{technologyCategoryId}")
     public ResponseEntity<List<ResponseMatchingVO>> findMatchingByTechnologyCategoryId(@PathVariable int technologyCategoryId) {

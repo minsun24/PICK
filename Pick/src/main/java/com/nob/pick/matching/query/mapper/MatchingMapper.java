@@ -11,6 +11,8 @@ import java.util.List;
 public interface MatchingMapper {
     List<Matching> selectAllMatching();
 
+    List<Matching> selectMatchingByMatchingId(int matchingId);
+
     List<Matching> selectMatchingByTechnologyCategoryId(int technologyCategoryId);
 
     List<MatchingEntry> selectMatchingEntryByMatchingId(int matchingId);
