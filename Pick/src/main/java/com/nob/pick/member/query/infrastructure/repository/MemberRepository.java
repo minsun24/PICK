@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import com.nob.pick.member.query.dto.MemberDTO;
 import com.nob.pick.member.query.dto.MemberProfilePageDTO;
 import com.nob.pick.member.query.dto.ProgrammingLanguageInfoDTO;
+import com.nob.pick.member.query.dto.Status;
 
 @Mapper
 public interface MemberRepository {
@@ -21,7 +22,7 @@ public interface MemberRepository {
 
 	MemberDTO findMemberById(@Param("id") int id);
 
-	MemberDTO findMemberStatusById(@Param("id") int id);
+	Status findMemberStatusById(@Param("id") int id);
 
 	boolean existsByEmail(@Param("email") String email);
 

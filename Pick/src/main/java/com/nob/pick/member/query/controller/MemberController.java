@@ -75,7 +75,7 @@ public class MemberController {
 		return ResponseEntity.ok(member);
 	}
 
-	@GetMapping("/check-email")
+	@PostMapping("/check-email")
 	public ResponseEntity<MemberDTO> checkEmail(@RequestBody MemberDTO request) {
 		if (request.getEmail().isEmpty()) {
 			return ResponseEntity.badRequest().body(new MemberDTO());
@@ -86,7 +86,7 @@ public class MemberController {
 		return ResponseEntity.ok(response);
 	}
 
-	@GetMapping("/check-phone")
+	@PostMapping("/check-phone")
 	public ResponseEntity<MemberDTO> checkPhoneNumber(@RequestBody MemberDTO request) {
 		if (request.getPhoneNumber().isEmpty()) {
 			return ResponseEntity.badRequest().body(new MemberDTO());

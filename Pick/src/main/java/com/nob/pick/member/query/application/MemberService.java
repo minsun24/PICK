@@ -59,8 +59,7 @@ public class MemberService {
 	}
 
 	public Status findMemberStatus(int id) {
-		MemberDTO member = memberRepository.findMemberById(id);
-		return member != null ? member.getStatus() : null;
+		return memberRepository.findMemberStatusById(id);
 	}
 
 	public UserGrant findUserGrant(int id) {
