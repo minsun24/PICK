@@ -9,8 +9,6 @@ import lombok.*;
 @ToString
 public class MatchingEntryDTO {
     private int id;
-    private String appliedDateAt;
-    private String isCanceled;
     private int memberId;
     private int matchingId;
 }

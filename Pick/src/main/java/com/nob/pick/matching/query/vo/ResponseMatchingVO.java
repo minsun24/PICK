@@ -1,16 +1,16 @@
-package com.nob.pick.matching.query.dto;
+package com.nob.pick.matching.query.vo;
 
 import com.nob.pick.matching.query.aggregate.TechnologyCategory;
-import lombok.*;
+import com.nob.pick.matching.query.dto.TechnologyCategoryDTO;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
-public class MatchingDTO {
+public class ResponseMatchingVO {
     private int id;
     private int memberId;
 

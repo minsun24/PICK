@@ -7,9 +7,8 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class TechnologyCategoryDTO {
+public class  TechnologyCategoryDTO {
     private int id;
     private String name;
-    private String isDeleted;
     private Integer refTechnologyCategoryId;
 }

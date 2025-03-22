@@ -3,25 +3,75 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nob.pick.matching.query.mapper.MatchingMapper">
-    <resultMap id="matchingResultMap" type="com.nob.pick.matching.query.dto.MatchingDTO">
-        <id property="id" column="ID"/>
+    <resultMap id="matchingResultMap" type="com.nob.pick.matching.query.aggregate.Matching">
+        <id property="id" column="MATCHING_ID"/>
         <result property="createdDateAt" column="CREATED_DATE_AT"/>
         <result property="isCompleted" column="IS_COMPLETED"/>
         <result property="levelRange" column="LEVEL_RANGE"/>
         <result property="memberId" column="MEMBER_ID"/>
-        <result property="technologyCategoryId" column="TECHNOLOGY_CATEGORY_ID"/>
+        <collection property="technologyCategories" ofType="com.nob.pick.matching.query.aggregate.TechnologyCategory">
+            <id property="id" column="TECHNOLOGY_ID"/>
+            <result property="name" column="NAME"/>
+            <result property="isDeleted" column="IS_DELETED"/>
+            <result property="refTechnologyCategoryId" column="REF_TECHNOLOGY_CATEGORY_ID"/>
+        </collection>
     </resultMap>
 
+    <resultMap id="matchingEntryResultMap" type="com.nob.pick.matching.query.aggregate.MatchingEntry">
+        <id property="id" column="MATCHING_ENTRY_ID"/>
+        <result property="appliedDateAt" column="APPLIED_DATE_AT"/>
+        <result property="isCanceled" column="IS_CANCELED"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="matchingId" column="MATCHING_ID"/>
+    </resultMap>
+
+    <!-- 전체 매칭방 조회 -->
     <select id="selectAllMatching" resultMap="matchingResultMap">
         SELECT
-               ID
-             , CREATED_DATE_AT
-             , IS_COMPLETED
-             , LEVEL_RANGE
-             , MEMBER_ID
-             , TECHNOLOGY_CATEGORY_ID
-          FROM MATCHING
+               A.ID AS MATCHING_ID
+             , A.CREATED_DATE_AT
+             , A.IS_COMPLETED
+             , A.LEVEL_RANGE
+             , A.MEMBER_ID
+             , B.ID AS TECHNOLOGY_ID
+             , B.NAME
+             , B.IS_DELETED
+             , B.REF_TECHNOLOGY_CATEGORY_ID
+          FROM MATCHING A
+          JOIN TECHNOLOGY_CATEGORY B ON A.TECHNOLOGY_CATEGORY_ID = B.ID
+         WHERE A.IS_COMPLETED = 'N' AND B.IS_DELETED = 'N'
+         ORDER BY 1 DESC
     </select>
 
+    <!-- 카테고리 id로 매칭방 조회 -->
+    <select id="selectMatchingByTechnologyCategoryId" resultMap="matchingResultMap" parameterType="_int">
+        SELECT
+               A.ID AS MATCHING_ID
+             , A.CREATED_DATE_AT
+             , A.IS_COMPLETED
+             , A.LEVEL_RANGE
+             , A.MEMBER_ID
+             , B.ID AS TECHNOLOGY_ID
+             , B.NAME
+             , B.IS_DELETED
+             , B.REF_TECHNOLOGY_CATEGORY_ID
+          FROM MATCHING A
+          JOIN TECHNOLOGY_CATEGORY B ON A.TECHNOLOGY_CATEGORY_ID = B.ID
+         WHERE (B.ID = #{technologyCategoryId} OR B.REF_TECHNOLOGY_CATEGORY_ID = #{technologyCategoryId})
+           AND A.IS_COMPLETED = 'N' AND B.IS_DELETED = 'N'
+         ORDER BY 1 DESC
+    </select>
+
+    <!-- 매칭방 id로 신청자 id 조회 -->
+    <select id="selectMatchingEntryByMatchingId" resultMap="matchingEntryResultMap" parameterType="_int">
+        SELECT
+               A.ID AS MATCHING_ENTRY_ID
+             , A.APPLIED_DATE_AT
+             , A.IS_CANCELED
+             , A.MEMBER_ID
+             , A.MATCHING_ID
+          FROM MATCHING_ENTRY A
+         WHERE A.IS_CANCELED = 'N' AND A.MATCHING_ID = #{matchingId}
+    </select>
 
 </mapper>

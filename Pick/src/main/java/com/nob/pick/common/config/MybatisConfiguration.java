@@ -1,4 +1,4 @@
-package com.nob.pick.config;
+package com.nob.pick.common.config;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
