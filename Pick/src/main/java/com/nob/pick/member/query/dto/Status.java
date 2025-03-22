@@ -1,5 +1,8 @@
 package com.nob.pick.member.query.dto;
 
+import lombok.Getter;
+
+@Getter
 public enum Status {
 	ACTIVE(0),
 	SUSPENDED(1),
@@ -11,7 +14,4 @@ public enum Status {
 		this.value = value;
 	}
 
-	public int getValue() {
-		return value;
-	}
 }
