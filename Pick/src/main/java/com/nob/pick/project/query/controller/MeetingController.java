@@ -1,9 +1,10 @@
 package com.nob.pick.project.query.controller;
 
-import com.nob.pick.project.query.dto.ProjectMeetingDTO;
+import com.nob.pick.project.query.dto.MeetingDTO;
 import com.nob.pick.project.query.service.MeetingService;
 import com.nob.pick.project.query.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,15 +32,40 @@ public class MeetingController {
 	
 	// 프로젝트별 회의록 목록 조회
 	@GetMapping("{projectRoomId}/meetings")
-	public ResponseEntity<List<ProjectMeetingDTO>> getMeetingList(@PathVariable int projectRoomId, @RequestParam int memberId) {
+	public ResponseEntity<?> getMeetingList(@PathVariable int projectRoomId, @RequestParam int memberId) {
 		log.info("projectRoomId : " + projectRoomId);
 		log.info("memberId : " + memberId);
 
 		// 팀원 확인
 		boolean isParticipant = participantService.isProjectParticipant(projectRoomId, memberId);
+		if (!isParticipant) {
+			// 팀원이 아닌 경우 권한 없음 처리
+			return ResponseEntity
+					.status(HttpStatus.FORBIDDEN)
+					.body("프로젝트에 참여한 팀원만 조회할 수 있습니다.");
+		}
 
-		List<ProjectMeetingDTO> meetingList = meetingService.getMeetingList(projectRoomId);
+		List<MeetingDTO> meetingList = meetingService.getMeetingsByProjectId(projectRoomId);
 		return ResponseEntity.ok(meetingList);
+	}
+
+	@GetMapping("{projectRoomId}/meetings/{meetingId}")
+	public ResponseEntity<?> getMeetingList(@PathVariable int projectRoomId, @PathVariable int meetingId, @RequestParam int memberId) {
+		log.info("projectRoomId : " + projectRoomId);
+		log.info("memberId : " + memberId);
+		log.info("meetingId : " + meetingId);
+
+		// 팀원 확인
+		boolean isParticipant = participantService.isProjectParticipant(projectRoomId, memberId);
+		if (!isParticipant) {
+			// 팀원이 아닌 경우 권한 없음 처리
+			return ResponseEntity
+					.status(HttpStatus.FORBIDDEN)
+					.body("프로젝트에 참여한 팀원만 조회할 수 있습니다.");
+		}
+
+		MeetingDTO meetnigDetail = meetingService.getMeetingsByMeetingId(meetingId);
+		return ResponseEntity.ok(meetnigDetail);
 	}
 
 }

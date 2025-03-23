@@ -4,10 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
-public class ResponseProjectDetailVO {
+public class ResponseFinishedProjectDetailVO {
     private int id;                        // 프로젝트 방 번호
     private String name;                   // 프로젝트 이름
     private String content;                // 프로젝트 소개
@@ -19,5 +21,9 @@ public class ResponseProjectDetailVO {
     private String introduction;           // 프로젝트 한 줄 소개
     private String projectUrl;             // 프로젝트 링크
 
-    private Integer technologyCategoryId;      // 프로젝트 기술 분류 ID
+    private int technologyCategoryId;
+    private String technologyCategoryName;
+
+    private List<ResponseParticipantVO> participants; // 팀원 목록
+
 }

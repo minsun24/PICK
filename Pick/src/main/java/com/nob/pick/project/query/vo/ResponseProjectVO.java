@@ -17,5 +17,6 @@ public class ResponseProjectVO {
     private String thumbnailImage;
     private String introduction;
 
-    private Integer technologyCategoryId;
+    private int technologyCategoryId;
+    private String technologyCategoryName;
 }

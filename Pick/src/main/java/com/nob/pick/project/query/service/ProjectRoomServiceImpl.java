@@ -1,7 +1,8 @@
 package com.nob.pick.project.query.service;
 
 import com.nob.pick.project.query.aggregate.ProjectRoom;
-import com.nob.pick.project.query.dao.ProjectRoomMapper;
+import com.nob.pick.project.query.mapper.ParticipantMapper;
+import com.nob.pick.project.query.mapper.ProjectRoomMapper;
 import com.nob.pick.project.query.dto.ProjectRoomDTO;
 import jakarta.transaction.Transactional;
 import org.apache.ibatis.javassist.NotFoundException;
@@ -15,10 +16,12 @@ import java.util.List;
 public class ProjectRoomServiceImpl implements ProjectRoomService {
 
     private final ProjectRoomMapper projectRoomMapper;
+    private final ParticipantMapper participantMapper;
 
     @Autowired
-    public ProjectRoomServiceImpl(ProjectRoomMapper projectRoomMapper) {
+    public ProjectRoomServiceImpl(ProjectRoomMapper projectRoomMapper, ParticipantMapper participantMapper) {
         this.projectRoomMapper = projectRoomMapper;
+        this.participantMapper = participantMapper;
     }
 
     @Override
@@ -70,10 +73,49 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
                 throw new RuntimeException(e);
             }
         }
-
         return projectRoomDetailToDTO(projectDetail);
 
     }
+
+    @Override
+    public List<ProjectRoomDTO> getSearchedProjectsByName(String searchName) {
+        List<ProjectRoom> projectRoomList = projectRoomMapper.selectProjectByNameKeyword(searchName);
+        return projectRoomToDTO(projectRoomList);
+    }
+
+    @Override
+    public List<ProjectRoomDTO> getSearchedProjectsByTech(List<Integer> technologyCategoryIds) {
+        List<ProjectRoom> projectRoomList = projectRoomMapper.selectProjectByTechKeyword(technologyCategoryIds);
+        return projectRoomToDTO(projectRoomList);
+    }
+
+    @Override
+    public List<ProjectRoomDTO> getSearchedProjectsByTechAndName(int categoryId, String searchName) {
+        List<ProjectRoom> projectRoomList = projectRoomMapper.selectProjectByBothKeyword(categoryId, searchName);
+        return projectRoomToDTO(projectRoomList);
+    }
+
+
+    @Override
+    public ProjectRoomDTO getActiveProjectDetail(int projectId) {
+        ProjectRoom projectDetail = projectRoomMapper.selectActiveProjectDetail(projectId);
+
+        if (projectDetail == null) {
+            try {
+                throw new NotFoundException("프로젝트를 찾을 수 없습니다. projectId=" + projectId);
+            } catch (NotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return projectRoomDetailToDTO(projectDetail);
+    }
+
+    @Override
+    public List<ProjectRoomDTO> getProjectsByMemberId(int memberId) {
+        List<ProjectRoom> projectRoomList = projectRoomMapper.selectProjectByMemberId(memberId);
+        return projectRoomToDTO(projectRoomList);
+    }
+
 
     private ProjectRoomDTO projectRoomDetailToDTO(ProjectRoom projectDetail) {
         ProjectRoomDTO dto = new ProjectRoomDTO();
@@ -81,14 +123,16 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
         dto.setId(projectDetail.getId());
         dto.setName(projectDetail.getName());
         dto.setContent(projectDetail.getContent());
-        dto.setStartDate(projectDetail.getStartDate());
-        dto.setEndDate(projectDetail.getEndDate());
+        dto.setStartDate(String.valueOf(projectDetail.getStartDate()));
+        dto.setEndDate(String.valueOf(projectDetail.getEndDate()));
         dto.setDurationTime(projectDetail.getDurationTime());
         dto.setProjectUrl(projectDetail.getProjectUrl());
         dto.setIntroduction(projectDetail.getIntroduction());
         dto.setThumbnailImage(projectDetail.getThumbnailImage());
         dto.setMaximumParticipant(projectDetail.getMaximumParticipant());
-        dto.setTechnologyCategoryId(projectDetail.getTechnologyCategoryId());
+        dto.setTechnologyCategoryId(projectDetail.getTechnologyCategory().getId());
+        dto.setTechnologyCategoryName(projectDetail.getTechnologyCategory().getName());
+        dto.setSessionCode(projectDetail.getSessionCode());
 
         return dto;
     }
@@ -104,11 +148,12 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
             dto.setId(projectRoom.getId());
             dto.setName(projectRoom.getName());
             dto.setContent(projectRoom.getContent());
-            dto.setStartDate(projectRoom.getStartDate());
-            dto.setEndDate(projectRoom.getEndDate());
+            dto.setStartDate(projectRoom.getStartDate().toString()); // yyyy-MM-dd
+            dto.setEndDate(projectRoom.getEndDate().toString());
             dto.setDurationTime(projectRoom.getDurationTime());
             dto.setMaximumParticipant(projectRoom.getMaximumParticipant());
-            dto.setTechnologyCategoryId(projectRoom.getTechnologyCategoryId());
+            dto.setTechnologyCategoryId(projectRoom.getTechnologyCategory().getId());
+            dto.setTechnologyCategoryName(projectRoom.getTechnologyCategory().getName());
             dto.setThumbnailImage(projectRoom.getThumbnailImage());
             dto.setIntroduction(projectRoom.getIntroduction());
             dto.setThumbnailImage(projectRoom.getThumbnailImage());

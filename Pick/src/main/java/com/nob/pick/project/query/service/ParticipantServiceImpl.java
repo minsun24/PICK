@@ -1,8 +1,11 @@
 package com.nob.pick.project.query.service;
 
-import com.nob.pick.project.query.dao.ParticipantMapper;
+import com.nob.pick.project.query.mapper.ParticipantMapper;
+import com.nob.pick.project.query.dto.ParticipantDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ParticipantServiceImpl implements ParticipantService {
@@ -20,4 +23,13 @@ public class ParticipantServiceImpl implements ParticipantService {
 
         return count > 0;
     }
+
+    @Override
+    public List<ParticipantDTO> getParticipantsByProjectId(int projectId) {
+        List<ParticipantDTO> participants = participantMapper.selectParticipantsByProjectRoomId(projectId);
+        return participants;
+    }
+
+
+
 }

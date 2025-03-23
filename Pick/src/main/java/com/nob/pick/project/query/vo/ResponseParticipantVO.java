@@ -9,9 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ResponseParticipantVO {
-    private int id;               // 팀원 번호
-    private boolean isManager;     	  // 방장 여부 (Y/N)
-
-    private int projectRoomId;    // 프로젝트 방 번호 (FK)
-    private int memberId;         // 회원 번호 (FK)
+    private int participantId;      // 팀원 번호 (PK)
+    private boolean isManager;      // 방장 여부
+    private String memberName;      // 이름
+    private String memberNickname;  // 닉네임
 }
