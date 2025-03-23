@@ -25,6 +25,13 @@
         <result property="matchingId" column="MATCHING_ID"/>
     </resultMap>
 
+    <resultMap id="technologyCategoryResultMap" type="com.nob.pick.matching.query.aggregate.TechnologyCategory">
+        <id property="id" column="TECHNOLOGY_CATEGORY_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="isDeleted" column="IS_DELETED"/>
+        <result property="refTechnologyCategoryId" column="REF_TECHNOLOGY_CATEGORY_ID"/>
+    </resultMap>
+
     <!-- 전체 매칭방 조회 -->
     <select id="selectAllMatching" resultMap="matchingResultMap">
         SELECT
@@ -43,6 +50,7 @@
          ORDER BY 1 DESC
     </select>
 
+    <!-- 매칭방 id로 조회-->
     <select id="selectMatchingByMatchingId" resultMap="matchingResultMap" parameterType="_int">
         SELECT
                A.ID AS MATCHING_ID
@@ -89,8 +97,54 @@
              , A.MATCHING_ID
           FROM MATCHING_ENTRY A
          WHERE A.IS_CANCELED = 'N' AND A.MATCHING_ID = #{matchingId}
+         ORDER BY 1
     </select>
 
-    <!-- 전체 기술 목록 조회 -->
+    <!-- 전체 기술 카테고리 조회 -->
+    <select id="selectAllTechnologyCategory" resultMap="technologyCategoryResultMap">
+        SELECT
+               A.ID AS TECHNOLOGY_CATEGORY_ID
+             , A.NAME
+             , A.IS_DELETED
+             , A.REF_TECHNOLOGY_CATEGORY_ID
+          FROM TECHNOLOGY_CATEGORY A
+         WHERE A.IS_DELETED = 'N'
+         ORDER BY 1
+    </select>
 
+    <!-- 카테고리 id로 조회 -->
+    <select id="selectTechnologyCategoryByTechnologyCategoryId" resultMap="technologyCategoryResultMap" parameterType="_int">
+        SELECT
+               A.ID AS TECHNOLOGY_CATEGORY_ID
+             , A.NAME
+             , A.IS_DELETED
+             , A.REF_TECHNOLOGY_CATEGORY_ID
+          FROM TECHNOLOGY_CATEGORY A
+         WHERE A.IS_DELETED = 'N' AND A.ID = #{technologyCategoryId}
+         ORDER BY 1
+    </select>
+
+    <!-- 카테고리 id로 하위 카테고리 조회 -->
+    <select id="selectSubTechnologyCategoryByRefTechnologyCategoryId" resultMap="technologyCategoryResultMap" parameterType="_int">
+        SELECT
+               A.ID AS TECHNOLOGY_CATEGORY_ID
+             , A.NAME
+             , A.IS_DELETED
+             , A.REF_TECHNOLOGY_CATEGORY_ID
+          FROM TECHNOLOGY_CATEGORY A
+         WHERE A.IS_DELETED = 'N' AND A.REF_TECHNOLOGY_CATEGORY_ID = #{refTechnologyCategoryId}
+         ORDER BY 1
+    </select>
+
+    <!-- 상위 카테고리만 조회 -->
+    <select id="selectParentTechnologyCategory" resultMap="technologyCategoryResultMap">
+        SELECT
+               A.ID AS TECHNOLOGY_CATEGORY_ID
+             , A.NAME
+             , A.IS_DELETED
+             , A.REF_TECHNOLOGY_CATEGORY_ID
+          FROM TECHNOLOGY_CATEGORY A
+         WHERE A.IS_DELETED = 'N' AND A.REF_TECHNOLOGY_CATEGORY_ID IS NULL
+         ORDER BY 1
+    </select>
 </mapper>

@@ -1,6 +1,5 @@
 package com.nob.pick.matching.query.dto;
 
-import com.nob.pick.matching.query.aggregate.TechnologyCategory;
 import lombok.*;
 
 import java.util.List;
@@ -13,6 +12,7 @@ import java.util.List;
 public class MatchingDTO {
     private int id;
     private int memberId;
+    private int levelRange;
 
     private List<TechnologyCategoryDTO> technologyCategories;
 }

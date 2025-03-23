@@ -7,14 +7,15 @@ import com.nob.pick.matching.query.dto.MatchingDTO;
 import com.nob.pick.matching.query.dto.MatchingEntryDTO;
 import com.nob.pick.matching.query.dto.TechnologyCategoryDTO;
 import com.nob.pick.matching.query.mapper.MatchingMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Slf4j
 @Service
 public class MatchingServiceImpl implements MatchingService{
+
     private final MatchingMapper matchingMapper;
 
     public MatchingServiceImpl(MatchingMapper matchingMapper) {
@@ -23,42 +24,88 @@ public class MatchingServiceImpl implements MatchingService{
 
     @Override
     public List<MatchingDTO> getMatching() {
+
         List<Matching> matchingList = matchingMapper.selectAllMatching();
 
-        List<MatchingDTO> matchingDTOList = matching2MatchingDTO(matchingList);
-
-        return matchingDTOList;
+        return matching2MatchingDTO(matchingList);
     }
 
     @Override
     public List<MatchingDTO> getMatchingByMatchingId(int matchingId) {
+
         List<Matching> matchingList = matchingMapper.selectMatchingByMatchingId(matchingId);
 
-        List<MatchingDTO> matchingDTOList = matching2MatchingDTO(matchingList);
-
-        return matchingDTOList;
+        return matching2MatchingDTO(matchingList);
     }
 
     @Override
     public List<MatchingDTO> getMatchingByTechnologyCategoryId(int technologyCategoryId) {
+
         List<Matching> matchingList = matchingMapper.selectMatchingByTechnologyCategoryId(technologyCategoryId);
 
-        List<MatchingDTO> matchingDTOList = matching2MatchingDTO(matchingList);
-
-        return matchingDTOList;
+        return matching2MatchingDTO(matchingList);
     }
 
     @Override
     public List<MatchingEntryDTO> getMatchingEntryByMatchingId(int matchingId) {
+
         List<MatchingEntry> matchingEntryList = matchingMapper.selectMatchingEntryByMatchingId(matchingId);
 
-        List<MatchingEntryDTO> matchingEntryDTOList = matchingEntry2MatchingEntryDTO(matchingEntryList);
+        return matchingEntry2MatchingEntryDTO(matchingEntryList);
+    }
 
-        return matchingEntryDTOList;
+    @Override
+    public List<TechnologyCategoryDTO> getTechnologyCategory() {
+
+        List<TechnologyCategory> technologyCategoryList = matchingMapper.selectAllTechnologyCategory();
+
+        return technologyCategory2TechnologyCategoryDTO(technologyCategoryList);
+    }
+
+    @Override
+    public List<TechnologyCategoryDTO> getTechnologyCategoryByTechnologyCategoryId(int technologyCategoryId) {
+
+        List<TechnologyCategory> technologyCategoryList = matchingMapper.selectTechnologyCategoryByTechnologyCategoryId(technologyCategoryId);
+
+        return technologyCategory2TechnologyCategoryDTO(technologyCategoryList);
+    }
+
+    @Override
+    public List<TechnologyCategoryDTO> getSubTechnologyCategoryByRefTechnologyCategoryId(int refTechnologyCategoryId) {
+
+        List<TechnologyCategory> subTechnologyCategoryList = matchingMapper.selectSubTechnologyCategoryByRefTechnologyCategoryId(refTechnologyCategoryId);
+
+        return technologyCategory2TechnologyCategoryDTO(subTechnologyCategoryList);
+    }
+
+    @Override
+    public List<TechnologyCategoryDTO> getParentTechnologyCategory() {
+
+        List<TechnologyCategory> parentTechnologyCategoryList = matchingMapper.selectParentTechnologyCategory();
+
+        return technologyCategory2TechnologyCategoryDTO(parentTechnologyCategoryList);
+    }
+
+    private List<TechnologyCategoryDTO> technologyCategory2TechnologyCategoryDTO(List<TechnologyCategory> technologyCategoryList) {
+
+        List<TechnologyCategoryDTO> technologyCategoryDTOList = new ArrayList<>();
+
+        for (TechnologyCategory technologyCategory : technologyCategoryList) {
+            TechnologyCategoryDTO technologyCategoryDTO = new TechnologyCategoryDTO();
+            technologyCategoryDTO.setId(technologyCategory.getId());
+            technologyCategoryDTO.setName(technologyCategory.getName());
+            technologyCategoryDTO.setRefTechnologyCategoryId(technologyCategory.getRefTechnologyCategoryId());
+
+            technologyCategoryDTOList.add(technologyCategoryDTO);
+        }
+
+        return technologyCategoryDTOList;
     }
 
     private List<MatchingEntryDTO> matchingEntry2MatchingEntryDTO(List<MatchingEntry> matchingEntryList) {
+
         List<MatchingEntryDTO> matchingEntryDTOList = new ArrayList<>();
+
         for(MatchingEntry matchingEntry : matchingEntryList) {
             MatchingEntryDTO matchingEntryDTO = new MatchingEntryDTO();
             matchingEntryDTO.setId(matchingEntry.getId());
@@ -67,26 +114,22 @@ public class MatchingServiceImpl implements MatchingService{
 
             matchingEntryDTOList.add(matchingEntryDTO);
         }
+
         return matchingEntryDTOList;
     }
 
     private List<MatchingDTO> matching2MatchingDTO(List<Matching> matchingList) {
+
         List<MatchingDTO> matchingDTOList = new ArrayList<>();
+
         for (Matching matching : matchingList) {
             MatchingDTO matchingDTO = new MatchingDTO();
             matchingDTO.setId(matching.getId());
             matchingDTO.setMemberId(matching.getMemberId());
+            matchingDTO.setLevelRange(matching.getLevelRange());
 
             List<TechnologyCategory> technologyCategoryList = matching.getTechnologyCategories();
-            List<TechnologyCategoryDTO> technologyCategoryDTOList = new ArrayList<>();
-            for (TechnologyCategory technologyCategory : technologyCategoryList) {
-                TechnologyCategoryDTO technologyCategoryDTO = new TechnologyCategoryDTO();
-                technologyCategoryDTO.setId(technologyCategory.getId());
-                technologyCategoryDTO.setName(technologyCategory.getName());
-                technologyCategoryDTO.setRefTechnologyCategoryId(technologyCategory.getRefTechnologyCategoryId());
-
-                technologyCategoryDTOList.add(technologyCategoryDTO);
-            }
+            List<TechnologyCategoryDTO> technologyCategoryDTOList = technologyCategory2TechnologyCategoryDTO(technologyCategoryList);
 
             matchingDTO.setTechnologyCategories(technologyCategoryDTOList);
             matchingDTOList.add(matchingDTO);
