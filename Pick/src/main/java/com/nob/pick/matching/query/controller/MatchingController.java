@@ -8,6 +8,7 @@ import com.nob.pick.matching.query.vo.ResponseMatchingEntryVO;
 import com.nob.pick.matching.query.vo.ResponseMatchingVO;
 import com.nob.pick.matching.query.vo.ResponseTechnologyCategoryVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class MatchingController {
 
     private final MatchingService matchingService;
 
+    @Autowired
     public MatchingController(MatchingService matchingService) {
         this.matchingService = matchingService;
     }

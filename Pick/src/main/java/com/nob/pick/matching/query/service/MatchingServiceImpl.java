@@ -8,6 +8,7 @@ import com.nob.pick.matching.query.dto.MatchingEntryDTO;
 import com.nob.pick.matching.query.dto.TechnologyCategoryDTO;
 import com.nob.pick.matching.query.mapper.MatchingMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class MatchingServiceImpl implements MatchingService{
 
     private final MatchingMapper matchingMapper;
 
+    @Autowired
     public MatchingServiceImpl(MatchingMapper matchingMapper) {
         this.matchingMapper = matchingMapper;
     }
