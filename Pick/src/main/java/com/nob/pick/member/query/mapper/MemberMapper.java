@@ -1,4 +1,4 @@
-package com.nob.pick.member.query.infrastructure.repository;
+package com.nob.pick.member.query.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,7 @@ import com.nob.pick.member.query.dto.ProgrammingLanguageInfoDTO;
 import com.nob.pick.member.query.dto.Status;
 
 @Mapper
-public interface MemberRepository {
+public interface MemberMapper {
 	//회원 관련
 	String findEmailByNameAndPhone(Map<String, Object> params);
 

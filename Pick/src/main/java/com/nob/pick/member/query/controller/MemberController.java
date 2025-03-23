@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nob.pick.member.query.application.MemberService;
+import com.nob.pick.member.query.service.MemberService;
 import com.nob.pick.member.query.dto.MemberDTO;
 import com.nob.pick.member.query.dto.MemberProfilePageDTO;
 import com.nob.pick.member.query.dto.ProgrammingLanguageInfoDTO;
