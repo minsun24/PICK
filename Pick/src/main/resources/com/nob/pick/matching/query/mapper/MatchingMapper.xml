@@ -64,7 +64,8 @@
              , B.REF_TECHNOLOGY_CATEGORY_ID
           FROM MATCHING A
           JOIN TECHNOLOGY_CATEGORY B ON A.TECHNOLOGY_CATEGORY_ID = B.ID
-         WHERE A.IS_COMPLETED = 'N' AND A.ID = #{matchingId}
+         WHERE A.IS_COMPLETED = 'N'
+           AND A.ID = #{matchingId}
          ORDER BY 1 DESC
     </select>
 
@@ -82,8 +83,10 @@
              , B.REF_TECHNOLOGY_CATEGORY_ID
           FROM MATCHING A
           JOIN TECHNOLOGY_CATEGORY B ON A.TECHNOLOGY_CATEGORY_ID = B.ID
-         WHERE (B.ID = #{technologyCategoryId} OR B.REF_TECHNOLOGY_CATEGORY_ID = #{technologyCategoryId})
-           AND A.IS_COMPLETED = 'N' AND B.IS_DELETED = 'N'
+         WHERE (B.ID = #{technologyCategoryId}
+            OR B.REF_TECHNOLOGY_CATEGORY_ID = #{technologyCategoryId})
+           AND A.IS_COMPLETED = 'N'
+           AND B.IS_DELETED = 'N'
          ORDER BY 1 DESC
     </select>
 
@@ -96,7 +99,8 @@
              , A.MEMBER_ID
              , A.MATCHING_ID
           FROM MATCHING_ENTRY A
-         WHERE A.IS_CANCELED = 'N' AND A.MATCHING_ID = #{matchingId}
+         WHERE A.IS_CANCELED = 'N'
+           AND A.MATCHING_ID = #{matchingId}
          ORDER BY 1
     </select>
 
@@ -120,7 +124,8 @@
              , A.IS_DELETED
              , A.REF_TECHNOLOGY_CATEGORY_ID
           FROM TECHNOLOGY_CATEGORY A
-         WHERE A.IS_DELETED = 'N' AND A.ID = #{technologyCategoryId}
+         WHERE A.IS_DELETED = 'N'
+           AND A.ID = #{technologyCategoryId}
          ORDER BY 1
     </select>
 
@@ -132,7 +137,8 @@
              , A.IS_DELETED
              , A.REF_TECHNOLOGY_CATEGORY_ID
           FROM TECHNOLOGY_CATEGORY A
-         WHERE A.IS_DELETED = 'N' AND A.REF_TECHNOLOGY_CATEGORY_ID = #{refTechnologyCategoryId}
+         WHERE A.IS_DELETED = 'N'
+           AND A.REF_TECHNOLOGY_CATEGORY_ID = #{refTechnologyCategoryId}
          ORDER BY 1
     </select>
 
@@ -144,7 +150,8 @@
              , A.IS_DELETED
              , A.REF_TECHNOLOGY_CATEGORY_ID
           FROM TECHNOLOGY_CATEGORY A
-         WHERE A.IS_DELETED = 'N' AND A.REF_TECHNOLOGY_CATEGORY_ID IS NULL
+         WHERE A.IS_DELETED = 'N'
+           AND A.REF_TECHNOLOGY_CATEGORY_ID IS NULL
          ORDER BY 1
     </select>
 </mapper>
