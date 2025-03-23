@@ -1,5 +1,6 @@
 package com.nob.pick.project.query.dao;
 
+import com.nob.pick.project.query.aggregate.ProjectRoom;
 import com.nob.pick.project.query.dto.ProjectRoomDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -7,11 +8,15 @@ import java.util.List;
 
 @Mapper
 public interface ProjectRoomMapper {
-    List<ProjectRoomDTO> selectFinishedProjects();
+    List<ProjectRoom> selectFinishedProjects();
 
-    List<ProjectRoomDTO> selectActiveProjects();
+    List<ProjectRoom> selectActiveProjects();
 
-    List<ProjectRoomDTO> selectDeletedProjects();
+    List<ProjectRoom> selectDeletedProjects();
 
-    List<ProjectRoomDTO> selectMatchingProjects();
+    List<ProjectRoom> selectMatchingProjects();
+
+    ProjectRoom selectFinishedProjectDetail(int projectId);
+
+    List<ProjectRoom> selectAllProjects();
 }

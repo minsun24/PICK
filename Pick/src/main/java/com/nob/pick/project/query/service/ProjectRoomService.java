@@ -5,6 +5,8 @@ import com.nob.pick.project.query.dto.ProjectRoomDTO;
 import java.util.List;
 
 public interface ProjectRoomService {
+    List<ProjectRoomDTO> getAllProjects();
+
     List<ProjectRoomDTO> getFinishedProjects();
 
     List<ProjectRoomDTO> getActiveProjects();
@@ -12,4 +14,8 @@ public interface ProjectRoomService {
     List<ProjectRoomDTO> getDeletedProjects();
 
     List<ProjectRoomDTO> getmatchingProjects();
+
+    ProjectRoomDTO getFinishedProjectDetail(int projectId);
+
+
 }

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nob.pick.project.query.dao.ProjectRoomMapper">
-        <resultMap id="projectRoomResultMap" type="com.nob.pick.project.query.dto.ProjectRoomDTO">
+        <resultMap id="projectRoomResultMap" type="com.nob.pick.project.query.aggregate.ProjectRoom">
             <id property="id" column="ID"/>
             <result property="name" column="NAME"/>
             <result property="content" column="CONTENT"/>
@@ -18,11 +18,35 @@
             <result property="thumbnailImage" column="THUMBNAIL_IMAGE"/>
             <result property="introduction" column="INTRODUCTION"/>
             <result property="projectUrl" column="PROJECT_URL"/>
+            <association property="technologyCategory" javaType="com.nob.pick.project.query.aggregate.TechnologyCategory">
+                <id property="id" column="TECHNOLOGY_CATEGORY_ID"/>
+                <result property="name" column="TECHNOLOGY_CATEGORY_NAME"/>
+            </association>
         </resultMap>
 
-    <!-- 매칭방 프로젝트 상세 페이지 조회  -->
-    <select id="selectProjectDetail" resultMap="projectRoomResultMap" >
-<!--            parameterType="_int"-->
+    <!-- 프로젝트 상세 페이지 조회 -->
+    <select id="selectFinishedProjectDetail" parameterType="_int" resultMap="projectRoomResultMap">
+        SELECT
+              PR.ID
+            , PR.NAME
+            , PR.CONTENT
+            , PR.DURATION_TIME
+            , PR.MAXIMUM_PARTICIPANT
+            , PR.START_DATE
+            , PR.END_DATE
+            , PR.INTRODUCTION
+            , PR.THUMBNAIL_IMAGE
+            , PR.PROJECT_URL
+            , PR.TECHNOLOGY_ID
+        FROM PROJECT_ROOM PR
+            WHERE
+        PR.ID = #{projectId}
+        AND PR.IS_FINISHED = 'Y'
+        AND PR.IS_DELETED = 'N'
+    </select>
+
+    <!--  프로젝트 목록 전체 조회  -->
+    <select id="selectAllProjects" resultMap="projectRoomResultMap">
         SELECT
               PR.ID
             , PR.NAME
@@ -34,11 +58,11 @@
             , PR.SESSION_CODE
             , PR.START_DATE
             , PR.END_DATE
-            , PR.INTRODUCTION
+            , PR.TECHNOLOGY_CATEGORY_ID
             , PR.THUMBNAIL_IMAGE
+            , PR.INTRODUCTION
             , PR.PROJECT_URL
         FROM PROJECT_ROOM PR
-            WHERE PR.ID = #{id}
     </select>
 
     <!-- 완료된 프로젝트 목록 조회 -->
