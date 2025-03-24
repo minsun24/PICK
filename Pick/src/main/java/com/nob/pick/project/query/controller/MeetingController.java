@@ -63,9 +63,7 @@ public class MeetingController {
 					.status(HttpStatus.FORBIDDEN)
 					.body("프로젝트에 참여한 팀원만 조회할 수 있습니다.");
 		}
-
-		MeetingDTO meetnigDetail = meetingService.getMeetingsByMeetingId(meetingId);
-		return ResponseEntity.ok(meetnigDetail);
+		return ResponseEntity.ok(meetingService.getMeetingsByMeetingId(meetingId));
 	}
 
 }

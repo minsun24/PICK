@@ -27,24 +27,23 @@
     <!-- 프로젝트 목록 전체 조회 -->
     <select id="selectAllProjects" resultMap="projectRoomResultMap">
         SELECT
-            PR.ID,
-            PR.NAME,
-            PR.CONTENT,
-            PR.IS_FINISHED,
-            PR.IS_DELETED,
-            PR.DURATION_TIME,
-            PR.MAXIMUM_PARTICIPANT,
-            PR.SESSION_CODE,
-            PR.START_DATE,
-            PR.END_DATE,
-            PR.THUMBNAIL_IMAGE,
-            PR.INTRODUCTION,
-            PR.PROJECT_URL,
-            TC.ID AS TECHNOLOGY_CATEGORY_ID,
-            TC.NAME AS TECHNOLOGY_CATEGORY_NAME
-        FROM PROJECT_ROOM PR
-            JOIN TECHNOLOGY_CATEGORY TC
-                ON PR.TECHNOLOGY_CATEGORY_ID = TC.ID
+               PR.ID
+             , PR.NAME
+             , PR.CONTENT
+             , PR.IS_FINISHED
+             , PR.IS_DELETED
+             , PR.DURATION_TIME
+             , PR.MAXIMUM_PARTICIPANT
+             , PR.SESSION_CODE
+             , PR.START_DATE
+             , PR.END_DATE
+             , PR.THUMBNAIL_IMAGE
+             , PR.INTRODUCTION
+             , PR.PROJECT_URL
+             , TC.ID AS TECHNOLOGY_CATEGORY_ID
+             , TC.NAME AS TECHNOLOGY_CATEGORY_NAME
+          FROM PROJECT_ROOM PR
+          JOIN TECHNOLOGY_CATEGORY TC ON PR.TECHNOLOGY_CATEGORY_ID = TC.ID
     </select>
 
     <!-- 완료된 프로젝트 목록 조회 -->

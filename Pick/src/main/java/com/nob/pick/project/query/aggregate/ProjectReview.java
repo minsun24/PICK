@@ -1,6 +1,5 @@
 package com.nob.pick.project.query.aggregate;
 
-
 import lombok.Getter;
 import lombok.ToString;
 
@@ -13,3 +12,4 @@ public class ProjectReview {
 
     private int projectRoomId;
 }
+

@@ -27,14 +27,14 @@
     <!--  특정 프로젝트 팀원 전체 조회  -->
     <select id="selectParticipantsByProjectRoomId" resultMap="participantResultMap">
         SELECT
-            P.ID AS PARTICIPANT_ID,
-            P.IS_MANAGER,
-            P.PROJECT_ROOM_ID,
-            M.ID AS MEMBER_ID,
-            M.NAME AS MEMBER_NAME,
-            M.NICKNAME AS MEMBER_NICKNAME
-        FROM PARTICIPANT P
-            JOIN MEMBER M ON P.MEMBER_ID = M.ID
-        WHERE P.PROJECT_ROOM_ID = #{projectRoomId}
+               P.ID AS PARTICIPANT_ID,
+               P.IS_MANAGER,
+               P.PROJECT_ROOM_ID,
+               M.ID AS MEMBER_ID,
+               M.NAME AS MEMBER_NAME,
+               M.NICKNAME AS MEMBER_NICKNAME
+          FROM PARTICIPANT P
+          JOIN MEMBER M ON P.MEMBER_ID = M.ID
+         WHERE P.PROJECT_ROOM_ID = #{projectRoomId}
     </select>
 </mapper>

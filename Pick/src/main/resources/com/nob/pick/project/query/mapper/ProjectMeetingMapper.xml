@@ -22,27 +22,27 @@
 
     <select id="selectMeetingByMeetingId" parameterType="_int" resultMap="meetingResultMap">
         SELECT
-            PM.ID,
-            PM.TITLE,
-            PM.CONTENT,
-            PM.UPLOAD_TIME,
-            PM.UPDATE_TIME,
-            PM.AUTHOR_ID,
-            PM.PROJECT_ROOM_ID
-        FROM PROJECT_MEETING PM
-        WHERE PM.ID = #{meetingId}
-        ORDER BY PM.UPLOAD_TIME DESC
+               PM.ID
+             , PM.TITLE
+             , PM.CONTENT
+             , PM.UPLOAD_TIME
+             , PM.UPDATE_TIME
+             , PM.AUTHOR_ID
+             , PM.PROJECT_ROOM_ID
+          FROM PROJECT_MEETING PM
+         WHERE PM.ID = #{meetingId}
+         ORDER BY PM.UPLOAD_TIME DESC
     </select>
 
     <select id="selectMeetingsByProjectId" parameterType="_int" resultMap="meetingResultMap">
         SELECT
-            PM.ID,
-            PM.TITLE,
-            PM.CONTENT,
-            PM.UPLOAD_TIME,
-            PM.UPDATE_TIME,
-            PM.AUTHOR_ID,
-            PM.PROJECT_ROOM_ID
+               PM.ID
+             , PM.TITLE
+             , PM.CONTENT
+             , PM.UPLOAD_TIME
+             , PM.UPDATE_TIME
+             , PM.AUTHOR_ID
+             , PM.PROJECT_ROOM_ID
         FROM PROJECT_MEETING PM
         WHERE PM.PROJECT_ROOM_ID = #{projectId}
         ORDER BY PM.UPLOAD_TIME DESC
@@ -51,8 +51,8 @@
 
     <select id="selectImagesByMeetingId" parameterType="_int" resultMap="meetingImageResultMap">
         SELECT *
-        FROM PROJECT_MEETING_IMAGE
-        WHERE MEETING_ID = #{meetingId}
+          FROM PROJECT_MEETING_IMAGE
+         WHERE MEETING_ID = #{meetingId}
     </select>
 </mapper>
 

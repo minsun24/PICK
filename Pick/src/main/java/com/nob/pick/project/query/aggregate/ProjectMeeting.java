@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+
 @Getter
 @ToString
 public class ProjectMeeting {

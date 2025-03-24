@@ -1,6 +1,5 @@
 package com.nob.pick.project.query.controller;
 
-import com.nob.pick.project.query.mapper.ParticipantMapper;
 import com.nob.pick.project.query.dto.MeetingDTO;
 import com.nob.pick.project.query.dto.ParticipantDTO;
 import com.nob.pick.project.query.dto.ProjectRoomDTO;
