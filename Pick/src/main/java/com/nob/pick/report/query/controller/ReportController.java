@@ -24,13 +24,13 @@ public class ReportController {
         this.reportService = reportService;
     }
 
-    @GetMapping("/select")
+    @GetMapping("/reports")
     public ResponseEntity<List<ReportDTO>> getAllReports() {
         List<ReportDTO> reports = reportService.findAllReports();
        return ResponseEntity.ok(reports);
     }
 
-    @GetMapping("/select/{memberId}")
+    @GetMapping("/reports/{memberId}")
     public ResponseEntity<List<ReportDTO>> getReportByUser(@PathVariable int memberId) {
         log.info("memberId: " + memberId);
 
