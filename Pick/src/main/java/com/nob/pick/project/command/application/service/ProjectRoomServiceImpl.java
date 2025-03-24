@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nob.pick.project.command.application.dto.ParticipantDTO;
-import com.nob.pick.project.command.application.dto.ProjectRoomDTO;
+import com.nob.pick.member.command.entity.Member;
+import com.nob.pick.member.command.repository.MemberRepository;
 import com.nob.pick.project.command.application.dto.RequestParticipantDTO;
 import com.nob.pick.project.command.application.dto.RequestProjectRoomDTO;
 import com.nob.pick.project.command.domain.aggregate.entity.Participant;
@@ -24,12 +24,14 @@ import lombok.extern.slf4j.Slf4j;
 public class ProjectRoomServiceImpl implements ProjectRoomService {
 	private final ProjectRoomRepository projectRoomRepository;
 	private final ParticipantRepository participantRepository;
+	private final MemberRepository memberRepository;
 
 	@Autowired
 	public ProjectRoomServiceImpl(ProjectRoomRepository projectRoomRepository,
-		ParticipantRepository participantRepository) {
+		ParticipantRepository participantRepository, MemberRepository memberRepository) {
 		this.projectRoomRepository = projectRoomRepository;
 		this.participantRepository = participantRepository;
+		this.memberRepository = memberRepository;
 	}
 
 	// 자율 매칭 방 생성
@@ -67,25 +69,35 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		// 확인
 		log.info("Project Room 생성 완료! ID: {}", savedProjectRoom.getId());
 		//
-		// 팀원 INSERT (roomId 활용 가능)
-		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom.getId());
+		// 팀원 INSERT
+		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom);
+
+	}
+
+	@Override
+	public void createMatchingProject(RequestProjectRoomDTO newProjectRoom) {
+
 
 	}
 
 	// 생성된 프로젝트 팀원 등록
-	private void insertParticipants(List<RequestParticipantDTO> participantList, int projectRoomId) {
+	private void insertParticipants(List<RequestParticipantDTO> participantList, ProjectRoom projectRoom) {
 		for(RequestParticipantDTO participant : participantList) {
+
+			// Member 엔티티 가져오기
+			Member newMember = memberRepository.findById((long)participant.getId())
+				.orElseThrow(() -> new IllegalArgumentException("해당 멤버가 존재하지 않습니다. id=" + participant.getId()));
+
 			Participant newParticipant = Participant.builder()
-				.memberId(participant.getId())
-				.projectRoomId(projectRoomId)
+				.member(newMember)
+				.projectRoom(projectRoom)
 				.isManager(participant.isManager())
 				.build();
 
-			log.info("newParticipant : {}",  newParticipant.getMemberId());
+			log.info("newParticipant : {}",  newParticipant.getMember());
 
 			Participant savedParticipant = participantRepository.save(newParticipant);
 
-			// 확인
 			log.info("팀원 객체 생성 완료! : {}", savedParticipant);
 		}
 

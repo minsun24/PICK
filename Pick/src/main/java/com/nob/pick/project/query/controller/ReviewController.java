@@ -42,7 +42,7 @@ public class ReviewController {
 
     }
 
-    @GetMapping("/project/{projectId}/MemberReviews")
+    @GetMapping("/project/{projectId}/memberReviews")
     public ResponseEntity<?> getMemberReviews(@PathVariable("projectId") int projectId,
                                                @RequestParam("memberId") int memberId) {
         log.info("프로젝트 후기 목록 조회: projectId={}, memberId={}", projectId, memberId);

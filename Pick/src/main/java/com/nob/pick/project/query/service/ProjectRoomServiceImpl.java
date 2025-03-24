@@ -50,7 +50,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
     }
 
     @Override
-    public List<ProjectRoomDTO> getmatchingProjects() {
+    public List<ProjectRoomDTO> getMatchingProjects() {
         List<ProjectRoom> projectRoomList = projectRoomMapper.selectMatchingProjects();
 
         return projectRoomToDTO(projectRoomList);

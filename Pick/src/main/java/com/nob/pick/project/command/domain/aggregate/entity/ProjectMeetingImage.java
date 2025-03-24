@@ -5,9 +5,12 @@ import com.nob.pick.common.config.convertor.BooleanToYNConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,6 +39,7 @@ public class ProjectMeetingImage {
 	@Convert(converter = BooleanToYNConverter.class)
 	private boolean isThumbnail;
 
-	@Column(name = "meeting_id", nullable = false)
-	private int meetingId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "meeting_id", nullable = false)
+	private ProjectMeeting meeting;
 }

@@ -19,25 +19,31 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/project")
 public class ProjectRoomController {
 	private final ProjectRoomServiceImpl projectRoomService;
-	private final ParticipantServiceImpl participantService;
 
 	@Autowired
-	public ProjectRoomController(ProjectRoomServiceImpl projectRoomService, ParticipantServiceImpl participantService) {
+	public ProjectRoomController(ProjectRoomServiceImpl projectRoomService) {
 		this.projectRoomService = projectRoomService;
-		this.participantService = participantService;
 	}
 
 	// 자동 매칭 프로젝트 방 생성
-	// @PostMapping()
 	/*  자동 매칭 방 생성 로직
-	* 	매칭 완료 시 방 생성 api 
-	* 	세션 코드 없음.
-	* 	팀원 맵핑 필요.
-	* */
-	
+	 * 	매칭 완료 시 방 생성 api
+	 * 	세션 코드 없음.
+	 * 	팀원 맵핑 필요.
+	 * */
+	@PostMapping("/matching")
+	public ResponseEntity<?> registMathingProjectRoom(@RequestBody RequestProjectRoomDTO newProjectRoom) {
+		// 세션 코드 없음
+		log.info("registNonMatchingProjgectRoom - 새로운 프로젝트 이름: {}", newProjectRoom.getName());
+
+		projectRoomService.createMatchingProject(newProjectRoom);
+		return ResponseEntity.ok().build();
+	}
+
 	//  자율 매칭 프로젝트 방 생성
 	@PostMapping("/nonMatching")
-	public ResponseEntity<?> registNonMatchingProjgectRoom(@RequestBody RequestProjectRoomDTO newProjectRoom){
+	public ResponseEntity<?> registNonMatchingProjgectRoom(@RequestBody RequestProjectRoomDTO newProjectRoom) {
+
 		log.info("registNonMatchingProjgectRoom - 새로운 프로젝트 이름: {}", newProjectRoom.getName());
 
 		projectRoomService.createNonMatchingProject(newProjectRoom);

@@ -84,7 +84,7 @@ public class ProjectRoomController {
     // 팀원 모집 중인 프로젝트 목록 조회
     @GetMapping("/matchingProjects")
     public ResponseEntity<List<ResponseProjectVO>> getMatchingProjects() {
-        List<ProjectRoomDTO> dtoProjects = projectRoomService.getmatchingProjects();
+        List<ProjectRoomDTO> dtoProjects = projectRoomService.getMatchingProjects();
         List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
 
         return ResponseEntity.ok().body(result);

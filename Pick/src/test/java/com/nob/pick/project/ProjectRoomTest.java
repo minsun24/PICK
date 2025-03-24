@@ -28,7 +28,7 @@ public class ProjectRoomTest {
     @Test
     @DisplayName("팀원 모집 중인 프로젝트 목록 조회")
     public void selectMatchingProjects() {
-        List<ProjectRoomDTO> matchingProjects = projectRoomService.getmatchingProjects();
+        List<ProjectRoomDTO> matchingProjects = projectRoomService.getMatchingProjects();
         if(matchingProjects.size() > 0) {
             matchingProjects.forEach(System.out::println);
         }else{

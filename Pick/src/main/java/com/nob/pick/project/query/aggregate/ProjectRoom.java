@@ -23,5 +23,5 @@ public class ProjectRoom {
     private String introduction;           // 프로젝트 한 줄 소개
     private String projectUrl;             // 프로젝트 링크
 
-    private TechnologyCategory mainTechnologyCategory;     // 프로젝트 기술 분류 ID
+    private TechnologyCategory technologyCategory;   // 프로젝트 기술 분류 ID
 }
