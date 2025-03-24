@@ -11,4 +11,6 @@ public interface ReportService {
     List<ReportDTO> findReportsByMemberId(int memberId);
 
     List<ReportDTO> findReportsByStatus(int status);
+
+    List<ReportDTO> findReportsByDeletion(boolean isDeleted);
 }

@@ -13,4 +13,6 @@ public interface ReportMapper {
     List<ReportDTO> selectReportsByMemberId(int memberId);
 
     List<ReportDTO> selectReportsByStatus(int status);
+
+    List<ReportDTO> selectReportsByDeletion(boolean isDeleted);
 }

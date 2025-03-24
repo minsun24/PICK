@@ -34,4 +34,9 @@ public class ReportServiceImpl implements ReportService {
     public List<ReportDTO> findReportsByStatus(int status) {
         return reportMapper.selectReportsByStatus(status);
     }
+
+    @Override
+    public List<ReportDTO> findReportsByDeletion(boolean isDeleted) {
+        return reportMapper.selectReportsByDeletion(isDeleted);
+    }
 }

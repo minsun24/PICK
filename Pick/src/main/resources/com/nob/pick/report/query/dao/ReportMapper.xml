@@ -94,4 +94,23 @@
          WHERE R.STATUS = #{statusNum}
     </select>
 
+    <!-- 삭제 여부에 따른 신고 목록 조회 -->
+    <select id="selectReportsByDeletion" parameterType="_boolean" resultMap="reportResultMap">
+        SELECT
+               R.ID
+             , R.REPORTED_AT
+             , R.STATUS
+             , R.CATEGORY
+             , R.REPORTED_ID
+             , R.IS_DELETED
+             , R.REPORT_REASON_ID
+             , R.MEMBER_ID
+          FROM REPORT R
+         WHERE is_deleted =
+        <choose>
+            <when test="isDeleted"> "Y" </when>
+            <otherwise> "N" </otherwise>
+        </choose>
+    </select>
+
 </mapper>
