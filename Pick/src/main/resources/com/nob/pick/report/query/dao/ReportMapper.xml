@@ -106,7 +106,7 @@
              , R.REPORT_REASON_ID
              , R.MEMBER_ID
           FROM REPORT R
-         WHERE is_deleted =
+         WHERE R.IS_DELETED =
         <choose>
             <when test="isDeleted"> "Y" </when>
             <otherwise> "N" </otherwise>
