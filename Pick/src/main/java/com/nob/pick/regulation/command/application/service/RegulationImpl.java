@@ -5,10 +5,7 @@ import com.nob.pick.regulation.command.domain.aggregate.Regulation;
 import com.nob.pick.regulation.command.domain.repository.RegulationRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Service("CommandRegulationService")
 public class RegulationImpl implements RegulationService {
@@ -45,5 +42,14 @@ public class RegulationImpl implements RegulationService {
             case 2 -> LocalDate.of(9999, 12, 31); // 영구정지
             default -> throw new IllegalArgumentException("유효하지 않은 제재 단계입니다.");
         };
+    }
+
+
+    @Override
+    @Transactional
+    public void deleteRegulation(int id) {
+        Regulation foundRegulation = regulationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(id + " 규제 내역이 없습니다."));
+        foundRegulation.markAsDeleted();
     }
 }

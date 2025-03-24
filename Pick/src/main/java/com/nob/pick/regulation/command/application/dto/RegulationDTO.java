@@ -1,9 +1,7 @@
 package com.nob.pick.regulation.command.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
