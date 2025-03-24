@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface RegulationMapper {
     List<RegulationDTO> selectAllRegulations();
+
+    List<RegulationDTO> selectRegulationsByMemberId(int memberId);
 }

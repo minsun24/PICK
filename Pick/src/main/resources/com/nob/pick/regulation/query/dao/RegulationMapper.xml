@@ -24,4 +24,20 @@
              , RG.MEMBER_ID
           FROM REGULATION RG
     </select>
+
+
+    <!--                   특정 회원 규제 목록 조회                    -->
+    <select id="selectRegulationsByMemberId" parameterType="_int" resultMap="regulationResultMap">
+        SELECT
+             RG.ID
+           , RG.START_DATE
+           , RG.END_DATE
+           , RG.IS_DELETED
+           , RG.MEMBER_ID
+        FROM REGULATION RG
+       WHERE RG.MEMBER_ID = #{memberId}
+    </select>
+
+
+
 </mapper>

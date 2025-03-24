@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RegulationService {
     List<RegulationDTO> findAllRegulations();
+
+    List<RegulationDTO> findRegulationByMemberId(int memberId);
 }

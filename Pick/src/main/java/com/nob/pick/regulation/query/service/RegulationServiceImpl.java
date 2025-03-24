@@ -21,4 +21,9 @@ public class RegulationServiceImpl implements RegulationService {
     public List<RegulationDTO> findAllRegulations() {
         return regulationMapper.selectAllRegulations();
     }
+
+    @Override
+    public List<RegulationDTO> findRegulationByMemberId(int memberId) {
+        return regulationMapper.selectRegulationsByMemberId(memberId);
+    }
 }
