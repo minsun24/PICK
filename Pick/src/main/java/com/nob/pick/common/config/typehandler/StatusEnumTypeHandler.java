@@ -1,4 +1,4 @@
-package com.nob.pick.common.typehandler;
+package com.nob.pick.common.config.typehandler;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
