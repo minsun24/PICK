@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController("QueryMeetingController")
 @Slf4j
 @RequestMapping("/project")
 public class MeetingController {

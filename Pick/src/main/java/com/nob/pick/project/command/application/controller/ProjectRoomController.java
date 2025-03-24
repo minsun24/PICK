@@ -1,0 +1,49 @@
+package com.nob.pick.project.command.application.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nob.pick.project.command.application.service.ParticipantServiceImpl;
+import com.nob.pick.project.command.application.service.ProjectRoomServiceImpl;
+import com.nob.pick.project.command.application.dto.RequestProjectRoomDTO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestController("CommandProjectRoomController")
+@Slf4j
+@RequestMapping("/project")
+public class ProjectRoomController {
+	private final ProjectRoomServiceImpl projectRoomService;
+	private final ParticipantServiceImpl participantService;
+
+	@Autowired
+	public ProjectRoomController(ProjectRoomServiceImpl projectRoomService, ParticipantServiceImpl participantService) {
+		this.projectRoomService = projectRoomService;
+		this.participantService = participantService;
+	}
+
+	// 자동 매칭 프로젝트 방 생성
+	// @PostMapping()
+	/*  자동 매칭 방 생성 로직
+	* 	매칭 완료 시 방 생성 api 
+	* 	세션 코드 없음.
+	* 	팀원 맵핑 필요.
+	* */
+	
+	//  자율 매칭 프로젝트 방 생성
+	@PostMapping("/nonMatching")
+	public ResponseEntity<?> registNonMatchingProjgectRoom(@RequestBody RequestProjectRoomDTO newProjectRoom){
+		log.info("registNonMatchingProjgectRoom - 새로운 프로젝트 이름: {}", newProjectRoom.getName());
+
+		projectRoomService.createNonMatchingProject(newProjectRoom);
+		return ResponseEntity.ok().build();
+	}
+
+}
+
+

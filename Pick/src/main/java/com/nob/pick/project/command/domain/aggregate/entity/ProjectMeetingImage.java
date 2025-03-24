@@ -1,4 +1,4 @@
-package com.nob.pick.project.command.domain.aggregate;
+package com.nob.pick.project.command.domain.aggregate.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,25 +13,25 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString
 @Entity
-@Table(name="project_review")
-public class ProjectReview {
+@Table(name="project_meeting_image")
+public class ProjectMeetingImage {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id", nullable=false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name="content", nullable=false)
-	private String content;
+	@Column(name = "path", nullable = false)
+	private String path;
 
-	@Column(name="reviewer_id", nullable=false)
-	private int reviewerId;
+	@Column(name = "is_thumbnail", nullable = false)
+	private boolean isThumbnail;
 
-	@Column(name="project_room_id" , nullable=false)
-	private int projectRoomId;
+	@Column(name = "meeting_id", nullable = false)
+	private int meetingId;
 }

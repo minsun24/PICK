@@ -1,4 +1,4 @@
-package com.nob.pick.project.command.domain.aggregate;
+package com.nob.pick.project.command.domain.aggregate.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
