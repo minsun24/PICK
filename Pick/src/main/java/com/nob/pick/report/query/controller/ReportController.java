@@ -24,13 +24,15 @@ public class ReportController {
         this.reportService = reportService;
     }
 
-    @GetMapping("/reports")
+    // 전체 신고 목록 조회
+    @GetMapping()
     public ResponseEntity<List<ReportDTO>> getAllReports() {
         List<ReportDTO> reports = reportService.findAllReports();
        return ResponseEntity.ok(reports);
     }
 
-    @GetMapping("/reports/{memberId}")
+    // 특정 회원이 받은 신고 내역 조회
+    @GetMapping("/{memberId}")
     public ResponseEntity<List<ReportDTO>> getReportByUser(@PathVariable int memberId) {
         log.info("memberId: " + memberId);
 
