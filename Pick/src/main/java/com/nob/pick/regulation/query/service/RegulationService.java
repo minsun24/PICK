@@ -8,4 +8,6 @@ public interface RegulationService {
     List<RegulationDTO> findAllRegulations();
 
     List<RegulationDTO> findRegulationByMemberId(int memberId);
+
+    List<RegulationDTO> findRegulationsByDeletion(boolean isDeleted);
 }

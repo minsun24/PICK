@@ -39,5 +39,23 @@
     </select>
 
 
+    <!--          삭제 여부에 따른 규제 목록 조회        -->
+    <select id="selectRegulationsByDeletion" parameterType="_boolean" resultMap="regulationResultMap">
+        SELECT
+               RG.ID
+             , RG.START_DATE
+             , RG.END_DATE
+             , RG.IS_DELETED
+             , RG.MEMBER_ID
+             , RG.IS_DELETED
+          FROM REGULATION RG
+         WHERE RG.IS_DELETED =
+        <choose>
+            <when test="isDeleted"> "Y" </when>
+            <otherwise> "N" </otherwise>
+        </choose>
+    </select>
+
+
 
 </mapper>

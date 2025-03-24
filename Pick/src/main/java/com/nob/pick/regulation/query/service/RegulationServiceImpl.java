@@ -26,4 +26,9 @@ public class RegulationServiceImpl implements RegulationService {
     public List<RegulationDTO> findRegulationByMemberId(int memberId) {
         return regulationMapper.selectRegulationsByMemberId(memberId);
     }
+
+    @Override
+    public List<RegulationDTO> findRegulationsByDeletion(boolean isDeleted) {
+        return regulationMapper.selectRegulationsByDeletion(isDeleted);
+    }
 }

@@ -10,4 +10,6 @@ public interface RegulationMapper {
     List<RegulationDTO> selectAllRegulations();
 
     List<RegulationDTO> selectRegulationsByMemberId(int memberId);
+
+    List<RegulationDTO> selectRegulationsByDeletion(boolean isDeleted);
 }
