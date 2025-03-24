@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class ParticipantServiceImpl implements ParticipantService {
-    private ParticipantMapper participantMapper;
+    private final ParticipantMapper participantMapper;
 
     @Autowired
     public ParticipantServiceImpl(ParticipantMapper participantMapper) {
@@ -26,8 +26,7 @@ public class ParticipantServiceImpl implements ParticipantService {
 
     @Override
     public List<ParticipantDTO> getParticipantsByProjectId(int projectId) {
-        List<ParticipantDTO> participants = participantMapper.selectParticipantsByProjectRoomId(projectId);
-        return participants;
+		return participantMapper.selectParticipantsByProjectRoomId(projectId);
     }
 
 

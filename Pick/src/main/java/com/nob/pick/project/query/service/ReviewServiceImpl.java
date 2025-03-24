@@ -19,13 +19,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<ProjectReview> getProjectReviews(int projectId) {
-        List<ProjectReview> reviewList = reviewMapper.selectProjectReviewList(projectId);
-        return reviewList;
+        return reviewMapper.selectProjectReviewList(projectId);
     }
 
     @Override
     public List<MemberReview> getMemberReviews(int projectId) {
-        List<MemberReview> reviewList = reviewMapper.selectMemberReviewList(projectId);
-        return reviewList;
+        return reviewMapper.selectMemberReviewList(projectId);
     }
 }

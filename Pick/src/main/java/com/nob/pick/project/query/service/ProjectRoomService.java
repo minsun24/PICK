@@ -1,8 +1,6 @@
 package com.nob.pick.project.query.service;
 
-import com.nob.pick.project.query.dto.ParticipantDTO;
 import com.nob.pick.project.query.dto.ProjectRoomDTO;
-import com.nob.pick.project.query.vo.ResponseParticipantVO;
 
 import java.util.List;
 

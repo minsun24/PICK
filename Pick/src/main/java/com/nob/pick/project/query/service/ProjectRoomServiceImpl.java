@@ -1,10 +1,8 @@
 package com.nob.pick.project.query.service;
 
 import com.nob.pick.project.query.aggregate.ProjectRoom;
-import com.nob.pick.project.query.mapper.ParticipantMapper;
 import com.nob.pick.project.query.mapper.ProjectRoomMapper;
 import com.nob.pick.project.query.dto.ProjectRoomDTO;
-import jakarta.transaction.Transactional;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +14,10 @@ import java.util.List;
 public class ProjectRoomServiceImpl implements ProjectRoomService {
 
     private final ProjectRoomMapper projectRoomMapper;
-    private final ParticipantMapper participantMapper;
 
     @Autowired
-    public ProjectRoomServiceImpl(ProjectRoomMapper projectRoomMapper, ParticipantMapper participantMapper) {
+    public ProjectRoomServiceImpl(ProjectRoomMapper projectRoomMapper) {
         this.projectRoomMapper = projectRoomMapper;
-        this.participantMapper = participantMapper;
     }
 
     @Override
@@ -32,7 +28,6 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
     }
 
     @Override
-    @Transactional
     public List<ProjectRoomDTO> getFinishedProjects() {
         List<ProjectRoom> projectRoomList = projectRoomMapper.selectFinishedProjects();
 
@@ -41,7 +36,6 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 
     @Override
-    @Transactional
     public List<ProjectRoomDTO> getActiveProjects() {
         List<ProjectRoom> projectRoomList = projectRoomMapper.selectActiveProjects();
 

@@ -1,6 +1,5 @@
 package com.nob.pick.project.query.service;
 
-import com.nob.pick.member.query.service.MemberService;
 import com.nob.pick.project.query.aggregate.ProjectMeeting;
 import com.nob.pick.project.query.aggregate.ProjectMeetingImage;
 import com.nob.pick.project.query.mapper.ProjectMeetingMapper;
@@ -14,14 +13,10 @@ import java.util.List;
 @Service
 public class MeetingServiceImpl implements MeetingService {
     private final ProjectMeetingMapper meetingMapper;
-    private final ParticipantService participantService;
-    private final MemberService memberService;
 
     @Autowired
-    public MeetingServiceImpl(ProjectMeetingMapper meetingMapper, ParticipantService participantService, MemberService memberService) {
+    public MeetingServiceImpl(ProjectMeetingMapper meetingMapper) {
         this.meetingMapper = meetingMapper;
-        this.participantService = participantService;
-        this.memberService = memberService;
     }
 
     @Override
@@ -59,7 +54,6 @@ public class MeetingServiceImpl implements MeetingService {
         for(ProjectMeeting meeting : meetingList) {
             MeetingDTO dto = new MeetingDTO();
             List<ProjectMeetingImage> meetingImages = meetingMapper.selectImagesByMeetingId(meeting.getId());
-
 //            String authorName = memberService.findMemberInfoById(meeting.getAuthorId()).getName();
 
             dto.setId(meeting.getId());

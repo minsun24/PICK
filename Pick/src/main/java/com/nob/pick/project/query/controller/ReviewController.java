@@ -4,8 +4,6 @@ import com.nob.pick.project.query.aggregate.MemberReview;
 import com.nob.pick.project.query.aggregate.ProjectReview;
 import com.nob.pick.project.query.service.ParticipantService;
 import com.nob.pick.project.query.service.ReviewService;
-import com.nob.pick.project.query.vo.RequestEnterProject;
-import com.nob.pick.project.query.vo.ResponseProjectReviewVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,6 +57,5 @@ public class ReviewController {
         return ResponseEntity.ok(projectReviewList);
 
     }
-
 
 }

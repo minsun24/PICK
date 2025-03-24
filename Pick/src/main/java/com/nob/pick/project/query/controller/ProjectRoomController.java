@@ -23,14 +23,14 @@ import java.util.List;
 @RequestMapping("/project")
 public class ProjectRoomController {
     private final ProjectRoomService projectRoomService;
-    private final ParticipantMapper participantMapper;
     private final ParticipantService participantService;
     private final MeetingService meetingService;
 
     @Autowired
-    public ProjectRoomController(ProjectRoomService projectRoomService, ParticipantMapper participantMapper, ParticipantService participantService, MeetingService meetingService) {
+    public ProjectRoomController(ProjectRoomService projectRoomService,
+                                 ParticipantService participantService,
+                                 MeetingService meetingService) {
         this.projectRoomService = projectRoomService;
-        this.participantMapper = participantMapper;
         this.participantService = participantService;
         this.meetingService = meetingService;
     }
@@ -59,8 +59,6 @@ public class ProjectRoomController {
         return ResponseEntity.ok(result);
     }
 
-
-
     // 완료된 프로젝트 목록 전체 조회
     @GetMapping("/finishedProjects")
     public ResponseEntity<List<ResponseProjectVO>> getFinishedProjects() {
@@ -69,7 +67,6 @@ public class ProjectRoomController {
 
         return ResponseEntity.ok().body(result);
     }
-
 
     // 완료된 프로젝트 목록 상세 조회
     @GetMapping("/finishedProjects/{projectId}")
@@ -84,8 +81,6 @@ public class ProjectRoomController {
 
         return ResponseEntity.ok().body(result);
     }
-
-
 
     // 팀원 모집 중인 프로젝트 목록 조회
     @GetMapping("/matchingProjects")
@@ -136,6 +131,16 @@ public class ProjectRoomController {
         // 회의록 정보 가져오기
         List<MeetingDTO> meetingList = meetingService.getMeetingsByProjectId(projectId);
 
+        ResponseActiveProjectRoomVO enteredProject = getResponseActiveProjectRoomVO(projectRoom,
+            participantVOList, meetingList);
+
+        log.info("프로젝트 방 입장 성공 memberId={}, projectId={}", request.getMemberId(), projectId);
+
+        return ResponseEntity.ok(enteredProject);
+    }
+
+    private ResponseActiveProjectRoomVO getResponseActiveProjectRoomVO(ProjectRoomDTO projectRoom,
+        List<ResponseParticipantVO> participantVOList, List<MeetingDTO> meetingList) {
         ResponseActiveProjectRoomVO enteredProject = new ResponseActiveProjectRoomVO();
 
         enteredProject.setId(projectRoom.getId());
@@ -158,16 +163,8 @@ public class ProjectRoomController {
         enteredProject.setTechnologyCategoryName(projectRoom.getTechnologyCategoryName());
 
         enteredProject.setMeetingNotes(meetingList);
-
-
-        log.info("프로젝트 방 입장 성공 memberId={}, projectId={}", request.getMemberId(), projectId);
-
-        return ResponseEntity.ok(enteredProject);
+        return enteredProject;
     }
-
-
-
-
 
     // 삭제된 프로젝트 목록 조회
     @GetMapping("/deletedProjects")
