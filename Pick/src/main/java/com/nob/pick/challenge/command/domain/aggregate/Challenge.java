@@ -28,4 +28,8 @@ public class Challenge {
 
 	@Column(name = "name", nullable = false)
 	private String name;
+
+	public Challenge(String name) {
+		this.name = name;
+	}
 }
