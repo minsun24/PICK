@@ -24,6 +24,7 @@ public class RegulationController {
         this.regulationService = regulationService;
     }
 
+    // 모든 규제 목록 조회
     @GetMapping("/all")
     public ResponseEntity<List<RegulationDTO>> getAllRegulations() {
         List<RegulationDTO> regulations = regulationService.findAllRegulations();
@@ -31,9 +32,12 @@ public class RegulationController {
 
     }
 
+    // 특정 회원 규제 목록 조회
     @GetMapping("/{memberId}")
     public ResponseEntity<List<RegulationDTO>> getRegulationByMember(@PathVariable int memberId) {
         List<RegulationDTO> regulations = regulationService.findRegulationByMemberId(memberId);
         return ResponseEntity.ok(regulations);
     }
+    
+    
 }
