@@ -1,6 +1,9 @@
 package com.nob.pick.project.command.domain.aggregate.entity;
 
+import com.nob.pick.common.config.convertor.BooleanToYNConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +27,7 @@ public class Participant {
 
 	@Column(name="is_manager", nullable = false)
 	@Builder.Default
+	@Convert(converter = BooleanToYNConverter.class)
 	private boolean isManager = false;
 
 	@Column(name="member_id", nullable = false)

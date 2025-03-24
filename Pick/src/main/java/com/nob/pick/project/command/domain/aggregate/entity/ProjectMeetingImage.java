@@ -1,6 +1,9 @@
 package com.nob.pick.project.command.domain.aggregate.entity;
 
+import com.nob.pick.common.config.convertor.BooleanToYNConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +33,7 @@ public class ProjectMeetingImage {
 	private String path;
 
 	@Column(name = "is_thumbnail", nullable = false)
+	@Convert(converter = BooleanToYNConverter.class)
 	private boolean isThumbnail;
 
 	@Column(name = "meeting_id", nullable = false)

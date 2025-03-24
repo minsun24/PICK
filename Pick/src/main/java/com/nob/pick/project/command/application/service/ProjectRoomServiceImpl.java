@@ -2,14 +2,19 @@ package com.nob.pick.project.command.application.service;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.nob.pick.project.command.application.dto.ParticipantDTO;
 import com.nob.pick.project.command.application.dto.ProjectRoomDTO;
+import com.nob.pick.project.command.application.dto.RequestParticipantDTO;
 import com.nob.pick.project.command.application.dto.RequestProjectRoomDTO;
+import com.nob.pick.project.command.domain.aggregate.entity.Participant;
 import com.nob.pick.project.command.domain.aggregate.entity.ProjectRoom;
+import com.nob.pick.project.command.domain.repository.ParticipantRepository;
 import com.nob.pick.project.command.domain.repository.ProjectRoomRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +23,13 @@ import lombok.extern.slf4j.Slf4j;
 @Service("CommandProjectRoomService")
 public class ProjectRoomServiceImpl implements ProjectRoomService {
 	private final ProjectRoomRepository projectRoomRepository;
+	private final ParticipantRepository participantRepository;
 
 	@Autowired
-	public ProjectRoomServiceImpl(ProjectRoomRepository projectRoomRepository) {
+	public ProjectRoomServiceImpl(ProjectRoomRepository projectRoomRepository,
+		ParticipantRepository participantRepository) {
 		this.projectRoomRepository = projectRoomRepository;
+		this.participantRepository = participantRepository;
 	}
 
 	// 자율 매칭 방 생성
@@ -59,11 +67,31 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		// 확인
 		log.info("Project Room 생성 완료! ID: {}", savedProjectRoom.getId());
 		//
-		// // 4. 팀원 insert 로직 (roomId 활용 가능)
-		// insertParticipants(newProjectRoom.getParticipantList(), roomId);
+		// 팀원 INSERT (roomId 활용 가능)
+		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom.getId());
 
 	}
 
+	// 생성된 프로젝트 팀원 등록
+	private void insertParticipants(List<RequestParticipantDTO> participantList, int projectRoomId) {
+		for(RequestParticipantDTO participant : participantList) {
+			Participant newParticipant = Participant.builder()
+				.memberId(participant.getId())
+				.projectRoomId(projectRoomId)
+				.isManager(participant.isManager())
+				.build();
+
+			log.info("newParticipant : {}",  newParticipant.getMemberId());
+
+			Participant savedParticipant = participantRepository.save(newParticipant);
+
+			// 확인
+			log.info("팀원 객체 생성 완료! : {}", savedParticipant);
+		}
+
+	}
+
+	// 개발 기간 기반 프로젝트 마감 기간 계산
 	private int parseDurationMonth(String durationTime) {
 		String numberStr = durationTime.replaceAll("[^0-9]", "");
 
@@ -73,14 +101,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 		return Integer.parseInt(numberStr);
 	}
-
-	/* *
-	 * 시작 범위(start)와 종료 범위(end) 값을 받아서 랜덤한 숫자를 반환 받습니다.
-	 *
-	 *   @param   start 시작 범위
-	 *   @param   end   종료 범위
-	 *   @return 랜덤한 숫자
-	 */
+	// 세션 코드용 6자리 랜덤 숫자 생성 메서드
 	public static int generateRangeRandomNum() {
 		SecureRandom secureRandom = new SecureRandom();
 		int start = 100000;
