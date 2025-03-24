@@ -19,6 +19,7 @@
         <result property="revieweeId" column="REVIEWEE_ID" />
         <result property="projectRoomId" column="PROJECT_ROOM_ID" />
     </resultMap>
+
     <select id="selectProjectReviewList" parameterType="_int" resultMap="projectReviewResultMap">
         SELECT
             REVIEW.ID,
@@ -33,14 +34,14 @@
 
     <select id="selectMemberReviewList" parameterType="_int" resultMap="memberReviewResultMap">
         SELECT
-        REVIEW.ID AS MEMBER_REVIEW_ID,
-        REVIEW.RATE,
-        REVIEW.CONTENT,
-        REVIEW.REVIEWER_ID,
-        REVIEW.REVIEWEE_ID,
-        REVIEW.PROJECT_ROOM_ID
-        FROM MEMBER_REVIEW AS REVIEW
-        WHERE REVIEW.PROJECT_ROOM_ID = #{projectRoomId}
+           REVIEW.ID AS MEMBER_REVIEW_ID,
+           REVIEW.RATE,
+           REVIEW.CONTENT,
+           REVIEW.REVIEWER_ID,
+           REVIEW.REVIEWEE_ID,
+           REVIEW.PROJECT_ROOM_ID
+          FROM MEMBER_REVIEW AS REVIEW
+         WHERE REVIEW.PROJECT_ROOM_ID = #{projectRoomId}
     </select>
 
 

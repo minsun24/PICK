@@ -17,4 +17,6 @@ public class MemberReviewDTO {
 	private String content;		// 팀원 후기 내용
 	private int reviewerId; 	// 후기 작성자
 	private int reveiweeId; 	// 후기 대상자
+
+	private int project_id;
 }

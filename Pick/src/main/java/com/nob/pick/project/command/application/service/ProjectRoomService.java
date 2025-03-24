@@ -7,4 +7,8 @@ public interface ProjectRoomService {
 	void createNonMatchingProject(RequestProjectRoomDTO newProjectRoom);
 
 	void createMatchingProject(RequestProjectRoomDTO newProjectRoom);
+
+	boolean isProjectExists(int porjectId);
+
+	boolean isParticipant(int projectRoomId, int reviewerId);
 }

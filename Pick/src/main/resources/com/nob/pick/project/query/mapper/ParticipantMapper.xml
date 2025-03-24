@@ -13,7 +13,6 @@
     </resultMap>
 
 
-
     <!-- 팀원 여부 조회   -->
     <select id="isProjectParticipant" parameterType="map"  resultType="int">
         SELECT EXISTS (

@@ -1,14 +1,6 @@
 package com.nob.pick.project.command.domain.aggregate.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +13,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Entity
-@Table(name="member_review")
+@Table(name="member_review", uniqueConstraints = {
+		@UniqueConstraint(
+				name = "unique_project_reviewer_reviewee",
+				columnNames = {"project_room_id", "reviewer_id", "reviewee_id"}
+		)
+})
 public class MemberReview {
 
 	@Id
@@ -44,7 +41,7 @@ public class MemberReview {
 	private Participant revieweeId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="porject_room_id" , nullable = false)
+	@JoinColumn(name="project_room_id" , nullable = false)
 	private ProjectRoom projectRoom;
 
 
