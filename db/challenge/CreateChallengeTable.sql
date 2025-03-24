@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS MEMBER_DAILY_MISSION
 ,   CONSTRAINT pk_member_daily_mission_id PRIMARY KEY (id)
 ,   CONSTRAINT fk_member_daily_mission_daily_mission_id FOREIGN KEY (daily_mission_id) REFERENCES daily_mission(id)
 ,   CONSTRAINT fk_member_daily_mission_member_id FOREIGN KEY (member_id) REFERENCES member(id)
-,   CONSTRAINT uni_member_daily_mission UNIQUE (member_id, daily_mission_id)
 );
 
 -- 회원별 뱃지 테이블

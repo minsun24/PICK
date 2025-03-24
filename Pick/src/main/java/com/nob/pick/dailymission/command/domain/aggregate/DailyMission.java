@@ -1,40 +1,60 @@
 package com.nob.pick.dailymission.command.domain.aggregate;
 
+import com.nob.pick.challenge.command.domain.aggregate.Challenge;
+import com.nob.pick.common.config.BooleanToYNConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name="DAILY_MISSION")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
 public class DailyMission {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
+	private Integer id;
 
-	@Column(name = "content", nullable = false)
+	@Column(nullable = false)
 	private String content;
 
-	@Column(name = "exp_point", nullable = false)
-	private int expPoint;
+	@Column(nullable = false)
+	private Integer expPoint;
 
-	@Column(name = "is_deleted", nullable = false)
-	private boolean isDeleted;
+	@Convert(converter = BooleanToYNConverter.class) // 'Y'/'N' 변환
+	@Column(nullable = false)
+	private Boolean isDeleted = false;
 
-	@Column(name = "challenge_id", nullable = false)
-	private int challengeId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "challenge_id", nullable = false)
+	private Challenge challenge;
+
+	public DailyMission() {}
+
+	public DailyMission(String content, Integer expPoint, Challenge challenge) {
+		this.content = content;
+		this.expPoint = expPoint;
+		this.challenge = challenge;
+		this.isDeleted = false;
+	}
+
+	public void update(String content, Integer expPoint) {
+		this.content = content;
+		this.expPoint = expPoint;
+	}
+
+	public void softDelete() {
+		this.isDeleted = true;
+	}
 }

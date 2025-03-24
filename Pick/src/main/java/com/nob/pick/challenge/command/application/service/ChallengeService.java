@@ -18,6 +18,11 @@ public class ChallengeService {
 		this.challengeRepository = challengeRepository;
 	}
 
+	public Challenge findById(Integer id) {
+		return challengeRepository.findById(id)
+			.orElseThrow(() -> new IllegalArgumentException("해당 챌린지를 찾을 수 없습니다: " + id));
+	}
+
 	public Challenge addChallenge(ChallengeRequestDTO request) {
 		Challenge challenge = new Challenge(request.getName());
 		return challengeRepository.save(challenge);

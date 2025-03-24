@@ -1,5 +1,7 @@
 package com.nob.pick.challenge.command.domain.aggregate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +21,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Challenge {
 
 	@Id
@@ -31,5 +34,9 @@ public class Challenge {
 
 	public Challenge(String name) {
 		this.name = name;
+	}
+
+	public Challenge(int challengeId) {
+		this.id = challengeId;
 	}
 }
