@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("QueryReviewController")
 @Slf4j
 
 public class ReviewController {
@@ -25,37 +25,29 @@ public class ReviewController {
         this.reviewService = reviewService;
         this.participantService = participantService;
     }
-
+    
+    // 프로젝트별 프로젝트 후기 목록 조회
     @GetMapping("/project/{projectId}/projectReviews")
-    public ResponseEntity<?> getProjectReviews(@PathVariable("projectId") int projectId,
-                                               @RequestParam("memberId") int memberId) {
-        log.info("프로젝트 후기 목록 조회: projectId={}, memberId={}", projectId, memberId);
-
-        boolean isParticipant = participantService.isProjectParticipant(projectId, memberId);
-        if (!isParticipant) {
-            log.warn("팀원 아님: memberId={}, projectId={}", memberId, projectId);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("팀원만 접근 가능합니다.");
-        }
+    public ResponseEntity<?> getProjectReviews(@PathVariable("projectId") int projectId) {
+        log.info("프로젝트 후기 목록 조회: projectId={}, memberId={}", projectId);
 
         List<ProjectReview> projectReviewList = reviewService.getProjectReviews(projectId);
-        return ResponseEntity.ok(projectReviewList);
-
-    }
-
-    @GetMapping("/project/{projectId}/MemberReviews")
-    public ResponseEntity<?> getMemberReviews(@PathVariable("projectId") int projectId,
-                                               @RequestParam("memberId") int memberId) {
-        log.info("프로젝트 후기 목록 조회: projectId={}, memberId={}", projectId, memberId);
-
-        boolean isParticipant = participantService.isProjectParticipant(projectId, memberId);
-        if (!isParticipant) {
-            log.warn("팀원 아님: memberId={}, projectId={}", memberId, projectId);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("팀원만 접근 가능합니다.");
+        if(projectReviewList.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 프로젝트가 존재하지 않습니다.");
         }
+        return ResponseEntity.ok(projectReviewList);
+    }
+    
+    // 프로젝트별 팀원 후기 목록 조회
+    @GetMapping("/project/{projectId}/memberReviews")
+    public ResponseEntity<?> getMemberReviews(@PathVariable("projectId") int projectId){
+        log.info("프로젝트 후기 목록 조회: projectId={}, memberId={}", projectId);
 
         List<MemberReview> projectReviewList = reviewService.getMemberReviews(projectId);
+        if(projectReviewList.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 프로젝트가 존재하지 않습니다.");
+        }
         return ResponseEntity.ok(projectReviewList);
-
     }
 
 }

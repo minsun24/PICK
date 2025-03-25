@@ -13,7 +13,7 @@ public interface ProjectRoomService {
 
     List<ProjectRoomDTO> getDeletedProjects();
 
-    List<ProjectRoomDTO> getmatchingProjects();
+    List<ProjectRoomDTO> getMatchingProjects();
 
     ProjectRoomDTO getFinishedProjectDetail(int projectId);
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("QueryProjectRoomService")
 public class ProjectRoomServiceImpl implements ProjectRoomService {
 
     private final ProjectRoomMapper projectRoomMapper;
@@ -50,7 +50,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
     }
 
     @Override
-    public List<ProjectRoomDTO> getmatchingProjects() {
+    public List<ProjectRoomDTO> getMatchingProjects() {
         List<ProjectRoom> projectRoomList = projectRoomMapper.selectMatchingProjects();
 
         return projectRoomToDTO(projectRoomList);
@@ -124,8 +124,6 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
         dto.setIntroduction(projectDetail.getIntroduction());
         dto.setThumbnailImage(projectDetail.getThumbnailImage());
         dto.setMaximumParticipant(projectDetail.getMaximumParticipant());
-        dto.setTechnologyCategoryId(projectDetail.getTechnologyCategory().getId());
-        dto.setTechnologyCategoryName(projectDetail.getTechnologyCategory().getName());
         dto.setSessionCode(projectDetail.getSessionCode());
 
         return dto;
@@ -146,8 +144,6 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
             dto.setEndDate(projectRoom.getEndDate().toString());
             dto.setDurationTime(projectRoom.getDurationTime());
             dto.setMaximumParticipant(projectRoom.getMaximumParticipant());
-            dto.setTechnologyCategoryId(projectRoom.getTechnologyCategory().getId());
-            dto.setTechnologyCategoryName(projectRoom.getTechnologyCategory().getName());
             dto.setThumbnailImage(projectRoom.getThumbnailImage());
             dto.setIntroduction(projectRoom.getIntroduction());
             dto.setThumbnailImage(projectRoom.getThumbnailImage());

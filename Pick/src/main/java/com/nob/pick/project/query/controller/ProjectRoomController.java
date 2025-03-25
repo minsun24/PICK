@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@RestController
+@RestController("QueryProjectRoomController")
 @Slf4j
 @RequestMapping("/project")
 public class ProjectRoomController {
@@ -58,6 +58,14 @@ public class ProjectRoomController {
         return ResponseEntity.ok(result);
     }
 
+    // 프로젝트별 팀원 목록 조회
+    @GetMapping("/{projectId}/participants")
+    public ResponseEntity<List<ResponseParticipantVO>> getParticipantsByProjectId(@PathVariable int projectId) {
+        List<ParticipantDTO> dtoParticipants = participantService.getParticipantsByProjectId(projectId);
+        List<ResponseParticipantVO> result = participantDTOToVO(dtoParticipants);
+        return ResponseEntity.ok().body(result);
+    }
+
     // 완료된 프로젝트 목록 전체 조회
     @GetMapping("/finishedProjects")
     public ResponseEntity<List<ResponseProjectVO>> getFinishedProjects() {
@@ -84,7 +92,7 @@ public class ProjectRoomController {
     // 팀원 모집 중인 프로젝트 목록 조회
     @GetMapping("/matchingProjects")
     public ResponseEntity<List<ResponseProjectVO>> getMatchingProjects() {
-        List<ProjectRoomDTO> dtoProjects = projectRoomService.getmatchingProjects();
+        List<ProjectRoomDTO> dtoProjects = projectRoomService.getMatchingProjects();
         List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
 
         return ResponseEntity.ok().body(result);
@@ -129,7 +137,58 @@ public class ProjectRoomController {
 
         // 회의록 정보 가져오기
         List<MeetingDTO> meetingList = meetingService.getMeetingsByProjectId(projectId);
+        ResponseActiveProjectRoomVO enteredProject = getResponseActiveProjectRoomVO(projectRoom, participantVOList, meetingList);
 
+        log.info("프로젝트 방 입장 성공 memberId={}, projectId={}", request.getMemberId(), projectId);
+
+        return ResponseEntity.ok(enteredProject);
+    }
+
+    // 삭제된 프로젝트 목록 조회
+    @GetMapping("/deletedProjects")
+    public ResponseEntity<List<ResponseProjectVO>> getDeletedProjects() {
+        List<ProjectRoomDTO> dtoProjects = projectRoomService.getDeletedProjects();
+        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
+
+        return ResponseEntity.ok().body(result);
+    }
+
+    // "이름" 키워드로 프로젝트 검색
+    @GetMapping("/searchByName")
+    public ResponseEntity<List<ResponseProjectVO>> getSearchedProjectsByName(@RequestParam("name") String searchName) {
+        log.info("프로젝트 이름 검색: {}", searchName);
+
+        List<ProjectRoomDTO> dtoProjects = projectRoomService.getSearchedProjectsByName(searchName);
+        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
+
+        return ResponseEntity.ok().body(result);
+    }
+
+    // "기술분류" 키워드로 프로젝트 검색 
+    @GetMapping("/searchByTech")
+    public ResponseEntity<List<ResponseProjectVO>> getSearchedProjectsByName(@RequestParam("techIds") List<Integer> technologyCategoryIds) {
+        log.info("기술 분류 검색: {}", technologyCategoryIds);
+
+        List<ProjectRoomDTO> dtoProjects = projectRoomService.getSearchedProjectsByTech(technologyCategoryIds);
+        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
+
+        return ResponseEntity.ok().body(result);
+    }
+
+    // "이름 & 기술분류" 태그로 프로젝트 검색
+    @GetMapping("/searchByBoth")
+    public ResponseEntity<List<ResponseProjectVO>> getSearchedProjectsByTechAndName(@RequestParam("techId") int categoryId,
+                                                                                    @RequestParam("name") String searchName) {
+        log.info("카테고리 ID: {}, 검색어: {}", categoryId, searchName);
+
+        List<ProjectRoomDTO> dtoProjects = projectRoomService.getSearchedProjectsByTechAndName(categoryId, searchName);
+        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
+
+        return ResponseEntity.ok().body(result);
+    }
+
+
+    private static ResponseActiveProjectRoomVO getResponseActiveProjectRoomVO(ProjectRoomDTO projectRoom, List<ResponseParticipantVO> participantVOList, List<MeetingDTO> meetingList) {
         ResponseActiveProjectRoomVO enteredProject = new ResponseActiveProjectRoomVO();
 
         enteredProject.setId(projectRoom.getId());
@@ -152,53 +211,8 @@ public class ProjectRoomController {
         enteredProject.setTechnologyCategoryName(projectRoom.getTechnologyCategoryName());
 
         enteredProject.setMeetingNotes(meetingList);
-
-
-        log.info("프로젝트 방 입장 성공 memberId={}, projectId={}", request.getMemberId(), projectId);
-
-        return ResponseEntity.ok(enteredProject);
+        return enteredProject;
     }
-
-    // 삭제된 프로젝트 목록 조회
-    @GetMapping("/deletedProjects")
-    public ResponseEntity<List<ResponseProjectVO>> getDeletedProjects() {
-        List<ProjectRoomDTO> dtoProjects = projectRoomService.getDeletedProjects();
-        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
-
-        return ResponseEntity.ok().body(result);
-    }
-
-    @GetMapping("/searchByName")
-    public ResponseEntity<List<ResponseProjectVO>> getSearchedProjectsByName(@RequestParam("name") String searchName) {
-        log.info("프로젝트 이름 검색: {}", searchName);
-
-        List<ProjectRoomDTO> dtoProjects = projectRoomService.getSearchedProjectsByName(searchName);
-        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
-
-        return ResponseEntity.ok().body(result);
-    }
-
-    @GetMapping("/searchByTech")
-    public ResponseEntity<List<ResponseProjectVO>> getSearchedProjectsByName(@RequestParam("techIds") List<Integer> technologyCategoryIds) {
-        log.info("기술 분류 검색: {}", technologyCategoryIds);
-
-        List<ProjectRoomDTO> dtoProjects = projectRoomService.getSearchedProjectsByTech(technologyCategoryIds);
-        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
-
-        return ResponseEntity.ok().body(result);
-    }
-
-    @GetMapping("/searchByBoth")
-    public ResponseEntity<List<ResponseProjectVO>> getSearchedProjectsByTechAndName(@RequestParam("techId") int categoryId,
-                                                                                    @RequestParam("name") String searchName) {
-        log.info("카테고리 ID: {}, 검색어: {}", categoryId, searchName);
-
-        List<ProjectRoomDTO> dtoProjects = projectRoomService.getSearchedProjectsByTechAndName(categoryId, searchName);
-        List<ResponseProjectVO> result = projectRoomDTOToVO(dtoProjects);
-
-        return ResponseEntity.ok().body(result);
-    }
-
 
 
     // List<ProjecRoomDTO> -> List<ResponseProjectVO>

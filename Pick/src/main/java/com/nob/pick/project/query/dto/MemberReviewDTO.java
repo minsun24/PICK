@@ -18,4 +18,5 @@ public class MemberReviewDTO {
 	private int reviewerId; 	// 후기 작성자
 	private int reveiweeId; 	// 후기 대상자
 
+	private int project_id;
 }

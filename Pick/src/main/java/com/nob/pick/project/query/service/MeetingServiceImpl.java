@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("QueryMeetingService")
 public class MeetingServiceImpl implements MeetingService {
     private final ProjectMeetingMapper meetingMapper;
 
