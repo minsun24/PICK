@@ -42,14 +42,14 @@ public class MeetingServiceImpl implements MeetingService {
         ProjectRoom projectRoom = projectRoomRepository.findById(projectRoomId)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 프로젝트입니다. projectRoomId=" + projectRoomId));
 
-        Participant author = validateParticipant(projectRoomId, authorId, "작성자는 프로젝트 팀원이 아닙니다.");
 
+        Participant author = validateParticipant(projectRoomId, authorId, "작성자는 프로젝트 팀원이 아닙니다.");
 
         ProjectMeeting projectMeeting = ProjectMeeting.builder()
                 .title(meetingDTO.getTitle())
                 .content(meetingDTO.getContent())
                 .updateTime(LocalDateTime.now())
-                .uploadTime(null)
+                .uploadTime(LocalDateTime.now())
                 .participant(author)
                 .projectRoom(projectRoom)
                 .build();
@@ -59,8 +59,9 @@ public class MeetingServiceImpl implements MeetingService {
             ProjectMeeting savedProjectMeeting = meetingRepository.save(projectMeeting);
             log.info("[회의록 저장 성공] : {}", savedProjectMeeting);
         } catch (Exception e) {
-            log.error("[회의록 저장 실패] projectRoomId={}, authorId={}", projectRoomId, authorId, e);
-            throw new IllegalStateException("회의록 저장 중 오류 발생");
+            log.error("[회의록 저장 실패] projectRoomId={}, authorId={}, exception=", projectRoomId, authorId, e); // ⭐ 여기가 핵심
+            e.printStackTrace(); // 콘솔에서도 전체 trace 확인
+            throw new IllegalStateException("회의록 저장 중 오류 발생", e);
         }
 
     }

@@ -1,6 +1,7 @@
 package com.nob.pick.project.command.domain.aggregate.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
