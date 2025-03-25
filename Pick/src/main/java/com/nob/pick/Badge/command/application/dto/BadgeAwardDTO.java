@@ -1,4 +1,4 @@
-package com.nob.pick.Badge.command.application.dto;
+package com.nob.pick.badge.command.application.dto;
 
 import lombok.Getter;
 import lombok.Setter;

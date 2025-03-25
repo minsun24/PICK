@@ -1,4 +1,4 @@
-package com.nob.pick.Badge.command.domain.aggregate;
+package com.nob.pick.badge.command.domain.aggregate;
 
 import com.nob.pick.member.command.entity.Member;
 

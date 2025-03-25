@@ -1,4 +1,4 @@
-package com.nob.pick.Badge.command.domain.aggregate;
+package com.nob.pick.badge.command.domain.aggregate;
 
 import com.nob.pick.challenge.command.domain.aggregate.Challenge;
 import com.nob.pick.common.config.BooleanToYNConverter;
