@@ -1,4 +1,4 @@
-package com.nob.pick.Badge.command.application.service;
+package com.nob.pick.badge.command.application.service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.nob.pick.Badge.command.application.dto.BadgeAwardDTO;
-import com.nob.pick.Badge.command.application.dto.BadgeDTO;
-import com.nob.pick.Badge.command.domain.aggregate.Badge;
-import com.nob.pick.Badge.command.domain.aggregate.MemberBadge;
-import com.nob.pick.Badge.command.domain.repository.BadgeRepository;
-import com.nob.pick.Badge.command.domain.repository.MemberBadgeRepository;
+import com.nob.pick.badge.command.application.dto.BadgeDTO;
+import com.nob.pick.badge.command.domain.aggregate.Badge;
+import com.nob.pick.badge.command.domain.aggregate.MemberBadge;
+import com.nob.pick.badge.command.domain.repository.BadgeRepository;
+import com.nob.pick.badge.command.domain.repository.MemberBadgeRepository;
 import com.nob.pick.achievement.command.domain.aggregate.MemberAchievement;
 import com.nob.pick.achievement.command.domain.repository.MemberAchievementRepository;
 import com.nob.pick.challenge.command.domain.aggregate.Challenge;

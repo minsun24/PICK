@@ -1,4 +1,4 @@
-package com.nob.pick.Badge.command.application.controller;
+package com.nob.pick.badge.command.application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nob.pick.Badge.command.application.dto.BadgeAwardDTO;
-import com.nob.pick.Badge.command.application.dto.BadgeDTO;
-import com.nob.pick.Badge.command.application.service.BadgeService;
-import com.nob.pick.Badge.command.domain.aggregate.Badge;
+import com.nob.pick.badge.command.application.dto.BadgeAwardDTO;
+import com.nob.pick.badge.command.application.dto.BadgeDTO;
+import com.nob.pick.badge.command.application.service.BadgeService;
+import com.nob.pick.badge.command.domain.aggregate.Badge;
 
 @RestController
 @RequestMapping("/badge")
