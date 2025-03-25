@@ -104,7 +104,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		ProjectRoom savedProjectRoom = projectRoomRepository.save(projectRoom);
 		// 확인
 		log.info("Project Room 생성 완료! ID: {}", savedProjectRoom.getId());
-		//
+
 		// 팀원 INSERT
 		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom);
 
