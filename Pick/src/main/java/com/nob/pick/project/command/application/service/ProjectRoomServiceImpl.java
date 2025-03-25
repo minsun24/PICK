@@ -80,6 +80,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 	}
 
+
+
 	// 생성된 프로젝트 팀원 등록
 	private void insertParticipants(List<RequestParticipantDTO> participantList, ProjectRoom projectRoom) {
 		for(RequestParticipantDTO participant : participantList) {
@@ -102,6 +104,19 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		}
 
 	}
+
+	// 프로젝트 존재 여부 확인
+	@Override
+	public boolean isProjectExists(int projectRoomId) {
+		return projectRoomRepository.existsByIdAndIsDeletedFalse(projectRoomId);
+	}
+
+	// 팀원 여부 확인
+	@Override
+	public boolean isParticipant(int projectRoomId, int reviewerId) {
+		return participantRepository.existsByProjectRoomIdAndMemberId(projectRoomId, reviewerId);
+	}
+
 
 	// 개발 기간 기반 프로젝트 마감 기간 계산
 	private int parseDurationMonth(String durationTime) {
