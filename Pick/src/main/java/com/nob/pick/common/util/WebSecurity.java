@@ -35,17 +35,6 @@ public class WebSecurity {
 
 		http.authorizeHttpRequests(authz ->
 				authz
-
-					.requestMatchers(HttpMethod.POST, "/project/{projectId}/memberReview").permitAll()
-					.requestMatchers(HttpMethod.POST, "/project/{projectId}/projectReview").permitAll()
-					.requestMatchers(HttpMethod.POST, "/badge/accepted/{memberId}").permitAll()
-					.requestMatchers(HttpMethod.POST, "/project/{projectId}/meeting").permitAll()
-					.requestMatchers(HttpMethod.POST, "/project/nonMatching").permitAll()
-					.requestMatchers(HttpMethod.POST, "/project/matching").permitAll()
-					.requestMatchers(HttpMethod.GET, "/technologyCategory/all").permitAll()
-					.requestMatchers(HttpMethod.POST, "/project/activeProjects/{projectId}/enter").permitAll()
-					.requestMatchers(HttpMethod.GET, "/project/**").permitAll()
-					.requestMatchers(HttpMethod.GET, "/project/finishedProjects/{projectId}").permitAll()
 					// SecurityConfig에서 가져온 설정
 					.requestMatchers("/api/members/signup").permitAll()
 					.requestMatchers("/api/members/edit", "/members/edit").authenticated()
