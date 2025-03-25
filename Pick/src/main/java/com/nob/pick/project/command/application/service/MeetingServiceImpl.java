@@ -59,7 +59,7 @@ public class MeetingServiceImpl implements MeetingService {
             ProjectMeeting savedProjectMeeting = meetingRepository.save(projectMeeting);
             log.info("[회의록 저장 성공] : {}", savedProjectMeeting);
         } catch (Exception e) {
-            log.error("[회의록 저장 실패] projectRoomId={}, authorId={}, exception=", projectRoomId, authorId, e); // ⭐ 여기가 핵심
+            log.error("[회의록 저장 실패] projectRoomId={}, authorId={}, exception=", projectRoomId, authorId, e);
             e.printStackTrace(); // 콘솔에서도 전체 trace 확인
             throw new IllegalStateException("회의록 저장 중 오류 발생", e);
         }

@@ -74,7 +74,9 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 	}
 
+	// 매칭 방 생성 
 	@Override
+	@Transactional
 	public void createMatchingProject(RequestProjectRoomDTO newProjectRoom) {
 		int durationMonth = parseDurationMonth(newProjectRoom.getDurationTime());
 		LocalDate now = LocalDate.now();
@@ -82,7 +84,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		String durationTimeStr = durationMonth + "개월";
 		String startDateStr = now.toString();
 		String endDateStr = now.plusMonths(durationMonth).toString();
-
+		// 세션 코드 없음
 		ProjectRoom projectRoom = ProjectRoom.builder()
 			.name(newProjectRoom.getName())
 			.content(newProjectRoom.getContent())
@@ -128,9 +130,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 			log.info("팀원 객체 생성 완료! : {}", savedParticipant);
 		}
-
 	}
-
 
 	// 개발 기간 기반 프로젝트 마감 기간 계산
 	private int parseDurationMonth(String durationTime) {
@@ -149,6 +149,4 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		int end = 999999;
 		return start + secureRandom.nextInt(end - start + 1);
 	}
-
-
 }
