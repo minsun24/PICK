@@ -8,9 +8,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.nob.pick.post.command.application.controller.CommandPostController;
 import com.nob.pick.post.command.application.dto.PostDTO;
 import com.nob.pick.post.command.application.dto.PostStatus;
+import com.nob.pick.post.command.application.service.CommandPostService;
 import com.nob.pick.post.command.domain.aggregate.entity.Post;
 import com.nob.pick.post.command.domain.repository.PostRepository;
 import com.nob.pick.post.query.service.PostService;
@@ -22,7 +22,7 @@ public class DeletePostTest {
 	private PostRepository postRepository;
 	
 	@Autowired
-	private CommandPostController commandPostController;
+	private CommandPostService commandPostService;
 	
 	@Autowired
 	private PostService postService;
@@ -58,7 +58,7 @@ public class DeletePostTest {
 		Assertions.assertDoesNotThrow(
 			() -> {
 				System.out.println("Post " + postId + " Origin Status: " + postStatus);
-				commandPostController.deletePost(postId);
+				commandPostService.deletePost(postId);
 			}
 		);
 	}
