@@ -1,9 +1,9 @@
--- 현재 글에 맞는 사진 조회
+-- 게시글 id로 사진 조회
 
 SELECT
-       id
-     , path
-     , renamed_name
-     , is_thumbnail
-  FROM POST_IMAGE
- WHERE post_id = ?;
+       PI.ID AS POST_IMAGE_ID
+     , PI.IMAGE_PATH AS POST_IMAGE_PATH
+     , PI.RENAMED_NAME AS POST_IMAGE_RENAMED_NAME
+     , PI.IS_THUMBNAIL AS POST_IMAGE_IS_THUMBNAIL
+  FROM POST_IMAGE PI
+ WHERE PI.POST_ID = ?;
