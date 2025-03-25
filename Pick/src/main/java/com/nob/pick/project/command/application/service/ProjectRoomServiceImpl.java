@@ -76,7 +76,35 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 	@Override
 	public void createMatchingProject(RequestProjectRoomDTO newProjectRoom) {
+		int durationMonth = parseDurationMonth(newProjectRoom.getDurationTime());
+		LocalDate now = LocalDate.now();
 
+		String durationTimeStr = durationMonth + "개월";
+		String startDateStr = now.toString();
+		String endDateStr = now.plusMonths(durationMonth).toString();
+
+		ProjectRoom projectRoom = ProjectRoom.builder()
+			.name(newProjectRoom.getName())
+			.content(newProjectRoom.getContent())
+			.maximumParticipant(newProjectRoom.getMaximumParticipant())
+			.durationTime(durationTimeStr)
+			.startDate(LocalDate.parse(startDateStr))
+			.endDate(LocalDate.parse(endDateStr))
+			.isFinished(false)
+			.isDeleted(false)
+			.thumbnailImage(null)
+			.introduction(null)
+			.thumbnailImage(null)
+			.technologyCategoryId(newProjectRoom.getTechnologyCategory())
+			.build();
+		System.out.println("projectRoom = " + projectRoom);
+
+		ProjectRoom savedProjectRoom = projectRoomRepository.save(projectRoom);
+		// 확인
+		log.info("Project Room 생성 완료! ID: {}", savedProjectRoom.getId());
+		//
+		// 팀원 INSERT
+		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom);
 
 	}
 
@@ -103,18 +131,6 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 			log.info("팀원 객체 생성 완료! : {}", savedParticipant);
 		}
 
-	}
-
-	// 프로젝트 존재 여부 확인
-	@Override
-	public boolean isProjectExists(int projectRoomId) {
-		return projectRoomRepository.existsByIdAndIsDeletedFalse(projectRoomId);
-	}
-
-	// 팀원 여부 확인
-	@Override
-	public boolean isParticipant(int projectRoomId, int reviewerId) {
-		return participantRepository.existsByProjectRoomIdAndMemberId(projectRoomId, reviewerId);
 	}
 
 

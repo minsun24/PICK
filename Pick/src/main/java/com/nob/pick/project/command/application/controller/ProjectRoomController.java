@@ -23,12 +23,12 @@ public class ProjectRoomController {
 		this.projectRoomService = projectRoomService;
 	}
 
-	// 자동 매칭 프로젝트 방 생성
-	/*  자동 매칭 방 생성 로직
-	 * 	매칭 완료 시 방 생성 api
+	/*  (자동 매칭 방)
+	 * 	매칭 완료 시 방 생성
 	 * 	세션 코드 없음.
-	 * 	팀원 맵핑 필요.
+	 * 	팀원 맵핑 필요. (공통)
 	 * */
+
 	@PostMapping("/matching")
 	public ResponseEntity<?> registMathingProjectRoom(@RequestBody RequestProjectRoomDTO newProjectRoom) {
 		// 세션 코드 없음
@@ -47,8 +47,6 @@ public class ProjectRoomController {
 		projectRoomService.createNonMatchingProject(newProjectRoom);
 		return ResponseEntity.ok().build();
 	}
-
-
 
 }
 
