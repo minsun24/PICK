@@ -115,9 +115,9 @@
              , C.ROOT_COMMENT_ID AS COMMENT_ROOT_COMMENT_ID
              , C.MEMBER_ID AS COMMENT_MEMBER_ID
              , CM.NICKNAME AS COMMENT_MEMBER_NICKNAME
-          FROM comment c
-          JOIN MEMBER cM ON (c.MEMBER_ID = cM.ID)
-         WHERE c.post_ID = #{id}
+          FROM COMMENT C
+          JOIN MEMBER CM ON (C.MEMBER_ID = CM.ID)
+         WHERE C.POST_ID = #{id}
     </select>
 
     <!-- 설명. 게시글 목록에서 제목으로 검색 -->
