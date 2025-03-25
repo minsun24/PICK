@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ResponseParticipantVO {
-    private int participantId;      // 팀원 번호 (PK)
+    private int id;      // 팀원 번호 (PK)
     private boolean isManager;      // 방장 여부
     private String memberName;      // 이름
     private String memberNickname;  // 닉네임

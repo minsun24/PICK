@@ -11,6 +11,6 @@ import lombok.ToString;
 @Getter
 @ToString
 public class RequestParticipantDTO {
-	private int id;
+	private int memberId;
 	private boolean isManager;
 }
