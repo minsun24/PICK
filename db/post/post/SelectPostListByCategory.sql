@@ -1,9 +1,8 @@
--- 단일 게시글 조회
+-- 카테고리에 따라 게시글 조회
 
 SELECT
        P.ID
      , P.TITLE
-     , P.CONTENT
      , P.CATEGORY
      , P.UPLOAD_AT
      , P.UPDATE_AT
@@ -12,4 +11,5 @@ SELECT
      , M.NICKNAME AS MEMBER_NICKNAME
   FROM POST P
   JOIN MEMBER M ON (P.MEMBER_ID = M.ID)
- WHERE P.ID = ?;
+ WHERE P.CATEGORY = ?
+ ORDER BY P.ID ASC;
