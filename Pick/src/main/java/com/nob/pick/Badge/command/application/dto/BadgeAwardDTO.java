@@ -1,11 +1,10 @@
 package com.nob.pick.Badge.command.application.dto;
 
-import org.springframework.stereotype.Service;
-
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-@Service
+@Setter
 public class BadgeAwardDTO {
 
 	private Long memberId;
