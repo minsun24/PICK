@@ -108,8 +108,6 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 	}
 
-
-
 	// 생성된 프로젝트 팀원 등록
 	private void insertParticipants(List<RequestParticipantDTO> participantList, ProjectRoom projectRoom) {
 		for(RequestParticipantDTO participant : participantList) {
