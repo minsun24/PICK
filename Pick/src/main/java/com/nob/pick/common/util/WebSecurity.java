@@ -30,27 +30,26 @@ public class WebSecurity {
 	}
 
 	@Bean
-	protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable());
 
 		http.authorizeHttpRequests(authz ->
 				authz
-					// 프로그래밍 언어 관리 API (관리자 권한 필요)
+					// SecurityConfig에서 가져온 설정
+					.requestMatchers("/api/members/signup").permitAll()
+					.requestMatchers("/api/members/edit", "/members/edit").authenticated()
+					// WebSecurity 기존 설정
 					.requestMatchers(HttpMethod.POST, "/api/members/programming-languages").hasRole("ADMIN")
 					.requestMatchers(HttpMethod.PATCH, "/api/members/programming-languages/**").hasRole("ADMIN")
 					.requestMatchers(HttpMethod.DELETE, "/api/members/programming-languages/**").hasRole("ADMIN")
-					// 회원별 사용 언어 관리 API (인증된 사용자)
 					.requestMatchers(HttpMethod.POST, "/api/members/programming-languages/member").authenticated()
 					.requestMatchers(HttpMethod.PATCH, "/api/members/programming-languages/member").authenticated()
 					.requestMatchers(HttpMethod.DELETE, "/api/members/programming-languages/member/**").authenticated()
-					// 인증이 필요 없는 엔드포인트 (permitAll)
 					.requestMatchers(HttpMethod.POST, "/api/members/email").permitAll()
 					.requestMatchers(HttpMethod.POST, "/api/members/password").permitAll()
 					.requestMatchers(HttpMethod.POST, "/api/members/check-email").permitAll()
 					.requestMatchers(HttpMethod.POST, "/api/members/check-phone").permitAll()
-					.requestMatchers(HttpMethod.POST, "/api/members/signup").permitAll()
 					.requestMatchers(HttpMethod.POST, "/api/members/login").permitAll()
-					// 인증이 필요한 엔드포인트 (authenticated)
 					.requestMatchers(HttpMethod.GET, "/api/members/member-Infos").authenticated()
 					.requestMatchers(HttpMethod.GET, "/api/members/member-Info/**").authenticated()
 					.requestMatchers(HttpMethod.GET, "/api/members/status/**").authenticated()
