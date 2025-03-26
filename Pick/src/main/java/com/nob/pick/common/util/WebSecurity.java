@@ -35,8 +35,18 @@ public class WebSecurity {
 
 		http.authorizeHttpRequests(authz ->
 				authz
+					.requestMatchers("/**").permitAll()
+
 					// SecurityConfig에서 가져온 설정
 					.requestMatchers("/api/members/signup").permitAll()
+
+					.requestMatchers("/actuator/**").permitAll()
+
+					// 테스트용 report 테이블 권한 설정
+					.requestMatchers("/query/report/**").permitAll()
+					.requestMatchers("/command/report/**").permitAll()
+
+
 					.requestMatchers("/api/members/edit", "/members/edit").authenticated()
 					// WebSecurity 기존 설정
 					.requestMatchers(HttpMethod.POST, "/api/members/programming-languages").hasRole("ADMIN")
