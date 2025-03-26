@@ -1246,7 +1246,7 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
      <details>
 	     <summary>로그인(성공 시 토큰 반환)</summary>
 	     <p alian="center">
-	     <img src="" width = "600"/>
+	     <img src="postman/member/로그인최종수정용.png" width = "600"/>
 	     </p>
      </details>
      <details>
@@ -1387,18 +1387,21 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
 	     <summary>회원별 사용 언어 조회</summary>
 	     <p alian="center">
 	     <img src="" width = "600"/>
+		     기능 개발 예정
 	     </p>
      </details>
      <details>
 	     <summary>회원별 사용언어 추가</summary>
 	     <p alian="center">
 	     <img src="" width = "600"/>
+		     기능 개발 예정
 	     </p>
      </details>
      <details>
 	     <summary>회원별 사용언어 수정</summary>
 	     <p alian="center">
 	     <img src="" width = "600"/>
+		     기능 개발 예정
 	     </p>
      </details>
 </details>
