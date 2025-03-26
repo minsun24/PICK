@@ -10,9 +10,11 @@ import com.nob.pick.post.query.service.PostService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CommandPostServiceImpl implements CommandPostService {
 	
 	private final PostRepository postRepository;
@@ -30,9 +32,32 @@ public class CommandPostServiceImpl implements CommandPostService {
 	
 	@Override
 	@Transactional
-	public void deletePost(int postId) {
-		Post foundPost = postRepository.findById(postId).get();
-		foundPost.setStatus(PostStatus.DELETED.getValue());
+	public String deletePost(int postId) {
+		Post targetPost;
+		try {
+			targetPost = postRepository.findById(postId).get();
+		} catch (Exception e) {
+			targetPost = null;
+		}
+		log.info("targetPost: {}", targetPost);
+		if (targetPost == null) {
+			return "Post Not Found";
+		}
+		if (targetPost.getStatus() == PostStatus.DELETED.getValue()) {
+			return "Post Is Already Deleted";
+		} else if (targetPost.getStatus() == PostStatus.BLINDED.getValue()) {
+			return "Blinded Post Cannot Be Deleted";
+		}
+		
+		targetPost.setStatus(PostStatus.DELETED.getValue());
+		postRepository.save(targetPost);
+		log.info("targetPost status: {}", targetPost.getStatus());
+		
+		if (targetPost.getStatus() == PostStatus.DELETED.getValue()) {
+			return "Post Delete Success";
+		} else {
+			return "Post Delete Failed";
+		}
 	}
 	
 	private Post postDTOToPost(PostDTO postDTO) {
