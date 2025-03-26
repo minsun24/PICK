@@ -19,6 +19,12 @@
 #### [💡 Tech Stack](#-Tech-Stack) <br>
 #### [📢 프로젝트 개요](#-프로젝트-개요) <br>
 #### [🛠️ 주요 기능](#-주요-기능) <br>
+#### [📅 WBS](#-WBS) <br>
+#### [🙆‍♀️ 요구사항 명세서](#-요구사항-명세서) <br>
+#### [💭 DDD 설계](#-DDD-설계) <br>
+#### [🗃️ DB 모델링](#-DB-모델링) <br>
+#### [🪄 프로젝트 아키텍처](#-프로젝트-아키텍처) <br>
+####
 
 <br>
 
@@ -51,16 +57,21 @@
 
 기존에 사용되던 팀원 매칭 플랫폼인 비사이드는 팀 구성에 용이하지만, 이후의 <b>협업과 프로젝트 관리 기능이 부족</b>하다는 한계가 있습니다. Jira는 체계적인 프로젝트 관리를 도와주지만, 팀원 모집이나 매칭 기능은 전혀 제공하지 않아 <b>초기 팀 구성에 어려움</b>이 있습니다. <br>
 
-이러한 두 플랫폼의 아쉬운 점을 보완하고, 각각의 장점만을 살려 팀원 매칭부터 프로젝트 관리까지 한 번에 가능한 올인원 플랫폼, Pick이 탄생했습니다. Pick은 효율적인 팀 구성과 유연한 협업, 체계적인 진행 관리를 모두 지원하여, 사이드 프로젝트의 시작부터 완성까지 모든 과정을 더 쉽고 효율적으로 만들어줍니다.
+이러한 두 플랫폼의 아쉬운 점을 보완하고, 각각의 장점만을 살려 <b>팀원 매칭부터 프로젝트 관리까지 한 번에 가능한 올인원 플랫폼, Pick</b>이 탄생했습니다. Pick은 효율적인 팀 구성과 유연한 협업, 체계적인 진행 관리를 모두 지원하여, 사이드 프로젝트의 시작부터 완성까지 모든 과정을 더 쉽고 효율적으로 만들어줍니다.
 
 <br>
 
 ## 🛠️ 주요 기능
-- <b>프로젝트 팀원 자동 매칭</b> :
+- <b>프로젝트 팀원 자동 매칭</b><br>
+매칭을 희망하는 회원이 매칭을 신청하면, 미리 생성된 방의 레벨과 비교하여 레벨 범위에 맞는 방에 신청자 매칭
   
-- <b>프로젝트 관리 및 후기</b> :
+- <b>프로젝트 관리 및 후기</b><br>
+프로젝트 방이 생성되면, 참가자에게 문서화와 일정 관리 서비스 제공.<br>프로젝트가 끝나면 각 팀원은 프로젝트와 서로에 대한 후기 작성 -> 포트폴리오 & 피드백이 됨
   
-- <b>일일미션, 도전과제, 뱃지</b> : 
+- <b>일일미션, 도전과제, 뱃지</b><br>
+매일매일 반복적으로 달성할 수 있는 단기 목표 부여 -> 일정 횟수 반복 시 도전 과제 달성 -> 업적 뱃지 제공<br>
+경력, 전공, 자격증 등 스펙 증명 시 스펙 뱃지 제공
+
 
 <br>
 
@@ -71,17 +82,28 @@ WBS 사진
 <br><br>
 
 ## 🙆‍♀️ 요구사항 명세서
-🔗 <a href="https://docs.google.com/spreadsheets/d/1Orhd5Z6flkKWVZvUv9VNGWs3aHXmbjyqs_pLi1Ch_wM/edit?usp=sharing"> 요구사항 명세 자세히 보기 </a> <br>
+🔗 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vScA7f_mLFChQQ5SMSU5AAC6-O3h8PYJg0H-dxRvMKHrePOtW3VIgnlNMcAEWP1Xy8O8LcMe4OFuCWe/pubhtml?gid=0&single=true"> 요구사항 명세 자세히 보기 </a> <br>
 
 요구사항 명세서 사진
 
 <br><br>
 
 
-## DDD 설계
+## 💭 DDD 설계
 ### 1. Domain event storming
-사진
+<details>
+  <summary>event storming</summary>
+	
+- 이벤트 추출
+  <img src="https://github.com/user-attachments/assets/e69a109a-a7af-4509-9839-9ba7cf85e372"/>
 
+- 1차 설계
+  <img src="https://github.com/user-attachments/assets/c3a616ca-d792-4267-9bf0-107855a10cd6"/>
+
+- 2차 설계
+  <img src="https://github.com/user-attachments/assets/50323ddc-bcf8-423e-a716-acdf9c04acbf"/>
+</details>
+ 
 ### 2. Bounded Context
 사진
 
@@ -95,11 +117,11 @@ WBS 사진
 ## 🗃️ DB 모델링
 
 ### 1. 논리 모델링
-바커 표기법 사진
+<img src="https://github.com/user-attachments/assets/75d3f1c6-b56b-454b-9201-6fbd4ce127a3"/>
 <br>
 
 ### 2. 물리 모델링
-ERD 클라우드 사진
+<img src="https://github.com/user-attachments/assets/7225af87-56db-41f7-9471-f481ea8234f6"/>
 <br>
 
 ### 3. 테이블 생성
@@ -1158,11 +1180,11 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
 </details>
 <br>
 
-## 프로젝트 아키텍처
+## 🪄 프로젝트 아키텍처
 
 <br>
 
-## MSA
+## 📱 MSA
 
 ### 1. 단위 테스트
 pick 테스트 코드 결과 사진 (index.html) <br>
@@ -1582,7 +1604,7 @@ pick member 테스트 코드 결과 사진
 ### 신고
 
 
-## API 명세서
+## 📑 API 명세서
 API 명세서 링크 <br>
 
 API 명세서 사진
