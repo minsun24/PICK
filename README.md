@@ -14,36 +14,44 @@
 
 <br>
 
-
-## 기술 스택
-### 🌿 Backend
-Java, Spring Boot, Spring Data JPA, Hibernate, gradle, security
-
-### 🗂️ DB
-![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white) MyBatis
-
-### 🛜 Server
-Eureka Server, gateway
-
-### 🔧 Tools
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"> <img src="https://img.shields.io/badge/ERD%20cloud-%230000FF.svg?style=flat&logo=erlang&logoColor=white"> <img src="https://img.shields.io/badge/DA%23-0B6121.svg?style=flat&logo=draw.io&logoColor=white"> ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=flat&logo=intellij-idea&logoColor=white)   노션
-
-
-<br>
-
 ## 🔖 목차
 
+#### [💡 Tech Stack](#-Tech-Stack) <br>
 #### [📢 프로젝트 개요](#-프로젝트-개요) <br>
 #### [🛠️ 주요 기능](#-주요-기능) <br>
 
+<br>
+
+## 💡 Tech Stack
+### 🌿 Backend
+<img src="https://img.shields.io/badge/java-007396?style=flat-square&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/JPA-0769GE?style=flat-square&logo=JPA&logoColor=white"/> <img src="https://img.shields.io/badge/Hibernate-61DAFB?style=flat-square&logo=Hibernate&logoColor=white"/> <img src="https://img.shields.io/badge/gradle-0769AD?style=flat-square&logo=gradle&logoColor=white"/> <img src="https://img.shields.io/badge/security-F7DF1E?style=flat-square&logo=security&logoColor=white"/>
+
+### 🗂️ DB
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white) <img src="https://img.shields.io/badge/MyBatis-FFCA28?style=flat-square&logo=MyBatis&logoColor=white"/>
+
+### 🛜 Server
+<img src="https://img.shields.io/badge/Eureka-430098?style=flat-square&logo=Eureka&logoColor=white"/> <img     src="https://img.shields.io/badge/gateway-147EFB?style=flat-square&logo=gateway&logoColor=white"/>
+
+### 🔧 Tools
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"> <img src="https://img.shields.io/badge/ERD%20cloud-%230000FF.svg?style=flat&logo=erlang&logoColor=white"> <img src="https://img.shields.io/badge/DA%23-0B6121.svg?style=flat&logo=draw.io&logoColor=white"> ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-2A2A2A.svg?style=flat&logo=intellij-idea&logoColor=white) <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"/> 
 
 <br>
 
 ## 📢 프로젝트 개요
 ### 1. 프로젝트 주제
-
+평생 공부해야 하는 개발자를 위한 <b>사이드 프로젝트 매칭 & 관리 플랫폼</b> <br>
 
 ### 2. 프로젝트 필요성
+<pre>
+<b>사이드 프로젝트란?</b>
+규모와 수익성과는 상관없이 스스로 원해서 개발해 보고 싶은 서비스, 적용해 보고 싶은 기술 스택 등을
+수련하며 스스로 자기 계발을 하는 기회를 마련하는 나만의 프로젝트
+</pre>
+사이드 프로젝트를 진행할 때는 팀원 간의 협업과 커뮤니케이션이 매우 중요하며, 모집부터 실제 실행, 완성까지 꽤 많은 시간과 노력이 필요합니다. <br>
+
+기존에 사용되던 팀원 매칭 플랫폼인 비사이드는 팀 구성에 용이하지만, 이후의 <b>협업과 프로젝트 관리 기능이 부족</b>하다는 한계가 있습니다. Jira는 체계적인 프로젝트 관리를 도와주지만, 팀원 모집이나 매칭 기능은 전혀 제공하지 않아 <b>초기 팀 구성에 어려움</b>이 있습니다. <br>
+
+이러한 두 플랫폼의 아쉬운 점을 보완하고, 각각의 장점만을 살려 팀원 매칭부터 프로젝트 관리까지 한 번에 가능한 올인원 플랫폼, Pick이 탄생했습니다. Pick은 효율적인 팀 구성과 유연한 협업, 체계적인 진행 관리를 모두 지원하여, 사이드 프로젝트의 시작부터 완성까지 모든 과정을 더 쉽고 효율적으로 만들어줍니다.
 
 <br>
 
