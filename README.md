@@ -1200,12 +1200,14 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
 <br><br>
 
 ## 🛜 Server
-### Eureka 서버 + Config 서버 + GateWay
+### 1. Eureka 서버 + Config 서버 + GateWay
 
 <img src = "https://github.com/user-attachments/assets/3a7bc440-cd8a-4bfa-a96d-c2fbeaf1b5e8" width = "900"/>
 
-### Actuator
+### 2. Actuator
 <img src = "https://github.com/user-attachments/assets/27595430-58c5-4ce9-b3cb-9bfd76910902" width = "900"/>
+
+<br>
 
 ## 🚩 단위 테스트
 
@@ -1345,7 +1347,7 @@ pick 테스트 코드 결과 사진 (index.html)
 </details>
 
 <details>
-     <summary>프로그래밍 언어</summary>
+     <summary><b>프로그래밍 언어</b></summary>
      <details>
           <summary>프로그래밍 언어 조회</summary>
           <p align="center">
@@ -1395,7 +1397,7 @@ pick 테스트 코드 결과 사진 (index.html)
 
 ### 🔔 미션
 <details>
-	<summary>도전과제</summary>
+	<summary><b>도전과제</b></summary>
 	<details>
 		<summary>도전과제 목록 전체 조회</summary>
 		<p alian="center">
@@ -1448,7 +1450,7 @@ pick 테스트 코드 결과 사진 (index.html)
 
 <!-- 뱃지 -->
 <details>
-	<summary>뱃지</summary>
+	<summary><b>뱃지</b></summary>
 	<details>
 		<summary>뱃지 목록 전체 조회</summary>
 		<p alian="center">
@@ -1495,7 +1497,7 @@ pick 테스트 코드 결과 사진 (index.html)
 
 <!-- 일일미션 -->
 <details>
-	<summary>일일미션</summary>
+	<summary><b>일일미션</b></summary>
 	<details>
 		<summary>일일미션 목록 전체 조회</summary>
 		<p alian="center">
@@ -1549,7 +1551,7 @@ pick 테스트 코드 결과 사진 (index.html)
 ### 📜 게시글
 <!-- 게시글 -->
 <details>
-	<summary>게시판</summary>
+	<summary><b>게시판</b></summary>
 	<details>
 		<summary>게시글 조회</summary>
 		<p alian="center">
@@ -1611,7 +1613,7 @@ pick 테스트 코드 결과 사진 (index.html)
 
 ### 🤼 매칭
 <details>
-<summary> 매칭 </summary>
+<summary><b>매칭</b></summary>
      
 <details>
      <summary>전체 매칭방 목록 조회</summary>
@@ -1692,7 +1694,7 @@ pick 테스트 코드 결과 사진 (index.html)
 </details>
 
 <details>
-     <summary> 기술 카테고리 </summary>
+     <summary><b>기술 카테고리</b></summary>
      
 <details>
           <summary>기술 카테고리 전체 조회</summary>
@@ -1746,7 +1748,7 @@ pick 테스트 코드 결과 사진 (index.html)
 
 ### 🗂️ 프로젝트
 <details>
-     <summary> 프로젝트 </summary>
+     <summary><b>프로젝트</b></summary>
      <details>
           <summary>전체 프로젝트 목록 조회</summary>
           <p align="center">
@@ -1805,7 +1807,7 @@ pick 테스트 코드 결과 사진 (index.html)
 
 
 <details>
-     <summary> 회의록 </summary>
+     <summary><b>회의록</b></summary>
      <details>
           <summary>프로젝트별 회의록 목록 조회</summary>
           <p align="center">
