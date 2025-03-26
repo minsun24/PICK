@@ -142,7 +142,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 		return Integer.parseInt(numberStr);
 	}
-	// 세션 코드용 6자리 랜덤 숫자 생성 메서드
+
+	// 세션 코드용 6자리 랜덤 숫자 생성 메서드 		##
 	public static int generateRangeRandomNum() {
 		SecureRandom secureRandom = new SecureRandom();
 		int start = 100000;
