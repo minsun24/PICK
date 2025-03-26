@@ -1170,6 +1170,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
 pick member 테스트 코드 결과 사진
 
 ### 2. API 테스트
+### 회원
 <details>
      <summary>회원</summary>
      <details>
@@ -1346,7 +1347,22 @@ pick member 테스트 코드 결과 사진
 	     </p>
      </details>
 </details>
-     
+
+### 미션
+
+### 게시글
+<details>
+	<summary>게시글</summary>
+
+	<details>
+		<summary>게시글 조회</summary>
+		<p alian="center">
+		<img src="" />
+		</p>
+	</details>
+</details>
+
+### 매칭
 <details>
      <summary>매칭</summary>
      
@@ -1481,6 +1497,7 @@ pick member 테스트 코드 결과 사진
      </details>
 </details>
 
+### 프로젝트
 <details>
      <summary> 🗂️ 프로젝트 </summary>
      <details>
@@ -1561,6 +1578,9 @@ pick member 테스트 코드 결과 사진
           </p>
      </details>
 </details>
+
+### 신고
+
 
 ## API 명세서
 API 명세서 링크 <br>
