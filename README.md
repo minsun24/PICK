@@ -1171,13 +1171,190 @@ pick member 테스트 코드 결과 사진
 
 ### 2. API 테스트
 <details>
-     <summary> 매칭 </summary>
+     <summary>회원</summary>
+     <details>
+          <summary>회원 가입</summary>
+          <details>
+	          <summary>성공</summary>
+	          <p alian="center">
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85(%EC%84%B1%EA%B3%B5%20200).png" />
+	          </p>
+          </details>
+          <details>
+	          <summary>실패 400 이메일 중복</summary>
+	          <p alian="center">
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85(%EC%8B%A4%ED%8C%A8%20400%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5).png" />
+	          </p>
+          </details>
+     </details>
+     <details>
+	     <summary>로그인(성공 시 토큰 반환)</summary>
+	     <p alian="center">
+	     <img src="" />
+	     </p>
+     </details>
+     <details>
+	     <summary>로그아웃(토큰 제거)</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83(%EC%84%B1%EA%B3%B5%20%ED%86%A0%ED%81%B0%20%EC%A0%9C%EA%B1%B0).png" />
+	     </p>
+     </details>
+     <details>
+	     <summary>회원 정보 수정</summary>
+          <details>
+               <summary>수정1</summary>
+	          <p alian="center">
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5%201).png" />
+	          </p>
+          </details>
+          <details>
+               <summary>수정2</summary>
+	          <p alian="center">
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5%202).png" />
+	          </p>
+          </details>
+     </details>
+     <details>
+	     <summary>비밀번호 찾기</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%20%EC%B0%BE%EA%B8%B0(%EC%84%B1%EA%B3%B5).png" />
+	     </p>
+     </details>
+     <details>
+	     <summary>이메일 찾기</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%B0%BE%EA%B8%B0(%EC%84%B1%EA%B3%B5).png" />
+	     </p>
+     </details>
+     <details>
+	     <summary>회원 전체 조회</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     </p>
+     </details>
+     <details>
+	     <summary>ID로 회원 조회</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%8A%B9%EC%A0%95%20%ED%9A%8C%EC%9B%90%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     </p>
+     </details>
+     <details>
+	     <summary>이메일 중복 체크</summary>
+          <details>
+               <summary>사용 가능 이메일</summary>
+     	     <p alian="center">
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5).png" />
+     	     </p>
+          </details>
+          <details>
+               <summary>사용 가능 이메일</summary>
+     	     <p alian="center">
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" />
+               </p>
+          </details>
+     </details>
+     <details>
+	     <summary>전화번호 중복 체크</summary>
+          <details>
+               <summary>사용 가능 전화번호</summary>
+     	     <p alian="center">
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EC%A4%91%EB%B3%B5%20%EC%B2%B4%ED%81%AC(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5).png" />
+     	     </p>
+          </details>
+          <details>
+               <summary>사용 불가 전화번호</summary>
+     	     <p alian="center">
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EC%A4%91%EB%B3%B5%20%EC%B2%B4%ED%81%AC(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" />
+               </p>
+          </details>
+     </details>
+     <details>
+	     <summary>회원 상태 조회</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%83%81%ED%83%9C%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     </p>
+     </details>
+          <details>
+	     <summary>회원 권한 조회</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EA%B6%8C%ED%95%9C%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     </p>
+     </details>
+</details>
+
+<details>
+     <summary>프로필</summary>
+     <details>
+          <summary>회원 프로필 조회</summary>
+          <p align="center">
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+          </p>
+     </details>
+     <details>
+          <summary>회원 프로필 정보 수정</summary>
+          <p align="center">
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5).png" />
+          </p>
+     </details>
+</details>
+
+<details>
+     <summary>프로그래밍 언어</summary>
+     <details>
+          <summary>프로그래밍 언어 조회</summary>
+          <p align="center">
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+          </p>
+     </details>
+     <details>
+          <summary>프로그래밍 언어 추가</summary>
+          <details>
+               <summary>성공(권한 있음)</summary>
+               <p align="center">
+               <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%B6%94%EA%B0%80(%EC%84%B1%EA%B3%B5%20%EA%B6%8C%ED%95%9C%EC%9E%88%EC%9D%8C).png" />
+               </p>
+          </details>
+          <details>
+               <summary>실패(권한 없음)</summary>
+               <p align="center">
+               <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%B6%94%EA%B0%80(%EC%8B%A4%ED%8C%A8%2C%20%EA%B6%8C%ED%95%9C%EC%97%86%EC%9D%8C).png" />
+               </p>
+          </details>   
+     </details>
+     <details>
+	     <summary>프로그래밍 언어 삭제</summary>
+	     <p alian="center">
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%82%AD%EC%A0%9C(%EC%84%B1%EA%B3%B5%20%EA%B6%8C%ED%95%9C%EC%9E%88%EC%9D%8C).png" />
+	     </p>
+     </details>
+     <details>
+	     <summary>회원별 사용 언어 조회</summary>
+	     <p alian="center">
+	     <img src="" />
+	     </p>
+     </details>
+     <details>
+	     <summary>회원별 사용언어 추가</summary>
+	     <p alian="center">
+	     <img src="" />
+	     </p>
+     </details>
+     <details>
+	     <summary>회원별 사용언어 수정</summary>
+	     <p alian="center">
+	     <img src="" />
+	     </p>
+     </details>
+</details>
      
 <details>
-     <summary>전체 매칭방 목록 조회</summary>
-     <p align="center">
+     <summary>매칭</summary>
+     
+     <details>
+          <summary>전체 매칭방 목록 조회</summary>
+          <p align="center">
           <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.png" />
-     </p>
+          </p>
      </details>
 
      <details>
