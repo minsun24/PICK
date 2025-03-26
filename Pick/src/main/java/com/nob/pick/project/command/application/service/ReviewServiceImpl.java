@@ -9,7 +9,6 @@ import com.nob.pick.project.command.domain.repository.MemberReviewRepository;
 import com.nob.pick.project.command.domain.repository.ParticipantRepository;
 import com.nob.pick.project.command.domain.repository.ProjectReviewRepository;
 import com.nob.pick.project.command.domain.repository.ProjectRoomRepository;
-import com.nob.pick.project.command.domain.aggregate.entity.MemberReview;
 import com.nob.pick.project.command.application.dto.MemberReviewDTO;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;

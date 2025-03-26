@@ -28,6 +28,7 @@ public class ReviewController {
                                                  @RequestBody ProjectReviewDTO projectReview) throws AccessDeniedException {
         // url <-> body 매칭 확인
         if (projectReview.getProject_id() != projectRoomId) {
+            log.info(String.valueOf(projectReview.getProject_id()), projectRoomId);
             return ResponseEntity.badRequest().body("URL과 body의 프로젝트 아이디가 일치하지 않습니다.");
         }
         // 리뷰 저장

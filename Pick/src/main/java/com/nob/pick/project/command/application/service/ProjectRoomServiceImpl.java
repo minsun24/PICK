@@ -104,7 +104,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		ProjectRoom savedProjectRoom = projectRoomRepository.save(projectRoom);
 		// 확인
 		log.info("Project Room 생성 완료! ID: {}", savedProjectRoom.getId());
-		//
+
 		// 팀원 INSERT
 		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom);
 
@@ -115,8 +115,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		for(RequestParticipantDTO participant : participantList) {
 
 			// Member 엔티티 가져오기
-			Member newMember = memberRepository.findById((long)participant.getId())
-				.orElseThrow(() -> new IllegalArgumentException("해당 멤버가 존재하지 않습니다. id=" + participant.getId()));
+			Member newMember = memberRepository.findById((long)participant.getMemberId())
+				.orElseThrow(() -> new IllegalArgumentException("해당 멤버가 존재하지 않습니다. id=" + participant.getMemberId()));
 
 			Participant newParticipant = Participant.builder()
 				.member(newMember)
