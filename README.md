@@ -120,7 +120,7 @@
 </details> <br>
 
 ### 2. Context Map
-<img src="https://github.com/user-attachments/assets/77245444-fd45-4dbe-86e0-cf4f91cfe060"/>
+<img src="https://github.com/user-attachments/assets/36b1f98a-851a-40c1-943d-1ddc11865047"/>
 
 
 <br>
@@ -1210,10 +1210,18 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
 <br>
 
 ## 🚩 단위 테스트
+### - Member Service
+<img src = "https://github.com/user-attachments/assets/b9eb52b5-e6be-4469-bfa1-870179fd2726" width = "600" />
+<br>
 
-pick 테스트 코드 결과 사진 (index.html)
+### - Matching Service
+<img src = "https://github.com/user-attachments/assets/1f4a94d8-29cc-4d84-9c1d-4756f081d6f7" width = "600" />
+<br>
 
-<br><br>
+### - Core
+#### Mission, Matching, Post, ProjectRoom, Report
+<img src = "https://github.com/user-attachments/assets/6cf1beed-6ebf-440c-9b8c-728fd1ebddbb" width = "600" />
+<br>
 
 ## 📱 API 테스트
 ### 👤 회원
@@ -1295,7 +1303,7 @@ pick 테스트 코드 결과 사진 (index.html)
      	     </p>
           </details>
           <details>
-               <summary>사용 가능 이메일</summary>
+               <summary>사용 불가능 이메일</summary>
      	     <p alian="center">
      	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" width = "600"/>
                </p>
@@ -2070,8 +2078,3 @@ pick 테스트 코드 결과 사진 (index.html)
     <td> 짧은 기간 안에 맡은 부분을 완벽하게 마무리해주셨다. 의견을 나눌 때 적극적으로 임하시고 놓쳤던 부분에 대해 생각해주셔서 많은 부분을 참고할 수 있었다. 피드백을 빠르게 반영해주시고 각종 문서화 작업을 깔끔하게 완성해주신다. 에러나 각종 이슈가 생겼을 때 신속하게 의견을 공유하고 함께 해결해주셔서 감사했다. </td>
   </tr>
 </table>
-
-
-
-
-
