@@ -5,7 +5,7 @@
 
 </center>
 
-<br>
+<br><br>
 
 ## 👨‍💻 DEVELOPERS
 
@@ -24,8 +24,10 @@
 #### [🙆‍♀️ 요구사항 명세서](#-요구사항-명세서) <br>
 #### [💭 DDD 설계](#-DDD-설계) <br>
 #### [🗃️ DB 모델링](#-DB-모델링) <br>
-#### [🪄 프로젝트 아키텍처](#-프로젝트-아키텍처) <br>
-#### [📱 MSA](#-MSA) <br>
+#### [🪄 MSA 아키텍처](#-MSA-아키텍처) <br>
+#### [🛜 Server](#-Server) <br>
+#### [🚩 단위 테스트](#-단위-테스트) <br>
+#### [📱 API 테스트](#-API-테스트) <br>
 #### [📑 API 명세서](#-API-명세서) <br>
 #### [🔜 향후 확장 계획](#-향후-확장-계획) <br>
 #### [🍪 동료 평가](#-동료-평가) <br>
@@ -66,6 +68,7 @@
 <br>
 
 ## 🛠️ 주요 기능
+
 <img src="https://github.com/user-attachments/assets/97ae910c-cab7-4453-9c15-062e07119700" width="800"/><br>
 매칭을 희망하는 회원이 매칭을 신청하면, 미리 생성된 방의 레벨과 비교하여 레벨 범위에 맞는 방에 <b>신청자 매칭</b>
 
@@ -74,13 +77,10 @@
 프로젝트 방이 생성되면, 참가자에게 <b>문서화와 일정 관리 서비스</b> 제공.<br>프로젝트가 끝나면 각 팀원은 프로젝트와 서로에 대한 후기 작성 -> 포트폴리오 & 피드백이 됨
 
 
-  
 <img src="https://github.com/user-attachments/assets/5e264d2e-04a7-4c54-bcf1-032ec0c602f9" width="800"/><br>
 매일매일 반복적으로 달성할 수 있는 <b>단기 목표</b> 부여 -> 일정 횟수 반복 시 도전 과제 달성 -> 업적 뱃지 제공<br>
 경력, 전공, 자격증 등 스펙 증명 시 <b>스펙 뱃지</b> 제공 <br>
 
-
-<br>
 
 ## 📅 WBS
 🔗 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vScA7f_mLFChQQ5SMSU5AAC6-O3h8PYJg0H-dxRvMKHrePOtW3VIgnlNMcAEWP1Xy8O8LcMe4OFuCWe/pubhtml?gid=88084636&single=true"> WBS 자세히 보기</a><br> <br>
@@ -117,7 +117,7 @@
 
 - 2차 설계
   <img src="https://github.com/user-attachments/assets/b463c4b2-1261-4215-978a-38ab4e5f90e2"/>
-</details>
+</details> <br>
 
 ### 2. Context Map
 <img src="https://github.com/user-attachments/assets/77245444-fd45-4dbe-86e0-cf4f91cfe060"/>
@@ -1193,20 +1193,28 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
 </details>
 <br>
 
-## 🪄 프로젝트 아키텍처
+## 🪄 MSA 아키텍처
 
-<img src = "https://github.com/user-attachments/assets/8e83eca5-0de1-489c-bea3-4c0e38546a04" width = 900/>
+<img src = "https://github.com/user-attachments/assets/8e83eca5-0de1-489c-bea3-4c0e38546a04" width = "900"/>
 
-<br>
+<br><br>
 
-## 📱 MSA
+## 🛜 Server
+### Eureka 서버 + Config 서버 + GateWay
 
-### 1. 단위 테스트
-pick 테스트 코드 결과 사진 (index.html) <br>
+<img src = "https://github.com/user-attachments/assets/3a7bc440-cd8a-4bfa-a96d-c2fbeaf1b5e8" width = "900"/>
 
+### Actuator
+<img src = "https://github.com/user-attachments/assets/27595430-58c5-4ce9-b3cb-9bfd76910902" width = "900"/>
 
-### 2. API 테스트
-#### 👤 회원
+## 🚩 단위 테스트
+
+pick 테스트 코드 결과 사진 (index.html)
+
+<br><br>
+
+## 📱 API 테스트
+### 👤 회원
 
 <details>
      <summary><b>회원</b></summary>
@@ -1321,7 +1329,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
 </details>
 
 <details>
-     <summary>프로필</summary>
+     <summary><b>프로필</b></summary>
      <details>
           <summary>회원 프로필 조회</summary>
           <p align="center">
@@ -1385,7 +1393,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
      </details>
 </details>
 
-#### 🔔 미션
+### 🔔 미션
 <details>
 	<summary>도전과제</summary>
 	<details>
@@ -1538,7 +1546,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
 	</details>
 </details>
 
-#### 📜 게시글
+### 📜 게시글
 <!-- 게시글 -->
 <details>
 	<summary>게시판</summary>
@@ -1601,7 +1609,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
 	</details>
 </details>
 
-#### 🤼 매칭
+### 🤼 매칭
 <details>
 <summary> 매칭 </summary>
      
@@ -1736,7 +1744,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
 </details>
 </details>
 
-#### 🗂️ 프로젝트
+### 🗂️ 프로젝트
 <details>
      <summary> 프로젝트 </summary>
      <details>
@@ -1818,10 +1826,10 @@ pick 테스트 코드 결과 사진 (index.html) <br>
      </details>
 </details>
 
-#### 🚨 신고
+### 🚨 신고
 <details>
 	
-<summary>신고</summary>
+<summary><b>신고</b></summary>
 	<details>
 		<summary>모든 신고 목록 조회</summary>
 		<img src="https://github.com/user-attachments/assets/3194f8aa-27ed-42f0-b3ab-48c621a27498" width="600"/>
@@ -1857,7 +1865,7 @@ pick 테스트 코드 결과 사진 (index.html) <br>
 </details>
 
 <details>
-<summary>규제</summary>
+<summary><b>규제</b></summary>
 	<details>
 		<summary>모든 규제 목록 조회</summary>
 		<img src="https://github.com/user-attachments/assets/c1dcb2b7-3675-485d-89f2-a38d95f7c9cf" width="600" />
