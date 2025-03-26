@@ -147,5 +147,7 @@ replay_pid*
 application.yml
 applicaiton.properties
 
+pickconfigserver-0.0.1-SNAPSHOT.jar
+
 # intellij
 *.idea

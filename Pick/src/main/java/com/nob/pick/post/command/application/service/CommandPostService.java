@@ -8,5 +8,5 @@ import com.nob.pick.post.command.application.dto.PostDTO;
 public interface CommandPostService {
 	void registerPost(PostDTO newPost);
 	
-	void deletePost(int postId);
+	String deletePost(int postId);
 }
