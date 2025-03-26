@@ -125,6 +125,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
         dto.setThumbnailImage(projectDetail.getThumbnailImage());
         dto.setMaximumParticipant(projectDetail.getMaximumParticipant());
         dto.setSessionCode(projectDetail.getSessionCode());
+        dto.setTechnologyCategoryId(projectDetail.getTechnologyCategory().getId());
+        dto.setTechnologyCategoryName(projectDetail.getTechnologyCategory().getName());
 
         return dto;
     }
@@ -147,6 +149,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
             dto.setThumbnailImage(projectRoom.getThumbnailImage());
             dto.setIntroduction(projectRoom.getIntroduction());
             dto.setThumbnailImage(projectRoom.getThumbnailImage());
+            dto.setTechnologyCategoryId(projectRoom.getTechnologyCategory().getId());
+            dto.setTechnologyCategoryName(projectRoom.getTechnologyCategory().getName());
 
             projectRoomDTOList.add(dto);
         }

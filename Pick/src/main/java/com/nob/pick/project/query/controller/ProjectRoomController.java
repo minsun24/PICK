@@ -215,7 +215,7 @@ public class ProjectRoomController {
     }
 
 
-    // List<ProjecRoomDTO> -> List<ResponseProjectVO>
+    // List<ProjectRoomDTO> -> List<ResponseProjectVO>
     private List<ResponseProjectVO> projectRoomDTOToVO(List<ProjectRoomDTO> ProjectRoomDTOList) {
         List<ResponseProjectVO> responseList = new ArrayList<>();
 
@@ -264,11 +264,10 @@ public class ProjectRoomController {
 
         for (ParticipantDTO dto : participantDTOList) {
             ResponseParticipantVO vo = new ResponseParticipantVO();
-            vo.setParticipantId(dto.getId());
+            vo.setId(dto.getId());
             vo.setManager(dto.isManager());
             vo.setMemberName(dto.getMemberName());
             vo.setMemberNickname(dto.getMemberNickname());
-
             voList.add(vo);
         }
 
