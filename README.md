@@ -1,10 +1,11 @@
-# Pick
+# 🗝️ Pick
 
 <center>
-     대표 사진
+     <img src = "https://github.com/user-attachments/assets/3f41e611-297b-4a40-94a4-a7e1927e6f93" width = "80%" />
+
 </center>
 
-<br>
+<br><br>
 
 ## 👨‍💻 DEVELOPERS
 
@@ -23,8 +24,13 @@
 #### [🙆‍♀️ 요구사항 명세서](#-요구사항-명세서) <br>
 #### [💭 DDD 설계](#-DDD-설계) <br>
 #### [🗃️ DB 모델링](#-DB-모델링) <br>
-#### [🪄 프로젝트 아키텍처](#-프로젝트-아키텍처) <br>
-####
+#### [🪄 MSA 아키텍처](#-MSA-아키텍처) <br>
+#### [🛜 Server](#-Server) <br>
+#### [🚩 단위 테스트](#-단위-테스트) <br>
+#### [📱 API 테스트](#-API-테스트) <br>
+#### [📑 API 명세서](#-API-명세서) <br>
+#### [🔜 향후 확장 계획](#-향후-확장-계획) <br>
+#### [🍪 동료 평가](#-동료-평가) <br>
 
 <br>
 
@@ -62,53 +68,60 @@
 <br>
 
 ## 🛠️ 주요 기능
-- <b>프로젝트 팀원 자동 매칭</b><br>
-매칭을 희망하는 회원이 매칭을 신청하면, 미리 생성된 방의 레벨과 비교하여 레벨 범위에 맞는 방에 신청자 매칭
+
+<img src="https://github.com/user-attachments/assets/97ae910c-cab7-4453-9c15-062e07119700" width="800"/><br>
+매칭을 희망하는 회원이 매칭을 신청하면, 미리 생성된 방의 레벨과 비교하여 레벨 범위에 맞는 방에 <b>신청자 매칭</b>
+
   
-- <b>프로젝트 관리 및 후기</b><br>
-프로젝트 방이 생성되면, 참가자에게 문서화와 일정 관리 서비스 제공.<br>프로젝트가 끝나면 각 팀원은 프로젝트와 서로에 대한 후기 작성 -> 포트폴리오 & 피드백이 됨
-  
-- <b>일일미션, 도전과제, 뱃지</b><br>
-매일매일 반복적으로 달성할 수 있는 단기 목표 부여 -> 일정 횟수 반복 시 도전 과제 달성 -> 업적 뱃지 제공<br>
-경력, 전공, 자격증 등 스펙 증명 시 스펙 뱃지 제공
+<img src="https://github.com/user-attachments/assets/cd4d605b-a154-49ff-8738-bf45e56247f2" width="800"/><br>
+프로젝트 방이 생성되면, 참가자에게 <b>문서화와 일정 관리 서비스</b> 제공.<br>프로젝트가 끝나면 각 팀원은 프로젝트와 서로에 대한 후기 작성 -> 포트폴리오 & 피드백이 됨
 
 
-<br>
+<img src="https://github.com/user-attachments/assets/5e264d2e-04a7-4c54-bcf1-032ec0c602f9" width="800"/><br>
+매일매일 반복적으로 달성할 수 있는 <b>단기 목표</b> 부여 -> 일정 횟수 반복 시 도전 과제 달성 -> 업적 뱃지 제공<br>
+경력, 전공, 자격증 등 스펙 증명 시 <b>스펙 뱃지</b> 제공 <br>
+
 
 ## 📅 WBS
-WBS 링크 <br>
-WBS 사진
+🔗 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vScA7f_mLFChQQ5SMSU5AAC6-O3h8PYJg0H-dxRvMKHrePOtW3VIgnlNMcAEWP1Xy8O8LcMe4OFuCWe/pubhtml?gid=88084636&single=true"> WBS 자세히 보기</a><br> <br>
+<img src="https://github.com/user-attachments/assets/6677a334-9d8f-4d8d-a756-e98de9b2968f" width = "1000"/>
 
 <br><br>
 
 ## 🙆‍♀️ 요구사항 명세서
-🔗 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vScA7f_mLFChQQ5SMSU5AAC6-O3h8PYJg0H-dxRvMKHrePOtW3VIgnlNMcAEWP1Xy8O8LcMe4OFuCWe/pubhtml?gid=0&single=true"> 요구사항 명세 자세히 보기 </a> <br>
 
-요구사항 명세서 사진
+🔗 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vScA7f_mLFChQQ5SMSU5AAC6-O3h8PYJg0H-dxRvMKHrePOtW3VIgnlNMcAEWP1Xy8O8LcMe4OFuCWe/pubhtml?gid=0&single=true"> 요구사항 명세 자세히 보기 </a>
+
+<br>
+
+<img src = "https://github.com/user-attachments/assets/ab620c8f-d9fb-4b72-8005-a0856019b3e4" width = "900"/>
 
 <br><br>
 
 
 ## 💭 DDD 설계
 ### 1. Domain event storming
+<img src="https://github.com/user-attachments/assets/c3ceb302-7ac2-4f8e-a1b3-9161a6192a56"/><br>
+
+<img src="https://github.com/user-attachments/assets/52c49916-efd4-49a1-8c62-36dd0bcbc175"/><br>
+
+
 <details>
-  <summary>event storming</summary>
-	
+  <summary>설계 과정</summary>
+
 - 이벤트 추출
-  <img src="https://github.com/user-attachments/assets/e69a109a-a7af-4509-9839-9ba7cf85e372"/>
+  <img src="https://github.com/user-attachments/assets/f3962716-5b6b-4e69-b44d-eb375b8ba2ec"/>
 
 - 1차 설계
-  <img src="https://github.com/user-attachments/assets/c3a616ca-d792-4267-9bf0-107855a10cd6"/>
+  <img src="https://github.com/user-attachments/assets/412a165c-25c9-4872-89c4-4274b239c471"/>
 
 - 2차 설계
-  <img src="https://github.com/user-attachments/assets/50323ddc-bcf8-423e-a716-acdf9c04acbf"/>
-</details>
- 
-### 2. Bounded Context
-사진
+  <img src="https://github.com/user-attachments/assets/b463c4b2-1261-4215-978a-38ab4e5f90e2"/>
+</details> <br>
 
-### 3. Context Map
-사진
+### 2. Context Map
+<img src="https://github.com/user-attachments/assets/77245444-fd45-4dbe-86e0-cf4f91cfe060"/>
+
 
 <br>
 <br>
@@ -1180,46 +1193,58 @@ VALUES ('1번 게시글 사진 경로', '1번 게시글 사진 이름', 'Y', 1)
 </details>
 <br>
 
-## 🪄 프로젝트 아키텍처
+## 🪄 MSA 아키텍처
+
+<img src = "https://github.com/user-attachments/assets/8e83eca5-0de1-489c-bea3-4c0e38546a04" width = "900"/>
+
+<br><br>
+
+## 🛜 Server
+### 1. Eureka 서버 + Config 서버 + GateWay
+
+<img src = "https://github.com/user-attachments/assets/3a7bc440-cd8a-4bfa-a96d-c2fbeaf1b5e8" width = "900"/>
+
+### 2. Actuator
+<img src = "https://github.com/user-attachments/assets/27595430-58c5-4ce9-b3cb-9bfd76910902" width = "900"/>
 
 <br>
 
-## 📱 MSA
+## 🚩 단위 테스트
 
-### 1. 단위 테스트
-pick 테스트 코드 결과 사진 (index.html) <br>
+pick 테스트 코드 결과 사진 (index.html)
 
-pick member 테스트 코드 결과 사진
+<br><br>
 
-### 2. API 테스트
-### 회원
+## 📱 API 테스트
+### 👤 회원
+
 <details>
-     <summary>회원</summary>
+     <summary><b>회원</b></summary>
      <details>
           <summary>회원 가입</summary>
           <details>
 	          <summary>성공</summary>
 	          <p alian="center">
-	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85(%EC%84%B1%EA%B3%B5%20200).png" />
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85(%EC%84%B1%EA%B3%B5%20200).png" width = "600"/>
 	          </p>
           </details>
           <details>
 	          <summary>실패 400 이메일 중복</summary>
 	          <p alian="center">
-	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85(%EC%8B%A4%ED%8C%A8%20400%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5).png" />
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85(%EC%8B%A4%ED%8C%A8%20400%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5).png" width = "600" />
 	          </p>
           </details>
      </details>
      <details>
 	     <summary>로그인(성공 시 토큰 반환)</summary>
 	     <p alian="center">
-	     <img src="" />
+	     <img src="" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>로그아웃(토큰 제거)</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83(%EC%84%B1%EA%B3%B5%20%ED%86%A0%ED%81%B0%20%EC%A0%9C%EA%B1%B0).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83(%EC%84%B1%EA%B3%B5%20%ED%86%A0%ED%81%B0%20%EC%A0%9C%EA%B1%B0).png" width = "600"/>
 	     </p>
      </details>
      <details>
@@ -1227,38 +1252,38 @@ pick member 테스트 코드 결과 사진
           <details>
                <summary>수정1</summary>
 	          <p alian="center">
-	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5%201).png" />
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5%201).png" width = "600"/>
 	          </p>
           </details>
           <details>
                <summary>수정2</summary>
 	          <p alian="center">
-	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5%202).png" />
+	          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5%202).png" width = "600"/>
 	          </p>
           </details>
      </details>
      <details>
 	     <summary>비밀번호 찾기</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%20%EC%B0%BE%EA%B8%B0(%EC%84%B1%EA%B3%B5).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%20%EC%B0%BE%EA%B8%B0(%EC%84%B1%EA%B3%B5).png" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>이메일 찾기</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%B0%BE%EA%B8%B0(%EC%84%B1%EA%B3%B5).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%B0%BE%EA%B8%B0(%EC%84%B1%EA%B3%B5).png" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>회원 전체 조회</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>ID로 회원 조회</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%8A%B9%EC%A0%95%20%ED%9A%8C%EC%9B%90%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%8A%B9%EC%A0%95%20%ED%9A%8C%EC%9B%90%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" width = "600"/>
 	     </p>
      </details>
      <details>
@@ -1266,13 +1291,13 @@ pick member 테스트 코드 결과 사진
           <details>
                <summary>사용 가능 이메일</summary>
      	     <p alian="center">
-     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5).png" />
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5).png" width = "600"/>
      	     </p>
           </details>
           <details>
                <summary>사용 가능 이메일</summary>
      	     <p alian="center">
-     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" />
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%A4%91%EB%B3%B5%20%EA%B2%80%EC%82%AC%20(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" width = "600"/>
                </p>
           </details>
      </details>
@@ -1281,52 +1306,52 @@ pick member 테스트 코드 결과 사진
           <details>
                <summary>사용 가능 전화번호</summary>
      	     <p alian="center">
-     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EC%A4%91%EB%B3%B5%20%EC%B2%B4%ED%81%AC(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5).png" />
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EC%A4%91%EB%B3%B5%20%EC%B2%B4%ED%81%AC(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5).png" width = "600"/>
      	     </p>
           </details>
           <details>
                <summary>사용 불가 전화번호</summary>
      	     <p alian="center">
-     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EC%A4%91%EB%B3%B5%20%EC%B2%B4%ED%81%AC(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" />
+     	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EC%A4%91%EB%B3%B5%20%EC%B2%B4%ED%81%AC(%EC%84%B1%EA%B3%B5%2C%20%EC%82%AC%EC%9A%A9%20%EB%B6%88%EA%B0%80%EB%8A%A5).png" width = "600"/>
                </p>
           </details>
      </details>
      <details>
 	     <summary>회원 상태 조회</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%83%81%ED%83%9C%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EC%83%81%ED%83%9C%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" width = "600"/>
 	     </p>
      </details>
           <details>
 	     <summary>회원 권한 조회</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EA%B6%8C%ED%95%9C%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%EA%B6%8C%ED%95%9C%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" width = "600"/>
 	     </p>
      </details>
 </details>
 
 <details>
-     <summary>프로필</summary>
+     <summary><b>프로필</b></summary>
      <details>
           <summary>회원 프로필 조회</summary>
           <p align="center">
-          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" width = "600"/>
           </p>
      </details>
      <details>
           <summary>회원 프로필 정보 수정</summary>
           <p align="center">
-          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5).png" />
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%9A%8C%EC%9B%90%20%ED%94%84%EB%A1%9C%ED%95%84%20%EC%A0%95%EB%B3%B4%20%EC%88%98%EC%A0%95(%EC%84%B1%EA%B3%B5).png" width = "600"/>
           </p>
      </details>
 </details>
 
 <details>
-     <summary>프로그래밍 언어</summary>
+     <summary><b>프로그래밍 언어</b></summary>
      <details>
           <summary>프로그래밍 언어 조회</summary>
           <p align="center">
-          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" />
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%A1%B0%ED%9A%8C(%EC%84%B1%EA%B3%B5).png" width = "600"/>
           </p>
      </details>
      <details>
@@ -1334,284 +1359,546 @@ pick member 테스트 코드 결과 사진
           <details>
                <summary>성공(권한 있음)</summary>
                <p align="center">
-               <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%B6%94%EA%B0%80(%EC%84%B1%EA%B3%B5%20%EA%B6%8C%ED%95%9C%EC%9E%88%EC%9D%8C).png" />
+               <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%B6%94%EA%B0%80(%EC%84%B1%EA%B3%B5%20%EA%B6%8C%ED%95%9C%EC%9E%88%EC%9D%8C).png" width = "600"/>
                </p>
           </details>
           <details>
                <summary>실패(권한 없음)</summary>
                <p align="center">
-               <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%B6%94%EA%B0%80(%EC%8B%A4%ED%8C%A8%2C%20%EA%B6%8C%ED%95%9C%EC%97%86%EC%9D%8C).png" />
+               <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%B6%94%EA%B0%80(%EC%8B%A4%ED%8C%A8%2C%20%EA%B6%8C%ED%95%9C%EC%97%86%EC%9D%8C).png" width = "600"/>
                </p>
           </details>   
      </details>
      <details>
 	     <summary>프로그래밍 언어 삭제</summary>
 	     <p alian="center">
-	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%82%AD%EC%A0%9C(%EC%84%B1%EA%B3%B5%20%EA%B6%8C%ED%95%9C%EC%9E%88%EC%9D%8C).png" />
+	     <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/member/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EC%96%B8%EC%96%B4%20%EC%82%AD%EC%A0%9C(%EC%84%B1%EA%B3%B5%20%EA%B6%8C%ED%95%9C%EC%9E%88%EC%9D%8C).png" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>회원별 사용 언어 조회</summary>
 	     <p alian="center">
-	     <img src="" />
+	     <img src="" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>회원별 사용언어 추가</summary>
 	     <p alian="center">
-	     <img src="" />
+	     <img src="" width = "600"/>
 	     </p>
      </details>
      <details>
 	     <summary>회원별 사용언어 수정</summary>
 	     <p alian="center">
-	     <img src="" />
+	     <img src="" width = "600"/>
 	     </p>
      </details>
 </details>
 
-### 미션
-
-### 게시글
+### 🔔 미션
 <details>
-	<summary>게시글</summary>
-
+	<summary><b>도전과제</b></summary>
 	<details>
-		<summary>게시글 조회</summary>
+		<summary>도전과제 목록 전체 조회</summary>
 		<p alian="center">
-		<img src="" />
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EB%AA%A9%EB%A1%9D%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>도전과제 추가</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EC%B6%94%EA%B0%80.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>도전과제 수정</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EC%88%98%EC%A0%95.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>도전과제 삭제</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EC%82%AD%EC%A0%9C.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>도전과제 진행도 증가</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EC%A7%84%ED%96%89%EB%8F%84%20%EC%A6%9D%EA%B0%80.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>회원별 도전과제 목록 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%ED%9A%8C%EC%9B%90%EB%B3%84%20%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EB%AA%A9%EB%A1%9D%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>회원이 달성한 도전과제 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%ED%9A%8C%EC%9B%90%EC%9D%B4%20%EB%8B%AC%EC%84%B1%ED%95%9C%20%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>			
+	<details>
+		<summary>회원이 달성하지 못한 도전과제 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/achievement/%ED%9A%8C%EC%9B%90%EC%9D%B4%20%EB%8B%AC%EC%84%B1%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EB%8F%84%EC%A0%84%EA%B3%BC%EC%A0%9C%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
 		</p>
 	</details>
 </details>
 
-### 매칭
+<!-- 뱃지 -->
 <details>
-     <summary>매칭</summary>
+	<summary><b>뱃지</b></summary>
+	<details>
+		<summary>뱃지 목록 전체 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%EB%B1%83%EC%A7%80%20%EB%AA%A9%EB%A1%9D%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>뱃지 추가</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%EB%B1%83%EC%A7%80%20%EC%B6%94%EA%B0%80.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>뱃지 수정</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%EB%B1%83%EC%A7%80%20%EC%88%98%EC%A0%95.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>뱃지 삭제</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%EB%B1%83%EC%A7%80%20%EC%82%AD%EC%A0%9C.jpg" width="600" />
+		</p>
+	</details>			
+	<details>
+		<summary>뱃지 부여 및 레벨 증가</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%EB%B1%83%EC%A7%80%EB%B6%80%EC%97%AC%20%EB%B0%8F%20%EB%A0%88%EB%B2%A8%20%EC%A6%9D%EA%B0%80.jpg" width="600" />
+		</p>
+	</details>
+	<details>
+		<summary>챌린지별 뱃지 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%EC%B1%8C%EB%A6%B0%EC%A7%80%EB%B3%84%20%EB%B1%83%EC%A7%80%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>	
+	<details>
+		<summary>회원이 획득한 뱃지 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/badge/%ED%9A%8C%EC%9B%90%EC%9D%B4%20%EB%B3%B4%EC%9C%A0%ED%95%98%EA%B3%A0%EC%9E%88%EB%8A%94%20%EB%B1%83%EC%A7%80%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>	
+</details>
+
+<!-- 일일미션 -->
+<details>
+	<summary><b>일일미션</b></summary>
+	<details>
+		<summary>일일미션 목록 전체 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EB%AA%A9%EB%A1%9D%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>	
+	<details>
+		<summary>일일미션 추가</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EC%B6%94%EA%B0%80.jpg" width="600" />
+		</p>
+	</details>	
+	<details>
+		<summary>일일미션 수정</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EC%88%98%EC%A0%95.jpg" width="600" />
+		</p>
+	</details>		
+	<details>
+		<summary>일일미션 삭제</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EC%82%AD%EC%A0%9C.jpg" width="600" />
+		</p>
+	</details>		
+	<details>
+		<summary>회원에게 일일미션 부여</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%ED%9A%8C%EC%9B%90%EC%97%90%EA%B2%8C%20%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EB%B6%80%EC%97%AC.jpg" width="600" />
+		</p>
+	</details>		
+	<details>
+		<summary>회원별 일일미션 목록 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%ED%9A%8C%EC%9B%90%EB%B3%84%20%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EB%AA%A9%EB%A1%9D%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>		
+	<details>
+		<summary>회원이 수행한 일일미션 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%ED%9A%8C%EC%9B%90%EC%9D%B4%20%EC%88%98%ED%96%89%ED%95%9C%20%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>		
+	<details>
+		<summary>회원이 수행하지 못한 일일미션 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/dailymission/%ED%9A%8C%EC%9B%90%EC%9D%B4%20%EC%88%98%ED%96%89%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%9D%BC%EC%9D%BC%EB%AF%B8%EC%85%98%20%EC%A1%B0%ED%9A%8C.jpg" width="600" />
+		</p>
+	</details>
+</details>
+
+### 📜 게시글
+<!-- 게시글 -->
+<details>
+	<summary><b>게시판</b></summary>
+	<details>
+		<summary>게시글 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-01-%EC%82%AD%EC%A0%9C%2C%20%EA%B7%9C%EC%A0%9C%EB%90%98%EC%A7%80%20%EC%95%8A%EC%9D%80%20%EA%B8%80%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+		</p>
+	</details>
+	<details>
+		<summary>단일 글, 댓글 사진 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-02-%EB%8B%A8%EC%9D%BC%20%EA%B8%80%20%EB%B0%8F%20%ED%95%B4%EB%8B%B9%20%EB%8C%93%EA%B8%80%2C%20%EC%82%AC%EC%A7%84%20%EC%A1%B0%ED%9A%8C-1-1%EB%B2%88%20%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+		</p>
+	</details>
+	<details>
+		<summary>제목으로 검색</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-03-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EC%A0%9C%EB%AA%A9%EC%9C%BC%EB%A1%9C%20%EC%A1%B0%ED%9A%8C-1-1%EB%B2%88%EC%9C%BC%EB%A1%9C%20%EA%B2%80%EC%83%89.png"  width="600"/>
+		</p>
+	</details>
+	<details>
+		<summary>카테고리 별 조회</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-04-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EB%AA%A9%EB%A1%9D%EC%97%90%EC%84%9C%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EB%B3%84%EB%A1%9C%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+		</p>
+	</details>
+	<details>
+		<summary>게시글 등록</summary>
+		<p alian="center">
+		<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-05-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EB%93%B1%EB%A1%9D.png"  width="600"/>
+		</p>
+	</details>
+	<details>
+		<summary>게시글 삭제</summary>
+		<details>
+			<summary>규제에 의한 삭제</summary>
+			<p alian="center">
+			<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-06-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EC%82%AD%EC%A0%9C(%EA%B7%9C%EC%A0%9C%EB%90%9C%20%EA%B8%80).png"  width="600"/>
+			</p>
+		</details>
+		<details>
+			<summary>삭제 성공</summary>
+			<p alian="center">
+			<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-06-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EC%82%AD%EC%A0%9C(%EC%82%AD%EC%A0%9C%20%EC%84%B1%EA%B3%B5).png"  width="600"/>
+			</p>
+		</details>
+		<details>
+			<summary>없는 게시글 삭제 시도</summary>
+			<p alian="center">
+			<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-06-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EC%82%AD%EC%A0%9C(%EC%97%86%EB%8A%94%20%EA%B8%80).png"  width="600"/>
+			</p>
+		</details>
+		<details>
+			<summary>이미 삭제된 게시글 삭제 시도</summary>
+			<p alian="center">
+			<img src="https://github.com/BE14-NoB/Pick/blob/main/postman/post/success/post-06-%EA%B2%8C%EC%8B%9C%EA%B8%80%20%EC%82%AD%EC%A0%9C(%EC%9D%B4%EB%AF%B8%20%EC%82%AD%EC%A0%9C%EB%90%9C%20%EA%B8%80).png"  width="600"/>
+			</p>
+		</details>
+	</details>
+</details>
+
+### 🤼 매칭
+<details>
+<summary><b>매칭</b></summary>
      
-     <details>
-          <summary>전체 매칭방 목록 조회</summary>
-          <p align="center">
-          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>매칭방 id로 매칭방 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20id%EB%A1%9C%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>기술 카테고리 id로 매칭방 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20id%EB%A1%9C%20%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>매칭방 등록</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EB%93%B1%EB%A1%9D.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>매칭방 수정</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%88%98%EC%A0%95.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>매칭방 삭제</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%82%AD%EC%A0%9C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>조건에 맞은 매칭방 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>매칭방 신청</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%8B%A0%EC%B2%AD.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>매칭방 신청 취소</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%8B%A0%EC%B2%AD%20%EC%B7%A8%EC%86%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>신청자 수락</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%8B%A0%EC%B2%AD%EC%9E%90%20%EC%88%98%EB%9D%BD.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>수락한 신청자만 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%88%98%EB%9D%BD%ED%95%9C%20%EC%8B%A0%EC%B2%AD%EC%9E%90%EB%A7%8C%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
+<details>
+     <summary>전체 매칭방 목록 조회</summary>
+     <p align="center">
+          <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+     </p>
 </details>
 
 <details>
-     <summary> 기술 카테고리 </summary>
+     <summary>매칭방 id로 매칭방 조회</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20id%EB%A1%9C%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>기술 카테고리 id로 매칭방 조회</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20id%EB%A1%9C%20%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>매칭방 등록</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EB%93%B1%EB%A1%9D.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>매칭방 수정</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%88%98%EC%A0%95.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>매칭방 삭제</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%82%AD%EC%A0%9C.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>조건에 맞은 매칭방 조회</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>매칭방 신청</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%8B%A0%EC%B2%AD.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>매칭방 신청 취소</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EB%A7%A4%EC%B9%AD%EB%B0%A9%20%EC%8B%A0%EC%B2%AD%20%EC%B7%A8%EC%86%8C.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>신청자 수락</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%8B%A0%EC%B2%AD%EC%9E%90%20%EC%88%98%EB%9D%BD.png"  width="600"/>
+     </p>
+</details>
+
+<details>
+     <summary>수락한 신청자만 조회</summary>
+     <p align="center">
+       <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%88%98%EB%9D%BD%ED%95%9C%20%EC%8B%A0%EC%B2%AD%EC%9E%90%EB%A7%8C%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+     </p>
+</details>
+</details>
+
+<details>
+     <summary><b>기술 카테고리</b></summary>
      
-     <details>
+<details>
           <summary>기술 카테고리 전체 조회</summary>
           <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.png" />
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%A0%84%EC%B2%B4%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
           </p>
-     </details>
-
-     <details>
-          <summary>기술 카테고리 id로 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20id%EB%A1%9C%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>상위 카테고리만 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%83%81%EC%9C%84%20%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EB%A7%8C%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>기술 카테고리 id로 하위 카테고리 조회</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20id%EB%A1%9C%20%ED%95%98%EC%9C%84%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%A1%B0%ED%9A%8C.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>기술 카테고리 등록</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EB%93%B1%EB%A1%9D.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>기술 카테고리 수정</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%88%98%EC%A0%95.png" />
-          </p>
-     </details>
-
-     <details>
-          <summary>기술 카테고리 삭제</summary>
-          <p align="center">
-            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%82%AD%EC%A0%9C.png" />
-          </p>
-     </details>
 </details>
 
-### 프로젝트
 <details>
-     <summary> 🗂️ 프로젝트 </summary>
+          <summary>기술 카테고리 id로 조회</summary>
+          <p align="center">
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20id%EB%A1%9C%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+          </p>
+</details>
+
+<details>
+          <summary>상위 카테고리만 조회</summary>
+          <p align="center">
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EC%83%81%EC%9C%84%20%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EB%A7%8C%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+          </p>
+</details>
+
+<details>
+          <summary>기술 카테고리 id로 하위 카테고리 조회</summary>
+          <p align="center">
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20id%EB%A1%9C%20%ED%95%98%EC%9C%84%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%A1%B0%ED%9A%8C.png"  width="600"/>
+          </p>
+</details>
+
+<details>
+          <summary>기술 카테고리 등록</summary>
+          <p align="center">
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EB%93%B1%EB%A1%9D.png"  width="600"/>
+          </p>
+</details>
+
+<details>
+          <summary>기술 카테고리 수정</summary>
+          <p align="center">
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%88%98%EC%A0%95.png"  width="600"/>
+          </p>
+</details>
+
+<details>
+          <summary>기술 카테고리 삭제</summary>
+          <p align="center">
+            <img src="https://github.com/BE14-NoB/Pick/blob/main/postman/matching/%EA%B8%B0%EC%88%A0%20%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%20%EC%82%AD%EC%A0%9C.png"  width="600"/>
+          </p>
+</details>
+</details>
+
+### 🗂️ 프로젝트
+<details>
+     <summary><b>프로젝트</b></summary>
      <details>
           <summary>전체 프로젝트 목록 조회</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/30361c92-7b0f-4dcd-8b99-886aa7ae77c0" width="600" />
+            <img src="https://github.com/user-attachments/assets/30361c92-7b0f-4dcd-8b99-886aa7ae77c0" width="600"/>
           </p>
      </details>
      <details>
           <summary>진행중인 프로젝트 목록 조회</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/079a582e-d35c-4518-b4c1-9574da2b1d9d" width="600" />
+            <img src="https://github.com/user-attachments/assets/079a582e-d35c-4518-b4c1-9574da2b1d9d" width="600"/>
           </p>
      </details>
      <details>
           <summary>매칭 중인 프로젝트 목록 조회</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/8dc7ed2f-eb68-450c-99d4-08ea3eb90bbb" width="600" />
+            <img src="https://github.com/user-attachments/assets/8dc7ed2f-eb68-450c-99d4-08ea3eb90bbb" width="600"/>
           </p>
      </details>
      <details>
           <summary>프로젝트 이름 키워드로 검색</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/c54cb64b-5243-4ee1-8e01-a20c2d43a09a" width="600" />
+            <img src="https://github.com/user-attachments/assets/c54cb64b-5243-4ee1-8e01-a20c2d43a09a" width="600"/>
           </p>
      </details>
      <details>
           <summary>프로젝트 기술 분류 키워드로 검색</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/f8574841-5a73-40b5-a9e0-8975b21a1603" width="600" />
+            <img src="https://github.com/user-attachments/assets/f8574841-5a73-40b5-a9e0-8975b21a1603" width="600"/>
           </p>
      </details>
      <details>
           <summary>프로젝트 이름 & 기술 분류키워드로 검색</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/52914e21-927f-4db6-b239-d9e13c68ac38" width="600" />
+            <img src="https://github.com/user-attachments/assets/52914e21-927f-4db6-b239-d9e13c68ac38" width="600"/>
           </p>
      </details>
      <details>
           <summary>프로젝트 상세 조회</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/c04d5e8f-5752-40ac-82cd-e92dce2d713b" width="600" />
+            <img src="https://github.com/user-attachments/assets/c04d5e8f-5752-40ac-82cd-e92dce2d713b" width="600"/>
           </p>
      </details>
      <details>
           <summary>참여 중인 프로젝트 정보 조회 (프로젝트 방 입장)</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/98353274-29ae-4c7d-8d09-a4863c9cfb75" width="600" />
+            <img src="https://github.com/user-attachments/assets/98353274-29ae-4c7d-8d09-a4863c9cfb75" width="600"/>
           </p>
      </details>
      <details>
           <summary>프로젝트 방 생성</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/44f02a46-47af-4f16-8465-e69d8aba50b7" width="600" />
+            <img src="https://github.com/user-attachments/assets/44f02a46-47af-4f16-8465-e69d8aba50b7" width="600"/>
           </p>
      </details>
 </details>
 
 
 <details>
-     <summary> 📑 회의록 </summary>
+     <summary><b>회의록</b></summary>
      <details>
           <summary>프로젝트별 회의록 목록 조회</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/a6bbbd54-5e7e-4727-8996-eac6687279e1" width="600" />
+            <img src="https://github.com/user-attachments/assets/a6bbbd54-5e7e-4727-8996-eac6687279e1" width="600"/>
           </p>
      </details>
      <details>
           <summary>팀원이 아닐 경우</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/35df6adf-07d6-4b1c-8f85-4729561b3362" width="600" />
+            <img src="https://github.com/user-attachments/assets/35df6adf-07d6-4b1c-8f85-4729561b3362" width="600"/>
           </p>
      </details>
      <details>
           <summary>회의록 작성</summary>
           <p align="center">
-            <img src="https://github.com/user-attachments/assets/3194f8aa-27ed-42f0-b3ab-48c621a27498" width="600" />
+            <img src="https://github.com/user-attachments/assets/3194f8aa-27ed-42f0-b3ab-48c621a27498" width="600"/>
           </p>
      </details>
 </details>
 
-### 신고
+### 🚨 신고
+<details>
+	
+<summary><b>신고</b></summary>
+	<details>
+		<summary>모든 신고 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/3194f8aa-27ed-42f0-b3ab-48c621a27498" width="600"/>
+	</details>
+	<details>
+		<summary>특정 회원 신고 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/ca8583f0-c459-4429-844a-342ee4a211f2" width="600" />
+	</details>
+ 	<details>
+		<summary>상태별 신고 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/743b97d0-39fb-42d6-a2cd-f63da876f075" width="600" />
+	</details>
+ 	<details>
+		<summary>삭제 여부에 따른 신고 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/a1128775-c423-4ba4-9d0b-6b8781802b89" width="600" />
+	</details>
+ 	<details>
+		<summary>신고 사유 등록</summary>
+		<img src="https://github.com/user-attachments/assets/c4e075e7-0bf7-4b23-b3c7-fdf35293a987" width="600" />
+	</details>
+ 	<details>
+		<summary>신고 등록</summary>
+		<img src="https://github.com/user-attachments/assets/1439e196-4802-483e-b93b-8c4498e380ef" width="600" />
+	</details>
+ 	<details>
+		<summary>신고 내역 삭제(soft delete)</summary>
+		<img src="https://github.com/user-attachments/assets/50af85cd-ecde-471f-ab04-b01eadbe42b7" width="600" />
+	</details>
+ 	<details>
+		<summary>신고 처리 상태 수정</summary>
+		<img src="https://github.com/user-attachments/assets/ae99323c-c831-4c8c-8802-ef29ff8f97c1" width="600" />
+	</details>
+</details>
 
+<details>
+<summary><b>규제</b></summary>
+	<details>
+		<summary>모든 규제 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/c1dcb2b7-3675-485d-89f2-a38d95f7c9cf" width="600" />
+	</details>
+ 	<details>
+		<summary>특정 회원 규제 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/564226b4-528f-4af9-b6ee-485733d65c18" width="600" />
+	</details>
+ 	<details>
+		<summary>삭제 여부에 따른 규제 목록 조회</summary>
+		<img src="https://github.com/user-attachments/assets/81fcb3b7-3c36-4c12-95fd-5e0a37929cc6" width="600" />
+	</details>
+  	<details>
+		<summary>규제 등록</summary>
+		<img src="https://github.com/user-attachments/assets/4dea693b-34d9-4837-a1a5-2fdb3435ac34" width="600" />
+	</details>
+  	<details>
+		<summary>규제 삭제(soft delete)</summary>
+		<img src="https://github.com/user-attachments/assets/3d6794fc-b06c-466e-bcea-12bc484d712d" width="600" />
+	</details>
+</details>
 
 ## 📑 API 명세서
-API 명세서 링크 <br>
+<details>
 
-API 명세서 사진
-
+<summary>API 명세서</summary>
+<img src = "https://github.com/user-attachments/assets/894ba513-9c64-4f30-be24-fb84c7c1e54a"/>
+</details>
 
 ## 🔜 향후 확장 계획
-`#` `#`
+`#Github API + Webhook` `#회의록 템플릿` `#챗봇` `#협업 툴 제공` `#스프링 스케줄러`
 
 <br>
 
