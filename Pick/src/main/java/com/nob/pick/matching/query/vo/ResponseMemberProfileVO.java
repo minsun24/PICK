@@ -2,10 +2,7 @@ package com.nob.pick.matching.query.vo;
 
 import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
-@Setter
 @ToString
 public class ResponseMemberProfileVO {
     private int id;
