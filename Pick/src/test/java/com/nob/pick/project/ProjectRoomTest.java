@@ -58,5 +58,11 @@ public class ProjectRoomTest {
         }
     }
 
+    @Test
+    @DisplayName("프로젝트 상세 조회")
+    public void selectPorjectDetail(){
+
+    }
+
 
 }

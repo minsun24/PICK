@@ -1,5 +1,7 @@
 package com.nob.kickmember.member.query.dto;
 
+import com.nob.kickmember.common.enums.Status;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -104,7 +104,7 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		ProjectRoom savedProjectRoom = projectRoomRepository.save(projectRoom);
 		// 확인
 		log.info("Project Room 생성 완료! ID: {}", savedProjectRoom.getId());
-		//
+
 		// 팀원 INSERT
 		insertParticipants(newProjectRoom.getParticipantList(), savedProjectRoom);
 
@@ -115,8 +115,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 		for(RequestParticipantDTO participant : participantList) {
 
 			// Member 엔티티 가져오기
-			Member newMember = memberRepository.findById((long)participant.getId())
-				.orElseThrow(() -> new IllegalArgumentException("해당 멤버가 존재하지 않습니다. id=" + participant.getId()));
+			Member newMember = memberRepository.findById((long)participant.getMemberId())
+				.orElseThrow(() -> new IllegalArgumentException("해당 멤버가 존재하지 않습니다. id=" + participant.getMemberId()));
 
 			Participant newParticipant = Participant.builder()
 				.member(newMember)
@@ -142,7 +142,8 @@ public class ProjectRoomServiceImpl implements ProjectRoomService {
 
 		return Integer.parseInt(numberStr);
 	}
-	// 세션 코드용 6자리 랜덤 숫자 생성 메서드
+
+	// 세션 코드용 6자리 랜덤 숫자 생성 메서드 		##
 	public static int generateRangeRandomNum() {
 		SecureRandom secureRandom = new SecureRandom();
 		int start = 100000;
